@@ -14,7 +14,7 @@ class Wunderground_Template {
 	 */
 	var $twig;
 
-	function __construct($debug = true ) {
+	function __construct( $debug = false ) {
 
 		// This is how to call the template engine:
 		// do_action('wunderground_render_template', $file_name, $data_array );
