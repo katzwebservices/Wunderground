@@ -52,20 +52,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 	function register_scripts() {
 		global $pagenow;
 
-		$protocol = is_ssl() ? 'https' : 'http';
-
-	// Scripts
-		wp_enqueue_script( 'wunderground-admin-widget', plugins_url( 'assets/js/admin-widget.js', __FILE__ ), array('jquery-ui-autocomplete'));
-
-		wp_localize_script( 'wunderground-admin-widget', 'WuWidget', array(
-			'apiKey' => '3ffab52910ec1a0e',
-			'_wpnonce' => wp_create_nonce('wunderground-aq'),
-			'ajaxurl' => admin_url( 'admin-ajax.php' ),
-			'is_admin' => is_admin(),
-			'subdomain' => wunderground_get_subdomain()
-		));
-
-	// Styles
+		// Styles
 		if(is_admin() && in_array( $pagenow, array('widgets.php', 'customize.php') ) ) {
 			wp_enqueue_style( 'wunderground-admin', plugins_url( 'assets/css/admin.css', __FILE__ ) );
 		}

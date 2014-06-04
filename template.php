@@ -73,9 +73,8 @@ class Wunderground_Template {
 			$data['showdata'][$value] = $value;
 		}
 
-		// Enqueue the file!
-		wp_enqueue_style( 'wunderground', plugins_url( 'assets/css/wunderground.css', __FILE__ ) );
-
+		// Enqueue the scripts
+		do_action('wunderground_print_scripts', true);
 
 		echo $this->twig->render("{$template}.html", $data);
 

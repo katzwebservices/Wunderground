@@ -5,19 +5,46 @@ class Wunderground_Display {
 	function __construct() {
 
 		add_action( 'wp_enqueue_scripts', array( &$this, 'print_scripts' ) );
+		add_action( 'wunderground_print_scripts', array( &$this, 'print_scripts' ) );
 		add_shortcode( 'wunderground', array( &$this, 'shortcode') );
 
 	}
 
-	function print_scripts() {
+	/**
+	 * Output the styles and scripts necessary
+	 *
+	 * @param  boolean     $force Will be empty string when passed by `wp_enqueue_scripts`, but will be `true` when passed by `wunderground_print_scripts`
+	 * @return [type]             [description]
+	 */
+	function print_scripts( $force = false ) {
 		global $post;
 
-		// Make sure it has has_shortcode()
-		if(!function_exists('has_shortcode')) { return; }
+		// Is the widget active?
+		$widget = is_active_widget( false, false, 'wunderground_forecast_widget' ) ? true : false;
 
-		if( has_shortcode($post->post_content, 'wunderground') ) {
-			wp_enqueue_style( 'wunderground', plugins_url( 'assets/css/wunderground.css', Wunderground_Plugin::$file ), array('dashicons') );
+		// Check if the content has the shortcode
+		$content = false;
+		if( !empty( $post->post_content ) && function_exists('has_shortcode') && has_shortcode($post->post_content, 'wunderground') ) {
+			$content = true;
 		}
+
+		if( $widget || $content || $force === true ) {
+
+			wp_enqueue_style( 'wunderground', plugins_url( 'assets/css/wunderground.css', Wunderground_Plugin::$file ), array('dashicons'), Wunderground_Plugin::version );
+
+			// If using SCRIPT_DEBUG, don't use the minified version.
+			$min = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) ? '' : '.min';
+			wp_enqueue_script( 'wunderground-widget', plugins_url( 'assets/js/widget'.$min.'.js', __FILE__ ), array('jquery-ui-autocomplete'), Wunderground_Plugin::version );
+
+			wp_localize_script( 'wunderground-widget', 'WuWidget', array(
+				'apiKey' => '3ffab52910ec1a0e',
+				'_wpnonce' => wp_create_nonce('wunderground-aq'),
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'is_admin' => is_admin(),
+				'subdomain' => wunderground_get_subdomain()
+			));
+		}
+
 	}
 
 	function shortcode( $passed_atts = array() , $content = NULL ) {
@@ -47,7 +74,7 @@ class Wunderground_Display {
 
 		do_action( 'wunderground_render_template', $layout, $atts );
 
-		#Wunderground_Plugin::log_debug('Shortcode Atts passed to render_template', $atts);
+		Wunderground_Plugin::log_debug('Shortcode Atts passed to render_template', $atts);
 
 		$content = ob_get_clean();
 
