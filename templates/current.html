@@ -1,0 +1,49 @@
+{#
+	This template is processed using the Twig template engine
+	Learn more at: http://twig.sensiolabs.org/doc/templates.html
+
+	You can override this output by copying this file into your
+	theme's directory, in a subfolder named "wunderground". The
+	path to the file would look like this:
+	/wp-content/themes/my-theme/wunderground/simple.html
+#}
+
+{# Escape the HTML in the passed data automatically #}
+{% autoescape 'html' %}
+{% spaceless %}
+
+<div class="wu-wrapper wu-current-conditions">
+
+	{% include 'alert.html' %}
+
+	{% include 'search-form.html' %}
+
+	<div class="wu-forecast-wrapper">
+
+		{% set day = wunderground.current_observation %}
+
+		<div class="wu-forecast-body">
+
+			<div class="wu-day-title">
+				<span class="wu-day-current-temp">{{ day.temperature|round }}<sup>&deg;</sup></span>
+				<small>{{ day.unit_abbr }}</small>
+			</div>
+
+			<div class="wu-cond-icon">
+				<img src="{{user_icon_url}}/{{day.icon}}.gif" alt="{{day.conditions}}" width="100" height="100" />
+			</div>
+
+			{% if showdata.conditions != '' %}
+				<div class="wu-cond-text">{{day.condition}}</div>
+			{% endif %}
+
+		</div>
+
+	</div>
+
+	{% include 'copyright.html' %}
+
+</div>
+
+{% endspaceless %}
+{% endautoescape %}

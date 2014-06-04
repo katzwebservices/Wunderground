@@ -1,0 +1,42 @@
+{#
+	This template is processed using the Twig template engine
+	Learn more at: http://twig.sensiolabs.org/doc/templates.html
+
+	You can override this output by copying this file into your
+	theme's directory, in a subfolder named "wunderground". The
+	path to the file would look like this:
+	/wp-content/themes/my-theme/wunderground/example.html
+#}
+
+{# Escape the HTML in the passed data automatically #}
+
+<div class="wu-wrapper wu-table-vertical">
+
+	{% include 'search-form.html' %}
+
+	{% include 'alert.html' %}
+
+	<div class="wu-forecast-wrapper">
+
+		<table cellpadding="0" cellspacing="0" border="0" class="{{ class }} wu-table-{{numdays}}">
+			<tbody>
+				{% for i in range( low = 0, high = (numdays - 1) ) %}
+
+					{% set day = wunderground.forecast.days[i] %}
+					{% set summary = day.summary %}
+					{% set forecast = day.summary.day %}
+
+					{% include 'table-vertical-row.html' %}
+
+					{% if showdata.night != '' %}
+						{% set forecast = day.summary.night %}
+						{% include 'table-vertical-row.html' %}
+					{% endif %}
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	{% include 'copyright.html' %}
+

@@ -1,0 +1,7 @@
+
+*.sublime-workspace
+
+*.sublime-project
+
+/vendor/twig/twig/test/*
+/vendor/twig/twig/doc/*

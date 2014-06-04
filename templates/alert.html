@@ -1,0 +1,16 @@
+{#
+	This template is processed using the Twig template engine
+	Learn more at: http://twig.sensiolabs.org/doc/templates.html
+#}
+
+{% if showdata.alerts != '' and forecast.alerts|length > 0 %}
+	{% for alert in forecast.alerts.alerts %}
+	<div class="wu-alert wu-alert-{{ alert.type }}">
+		<h3>{{ alert.description }}</h3>
+		<dl>
+			<dt>Issued:</dt><dd>{{ alert.date }}</dd>
+			<dt>Expires:</dt><dd>{{ alert.expires }}</dd>
+		</dl>
+	</div>
+	{% endfor %}
+{% endif %}

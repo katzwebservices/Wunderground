@@ -1,0 +1,27 @@
+{#
+	This template is processed using the Twig template engine
+	Learn more at: http://twig.sensiolabs.org/doc/templates.html
+
+	You can override this output by copying this file into your
+	theme's directory, in a subfolder named "wunderground". The
+	path to the file would look like this:
+	/wp-content/themes/my-theme/wunderground/day-simple.html
+#}
+
+<div class="wu-simple-forecast-day">
+	{% if showdata.icon != '' %}
+	<div class="wu-cond-icon">
+		<img src="{{user_icon_url}}/{{forecast.icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" />
+	</div>
+	{% endif %}
+	<div class="wu-forecast-body">
+		<div class="wu-day-title">{{ forecast.title }}</div>
+		<div class="wu-cond-text">{{ forecast.condition }}</div>
+		<div class="wu-cond-highlow">
+			<span class="wu-cond-high">High {{ summary.high }}&deg;</span>
+			<span class="wu-cond-split">/</span>
+			<span class="wu-cond-low">Low {{ summary.low }}&deg;</span>
+		</div>
+		<div class="wu-cond-pop"><strong>{{ forecast.pop }}%</strong> Chance of Precip.</div>
+	</div>
+</div>
