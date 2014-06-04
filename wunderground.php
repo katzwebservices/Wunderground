@@ -40,8 +40,18 @@ class Wunderground_Plugin {
 		// Twig template autoloader
 		require_once self::$dir_path.'vendor/autoload.php';
 
-		// Load the Wunderground library
-		include_once self::$dir_path.'wunderground/wunderground.php';
+		// Load the Wunderground requirements
+		include_once self::$dir_path.'inc/Request.php';
+		include_once self::$dir_path.'inc/Response.php';
+		include_once self::$dir_path.'inc/Date.php';
+		include_once self::$dir_path.'inc/ForecastDay.php';
+		include_once self::$dir_path.'inc/Current_Observation.php';
+		include_once self::$dir_path.'inc/Station.php';
+		include_once self::$dir_path.'inc/Forecast.php';
+		include_once self::$dir_path.'inc/Alerts.php';
+
+		// Load the Wunderground wrapper class
+		include_once self::$dir_path.'inc/KWS_Wunderground.php';
 
 		include_once self::$dir_path.'functions.php';
 		include_once self::$dir_path.'template.php';
