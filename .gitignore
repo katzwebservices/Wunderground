@@ -5,3 +5,6 @@
 
 /vendor/twig/twig/test/*
 /vendor/twig/twig/doc/*
+composer.lock
+composer.json
+*.codekit
