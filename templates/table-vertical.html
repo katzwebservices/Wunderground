@@ -9,6 +9,8 @@
 #}
 
 {# Escape the HTML in the passed data automatically #}
+{% autoescape 'html' %}
+{% spaceless %}
 
 <div class="wu-wrapper wu-table-vertical">
 
@@ -36,7 +38,11 @@
 				{% endfor %}
 			</tbody>
 		</table>
+
 	</div>
 
 	{% include 'copyright.html' %}
+</div>
 
+{% endspaceless %}
+{% endautoescape %}

@@ -18,26 +18,25 @@
 
 	{% include 'alert.html' %}
 
-	<h3>Weather for {{ location }}</h3>
+	<div class="wu-forecast-wrapper">
 
-	<table cellpadding="0" cellspacing="0" border="0"'.$width.' class="{{ class }} wu-table-{{numdays}}">
-		{# '.$caption.' #}
-		<thead>
-			<tr>
-			{% for i in range( low = 0, high = (numdays - 1) ) %}
-				<th scope="col">{{ forecast.text_forecast.days[i].title }}</th>
-			{% endfor %}
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-			{% for i in range( low = 0, high = (numdays - 1) ) %}
-				<td>{{ forecast.text_forecast.days[i].text }}</td>
-			{% endfor %}
-			</tr>
-		</tbody>
-	</table>
-
+		<table cellpadding="0" cellspacing="0" border="0"'.$width.' class="{{ class }} wu-table-{{numdays}}">
+			<thead>
+				<tr>
+				{% for i in range( low = 0, high = (numdays - 1) ) %}
+					<th scope="col">{{ forecast.text_forecast.days[i].title }}</th>
+				{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				{% for i in range( low = 0, high = (numdays - 1) ) %}
+					<td>{{ forecast.text_forecast.days[i].text }}</td>
+				{% endfor %}
+				</tr>
+			</tbody>
+		</table>
+	</div>
 {% include 'copyright.html' %}
 
 </div>
