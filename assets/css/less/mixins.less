@@ -1,0 +1,62 @@
+/**
+ * Reset CSS mixin
+ */
+.reset() {
+
+	line-height: 1;
+
+	* {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+		text-indent: 0;
+	}
+
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+}
+
+.wu-bold() {
+	font-family: verb, sans-serif;
+	font-weight: 400;
+}
+
+// http://perishablepress.com/new-clearfix-hack/
+.clearfix() {
+
+	/* new clearfix */
+	&:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: " ";
+		clear: both;
+		height: 0;
+		}
+	* html &             { zoom: 1; } /* IE6 */
+	*:first-child+html & { zoom: 1; } /* IE7 */
+}

@@ -1,0 +1,46 @@
+.ui-helper-hidden-accessible {
+	position: absolute;
+	left: -99999px;
+}
+
+/**
+ * The autocomplete search results for the widget
+ */
+.wu-wrapper .ui-autocomplete {
+	position: absolute!important;
+	background: white;
+	list-style: none!important;
+	top:40px;
+	max-height: 300px;
+
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	border: 1px solid #ccc;
+	border-top-color: #eee;
+	box-shadow: 0 .2em .2em rgba(100, 100, 100, .2);
+	z-index: 1000;
+
+	// Search result item
+	li {
+		list-style: none!important;
+		line-height: 1.25em;
+	}
+
+	// Search result link
+	a {
+		display: block;
+		cursor: pointer;
+		line-height: 1;
+		min-height: 1em;
+		border-radius: 3px;
+		padding: .25em 5px!important;
+		margin: 0 5px!important;
+	}
+
+	.ui-state-hover a {
+		background: #E2E8F3;
+		color: #555;
+	}
+}

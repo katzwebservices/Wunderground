@@ -3,9 +3,9 @@
 
 *.sublime-project
 
+*.codekit
+
 /vendor/twig/twig/test/*
 /vendor/twig/twig/doc/*
-composer.lock
-composer.json
-*.codekit
-*.codekit
+
+.DS_Store

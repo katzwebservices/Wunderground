@@ -1,0 +1,65 @@
+@wu-red: #d5202a;
+
+@import 'mixins.less';
+@import 'fonts.less';
+@import 'forecast.less';
+@import 'search.less';
+@import 'autocomplete.less';
+@import 'alerts.less';
+@import 'tables.less';
+@import 'current-conditions.less';
+
+.wu-wrapper {
+	.reset();
+
+	clear: both;
+	float: left;
+	width: 100%;
+	position: relative;
+	font-family: verblight, verb, sans-serif;
+	font-weight: 100;
+
+	strong, b, h1, h2, h3, h4, dt {
+		.wu-bold();
+	}
+
+	.wu-search {
+		label {
+			float: left;
+			width: 100%;
+		}
+		.dashicons {
+			position: absolute;
+			top: .25em;
+			font-family: dashicons;
+		}
+	}
+}
+
+.wu-forecast-wrapper {
+	clear:both;
+	float: left;
+	width: 100%;
+
+	div {
+		margin-bottom: 5px;
+	}
+}
+
+.wu-copyright {
+	position: absolute;
+	top: .5em;
+	right: 0;
+	text-align: right;
+	font-size: 80%;
+	z-index: 101;
+
+	a,
+	img {
+		display: block;
+		width: 90px;
+		height: 19px;
+	}
+
+}
+

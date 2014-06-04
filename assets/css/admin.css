@@ -1,0 +1,59 @@
+.wunderground-settings .setting-wrapper {
+  padding: 0 0 1.5em 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.wunderground-settings .setting-wrapper:last-child {
+  border-bottom: 0;
+}
+.wunderground-settings :checked + span.title {
+  font-weight: bold!important;
+}
+.wunderground-settings .icons li {
+  display: block;
+  width: 48%;
+  padding: 5px 1%;
+}
+.wunderground-settings .icons li:nth-child(2n + 1) {
+  clear: left;
+}
+.wunderground-settings .icons label {
+  display: block;
+  float: left;
+  line-height: 50px;
+  width: 100%;
+}
+.wunderground-settings .icons input {
+  margin-top: 0.75em;
+}
+.wunderground-settings .icons .icon {
+  display: block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.wunderground-settings .layout h3 {
+  margin-bottom: 0;
+}
+.wunderground-settings .layout img {
+  display: block;
+  opacity: 1;
+}
+.wunderground-settings .layout p {
+  margin: 0;
+  padding: 0;
+}
+.wunderground-settings .layout input {
+  float: right;
+  margin: 0;
+  line-height: auto;
+}
+.wunderground-settings h3 {
+  line-height: 1.2em;
+}
+.wunderground-settings .description {
+  font-weight: normal;
+}
+.wunderground-settings img {
+  max-width: 100%!important;
+}

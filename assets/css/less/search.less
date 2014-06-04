@@ -1,0 +1,38 @@
+
+@wu-search-padding: 10px;
+@wu-dashicons-font-size: 25px;
+
+.wu-wrapper .wu-search {
+
+	.clearfix();
+
+	position: relative;
+	margin-bottom: @wu-search-padding;
+	border-bottom: 10px solid;
+	-moz-border-image:url("../img/border-stripe.png") 25% repeat repeat;
+	-webkit-border-image:url("../img/border-stripe.png") 25% repeat repeat;
+	border-image:url("../img/border-stripe.png") 25% repeat repeat;
+
+	input {
+		border-radius: 5px 0 0 5px;
+		height: 2.3125em;
+		display: block;
+	}
+
+	input,
+	input:focus {
+		outline: none;
+		border: none;
+		box-shadow: none;
+
+		// 95px is for the 92px width of the Wunderground logo
+		padding: @wu-search-padding 95px @wu-search-padding (@wu-dashicons-font-size * 1.25);
+	}
+
+	.dashicons {
+		color: #cbcbcb;
+		font-size: @wu-dashicons-font-size;
+		position: absolute;
+		top: @wu-search-padding;
+	}
+}

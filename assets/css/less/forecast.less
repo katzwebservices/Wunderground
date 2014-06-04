@@ -1,0 +1,112 @@
+.wu-forecast-wrapper .wu-day-title {
+	font-family: verb, sans-serif;
+	font-weight: bold;
+	color: #777;
+}
+
+.wu-forecast-wrapper .wu-cond-pop {
+	font-weight: normal;
+    display: inline-block;
+    background: url("../img/icons/raindrop-sprite.png") left -20px no-repeat;
+    padding-left: 20px;
+    min-height: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.wu-forecast-wrapper {
+
+	.wu-simple-forecast-day {
+		float: left;
+		width: 215px;
+		margin-bottom: 13px;
+
+		.wu-cond-pop {
+			font-size: 0.9375rem;
+		}
+	}
+
+	.wu-has-icon {
+
+		text-align: right;
+
+		.wu-forecast-body {
+			margin-right: 60px;
+		}
+
+	}
+
+	// High-low wrapper
+	.wu-cond-highlow {
+		margin-top: 5px;
+	    font-size: 0.9375rem;
+	    color: #999;
+
+	    .wu-cond-high {
+	    	padding-right: .5em;
+	    }
+
+		.wu-cond-split {
+			position: absolute;
+			left: -9999px;
+			color: #ccc;
+		}
+
+	    .wu-cond-low {}
+	}
+
+
+	// Conditions
+	.wu-cond-text {
+		.wu-bold();
+		margin: .25em 0 .5em 0;
+	}
+
+	.wu-forecast-text {
+
+	}
+
+	// Icon
+	.wu-cond-icon {
+		width: 50px;
+		float: right;
+		margin-left: 10px;
+		z-index: 10000;
+	}
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 280px) {
+	.wu-has-icon .wu-simple-forecast-day {
+		min-width: 215px;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width : 620px) {
+	.wu-has-icon .wu-simple-forecast-day {
+		width: auto;
+		max-width: 47%;
+		margin-right: 3%;
+	}
+}
+
+@media only screen and (min-width : 768px) {
+	.wu-has-icon .wu-simple-forecast-day {
+		max-width: 22%;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}
+

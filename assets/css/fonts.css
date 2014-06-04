@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "verblight";
+  src: url("//fonts.wxug.com/fonts/VerbLight-webfont.eot");
+  src: url("//fonts.wxug.com/fonts/VerbLight-webfont.eot?#iefix") format("embedded-opentype"), url("//fonts.wxug.com/fonts/VerbLight-webfont.woff") format("woff"), url("//fonts.wxug.com/fonts/VerbLight-webfont.ttf") format("truetype"), url("//fonts.wxug.com/fonts/VerbLight-webfont.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "verb";
+  src: url("//fonts.wxug.com/fonts/VerbRegular-webfont.eot");
+  src: url("//fonts.wxug.com/fonts/VerbRegular-webfont.eot?#iefix") format("embedded-opentype"), url("//fonts.wxug.com/fonts/VerbRegular-webfont.woff") format("woff"), url("//fonts.wxug.com/fonts/VerbRegular-webfont.ttf") format("truetype"), url("//fonts.wxug.com/fonts/VerbRegular-webfont.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "verb";
+  src: url("//fonts.wxug.com/fonts/VerbBold-webfont.eot");
+  src: url("//fonts.wxug.com/fonts/VerbBold-webfont.eot?#iefix") format("embedded-opentype"), url("//fonts.wxug.com/fonts/VerbBold-webfont.woff") format("woff"), url("//fonts.wxug.com/fonts/VerbBold-webfont.ttf") format("truetype"), url("//fonts.wxug.com/fonts/VerbBold-webfont.svg#fontcustom") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
