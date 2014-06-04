@@ -29,7 +29,7 @@ class Wunderground_Display {
 			'numdays'	=>	5,
 			'class'		=>	'wp_wunderground',
 			'cache'		=>	NULL,
-			'layout'	=>	'simple',
+			'layout'	=>	'table-vertical',
 			'measurement' => 'english',
 			'language' => wunderground_get_language(),
 			'showdata' => array('alerts','pop','icon','text', 'conditions', 'date'),

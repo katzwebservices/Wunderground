@@ -155,7 +155,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			'title' => __('Weather Forecast', 'wunderground'),
 			'city' => '',
 			'location_data' => '',
-			'layout' => 'simple',
+			'layout' => 'table-vertical',
 			'iconset' => 'Incredible',
 			'measurement' => 'english',
 			'language' => wunderground_get_language(),
