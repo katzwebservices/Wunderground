@@ -5,6 +5,7 @@ class Wunderground_Display {
 	function __construct() {
 
 		add_action( 'wp_enqueue_scripts', array( &$this, 'print_scripts' ) );
+		add_action( 'customize_controls_enqueue_scripts', array( &$this, 'print_scripts') );
 		add_action( 'wunderground_print_scripts', array( &$this, 'print_scripts' ) );
 		add_shortcode( 'wunderground', array( &$this, 'shortcode') );
 
@@ -17,7 +18,7 @@ class Wunderground_Display {
 	 * @return [type]             [description]
 	 */
 	function print_scripts( $force = false ) {
-		global $post;
+		global $post, $pagenow;
 
 		// Is the widget active?
 		$widget = is_active_widget( false, false, 'wunderground_forecast_widget' ) ? true : false;
@@ -28,9 +29,17 @@ class Wunderground_Display {
 			$content = true;
 		}
 
-		if( $widget || $content || $force === true ) {
+		$admin = (is_admin() && in_array( $pagenow, array('widgets.php', 'customize.php') ) );
 
-			wp_enqueue_style( 'wunderground', plugins_url( 'assets/css/wunderground.css', Wunderground_Plugin::$file ), array('dashicons'), Wunderground_Plugin::version );
+		if( $admin || $widget || $content || $force === true ) {
+
+			// Only show the front-end display on the front-end
+			if( !$admin ) {
+				wp_enqueue_style( 'wunderground', plugins_url( 'assets/css/wunderground.css', Wunderground_Plugin::$file ), array('dashicons'), Wunderground_Plugin::version );
+			} else {
+				// And the backend on the backend
+				wp_enqueue_style( 'wunderground-admin', plugins_url( 'assets/css/admin.css', __FILE__ ) );
+			}
 
 			// If using SCRIPT_DEBUG, don't use the minified version.
 			$min = (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ) ? '' : '.min';

@@ -35,9 +35,8 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 	 */
 	function __construct() {
 
-		$this->register_scripts();
-
-		add_action( 'customize_controls_enqueue_scripts', array( &$this, 'register_scripts') );
+		// Load the scripts & styles. {@see display.php}
+		do_action( 'wunderground_print_scripts', true );
 
 		$widget_ops = array(
 			'classname' => 'wunderground',
@@ -47,15 +46,6 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		$control_options = array( 'width'=> 400 ); // Min-width of widgets config with expanded sidebar
 
 		parent::WP_Widget( false, __('Wunderground'), $widget_ops, $control_options );
-	}
-
-	function register_scripts() {
-		global $pagenow;
-
-		// Styles
-		if(is_admin() && in_array( $pagenow, array('widgets.php', 'customize.php') ) ) {
-			wp_enqueue_style( 'wunderground-admin', plugins_url( 'assets/css/admin.css', __FILE__ ) );
-		}
 	}
 
 	/**
