@@ -1,3 +1,14 @@
+## Setting up the plugin
+
+The plugin has been completely rewritten!
+
+* Auto-complete location support
+* Multi-language support
+* Current conditions report
+* New templates
+  * Ability to override the templates with your own
+* New icon set
+
 ### Reporting issues ###
 
 If you have issues with the plugin, please:
@@ -10,5 +21,17 @@ If you have issues with the plugin, please:
 
 We'd love your assistance in helping to translate the plugin. __[Submit your translations here](https://www.transifex.com/projects/p/wunderground/)__.
 
+
+### Using your own templates
+If you want to use your own template:
+
+* Create a directory in your theme named `wunderground` - the path will look like: `wp-content/themes/your-theme/wunderground/`
+* Go to the Wunderground plugin directory (`wp-content/wunderground/templates/`)
+* Copy the files you want to change into the `wunderground` directory you created
+* Modify the files
+
+The template uses the [Twig template engine](http://twig.sensiolabs.org) to access the data. This helps keep the plugin secure.
+
+If you want to have the files located in another place, you can use the `wunderground_template_paths` filter to modify the paths checked. [See template.php](https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30) for the code.
 
 *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
