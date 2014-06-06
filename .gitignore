@@ -9,3 +9,4 @@
 /vendor/twig/twig/doc/*
 
 .DS_Store
+*.lock
