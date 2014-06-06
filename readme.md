@@ -76,7 +76,7 @@ If you want to have the files located in another place, you can use the `wunderg
 
 ### Screenshots
 
-The new widget:
+The new widget:  
 ![the Wunderground widget](https://raw.githubusercontent.com/katzwebservices/Wunderground/master/screenshot-1.jpg)
 
 #### Copyright
