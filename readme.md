@@ -28,7 +28,7 @@ Will output the forecast using the `simple` template, show three days of forecas
 
 ### Shortcode Parameters
 
-* `location` - Define the location of the forecast. It can be in any format compatible with Wunderground, including `{city},{state}`, `{longitude}, {latitude}`, or Wunderground "zmw" `{zmw:00000.1.12345}` Default: `Denver, Colorado`
+* `location` - Define the location of the forecast. It can be in any format compatible with Wunderground, including `{city},{state}`, `{longitude}, {latitude}`, or Wunderground "zmw" `{zmw:00000.1.12345}`, or a 3-4 character airport code. Default: `Denver, Colorado`
 * `iconset` -  	'Incredible',
 * `numdays` - Default: `5`
 * `class` - CSS class to be added to the `<div>` that wraps the output. Default: `wp_wunderground`
@@ -73,6 +73,11 @@ If you want to use your own template:
 The template uses the [Twig template engine](http://twig.sensiolabs.org) to access the data. This helps keep the plugin secure.
 
 If you want to have the files located in another place, you can use the `wunderground_template_paths` filter to modify the paths checked. [See template.php](https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30) for the code.
+
+### Screenshots
+
+The new widget:
+![the Wunderground widget](https://raw.githubusercontent.com/katzwebservices/Wunderground/master/screenshot-1.jpg)
 
 #### Copyright
 
