@@ -34,7 +34,7 @@ Will output the forecast using the `simple` template, show three days of forecas
 * `iconset` -  	'Incredible',
 * `numdays` - Default: `5`
 * `class` - CSS class to be added to the `<div>` that wraps the output. Default: `wp_wunderground`
-* `layout` - The layout template to be used. Default: `table-vertical`
+* `layout` - The layout template to be used. The value of this parameter is used to find the HTML template file in the `templates` directory. For example, `simple` loads the `templates/simple.html` template file. See Templates below for how the templates are loaded and can be overruled. Default: `table-vertical`
 	- `table-vertical` - A vertical table with each day as a row
 	- `table-horizontal` - A horizontal table with each day as a column
 	- `simple` - A flexible day view
@@ -75,5 +75,7 @@ If you want to use your own template:
 The template uses the [Twig template engine](http://twig.sensiolabs.org) to access the data. This helps keep the plugin secure.
 
 If you want to have the files located in another place, you can use the `wunderground_template_paths` filter to modify the paths checked. [See template.php](https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30) for the code.
+
+#### Copyright
 
 *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
