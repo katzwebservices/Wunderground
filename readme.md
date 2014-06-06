@@ -19,7 +19,34 @@ If you have issues with the plugin, please:
 
 ## Shortcode
 
-* `language` - A two-letter code representing the language; `EN` is English. `TR` is Turkish. [See the complete list of language codes here](http://www.wunderground.com/weather/api/d/docs?d=language-support&MR=1).
+You can use the `[wunderground]` shortcode to embed a forecast in a post or page.
+
+### Shortcode Example
+
+This code:
+`[wunderground location="Philadelphia, PA" numdays="3" layout="simple"]`
+
+Will output the forecast using the `simple` template, show three days of forecasts for Philadelphia, PA.
+
+### Shortcode Parameters
+
+* `location` - Define the location of the forecast. It can be in any format compatible with Wunderground, including `{city},{state}`, `{longitude}, {latitude}`, or Wunderground "zmw" `{zmw:00000.1.12345}` Default: `Denver, Colorado`
+* `iconset` -  	'Incredible',
+* `numdays` - Default: `5`
+* `class` - CSS class to be added to the `<div>` that wraps the output. Default: `wp_wunderground`
+* `layout` - The layout template to be used. Default: `table-vertical`
+	- `table-vertical` - A vertical table with each day as a row
+	- `table-horizontal` - A horizontal table with each day as a column
+	- `simple` - A flexible day view
+	- `current` - Current conditions only
+* `measurement` - Whether to show items in Fahrenheit and Imperial (`english`) or Celsius and Metric (`metric`) Default: `english`
+* `language` - A two-letter code representing the language. [See the complete list of language codes here](http://www.wunderground.com/weather/api/d/docs?d=language-support&MR=1). Default: `EN`
+* `showdata` - The items to show in the forecast. Default: `alerts,pop,icon,text,date`
+	- `alerts` - Weather alerts for the forecast area
+	- `icon` - Weather forecast icon
+	- `pop` - % chance of precipitation
+	- `text` - Forecast text summary
+	- `date` - Show the date in the output (table templates only)
 
 ## International
 
