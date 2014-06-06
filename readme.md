@@ -17,7 +17,7 @@ Once there, you will see a Wunderground widget. Add it to one of your sidebars a
 
 ## Shortcode
 
-You can use the `[wunderground]` shortcode to embed a forecast in a post or page.
+You can use either the `[wunderground]` or `[forecast]` shortcode to embed a forecast in a post or page.
 
 ### Shortcode Example
 

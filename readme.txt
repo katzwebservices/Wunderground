@@ -19,7 +19,7 @@ Wunderground.com has the most accurate and in-depth weather information. They're
 This plugin uses the Wunderground API to gather its accurate forecasts.
 
 <h3>If you want a great-looking weather forecast, use this plugin.</h3>
-__This is the best-looking weather forecast plugin for WordPress.__ It looks great on many different templates out of the box, including the default WP theme, TwentyTen.
+__This is the best-looking weather forecast plugin for WordPress.__ It looks great on many different templates out of the box, including the default WP theme.
 
 ###Why would I want this plugin?
 This plugin is a perfect compliment for regional websites (about a city or town), personal websites where you want to share what the weather is like where you're blogging from, travel sites (show the weather at each stop!), <a href="http://www.denversnowremovalservice.com">snow removal</a> websites, yard services websites, and more.

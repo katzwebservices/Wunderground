@@ -4,6 +4,48 @@
  * @package WPWunderground
  */
 
+/**
+ * The Wunderground shortcode
+ * @filter default text
+ * @action default text
+ * @param  array       $passed_atts [description]
+ * @param  [type]      $content     [description]
+ * @return [type]                   [description]
+ */
+function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
+
+	$defaults = array(
+		'title' => __('Weather Forecast', 'wunderground'),
+		'location'	=>	'Denver, Colorado',
+		'iconset' 	=> 	'Incredible',
+		'numdays'	=>	5,
+		'class'		=>	'wp_wunderground',
+		'layout'	=>	'table-vertical',
+		'measurement' => 'english',
+		'language' => wunderground_get_language(),
+		'showdata' => array('alerts','pop','icon','text', 'conditions', 'date'),
+	);
+
+	$atts = shortcode_atts( $defaults, $passed_atts );
+
+	// Convert comma-separated value to array
+	$atts['showdata'] = is_string( $atts['showdata'] ) ? explode(',', $atts['showdata']) : $atts['showdata'];
+
+	extract($atts);
+
+	ob_start();
+
+	$atts['wunderground'] = new KWS_Wunderground( new Wunderground_Request( $location, null, $language ) );
+
+	do_action( 'wunderground_render_template', $layout, $atts );
+
+	Wunderground_Plugin::log_debug('Shortcode Atts passed to render_template', $atts);
+
+	$content = ob_get_clean();
+
+	return $content;
+}
+
 
 /**
  * Get the URL for a specific icon name
@@ -23,6 +65,14 @@ function wunderground_get_icon( $icon = 'Incredible' ) {
 
 	// Maintain backward compatibility with 1.*
 	return apply_filters( 'wp_wunderground_forecast_icon', $output, $icon );
+}
+
+/**
+ * Get the logo to be used in the template
+ * @return string      URL of logo
+ */
+function wunderground_get_logo() {
+	return plugins_url( 'assets/img/logos/wundergroundLogo_4c_horz.gif', Wunderground_Plugin::$file );
 }
 
 /**
@@ -55,7 +105,6 @@ function wunderground_get_icons( $value_is_path = true ) {
 		'Wunderground' => __('Wunderground', 'wunderground'),
 		'Elemental' => __('Elemental', 'wunderground'),
 		'Incredible' => __('Incredible', 'wunderground'),
-		#'Minimalist' => __('Minimalist', 'wunderground'),
 		'Helen' => __('Helen', 'wunderground'),
 
 		'Default' => __('Default', 'wunderground'),

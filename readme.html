@@ -1,0 +1,100 @@
+<h3>Reporting issues</h3>
+
+<p>If you have issues with the plugin, please:</p>
+
+<ol>
+<li><a href="https://github.com/katzwebservices/Wunderground/issues/new">Report the issue on Github</a> <strong>(much preferred)</strong></li>
+<li>Report the issue <a href="https://widget.uservoice.com/omnibox/Csq4WQZTBPGtRqSZXIsNA?mode=contact&amp;locale=en&amp;forum_id=254985&amp;contact_us=true&amp;accent_color=007DBF&amp;embed_type=popover&amp;trigger_method=custom_trigger&amp;menu=true&amp;screenshot_enabled=false&amp;contact_enabled=true&amp;feedback_enabled=false&amp;smartvote=false">using this form</a></li>
+<li><a href="zack+wunderground@katz.co">Send an email</a> <em>(not preferred)</em></li>
+</ol>
+
+
+<h2>Setting up the plugin</h2>
+
+<p>The Wunderground plugin displays forecasts in a widget or by using the <code>[wunderground]</code> shortcode.</p>
+
+<h2>Widget</h2>
+
+<p>To configure the widget, go to your WordPress Dashboard, then navigate to Appearance, then click on the Widgets submenu.</p>
+
+<p>Once there, you will see a Wunderground widget. Add it to one of your sidebars and follow the on-screen instructions.</p>
+
+<h2>Shortcode</h2>
+
+<p>You can use either the <code>[wunderground]</code> or <code>[forecast]</code> shortcode to embed a forecast in a post or page.</p>
+
+<h3>Shortcode Example</h3>
+
+<p>This code:
+<code>[wunderground location="Philadelphia, PA" numdays="3" layout="simple"]</code></p>
+
+<p>Will output the forecast using the <code>simple</code> template, show three days of forecasts for Philadelphia, PA.</p>
+
+<h3>Shortcode Parameters</h3>
+
+<ul>
+<li><code>location</code> - Define the location of the forecast. It can be in any format compatible with Wunderground, including <code>{city},{state}</code>, <code>{longitude}, {latitude}</code>, or Wunderground &ldquo;zmw&rdquo; <code>{zmw:00000.1.12345}</code> Default: <code>Denver, Colorado</code></li>
+<li><code>iconset</code> -   &lsquo;Incredible&rsquo;,</li>
+<li><code>numdays</code> - Default: <code>5</code></li>
+<li><code>class</code> - CSS class to be added to the <code>&lt;div&gt;</code> that wraps the output. Default: <code>wp_wunderground</code></li>
+<li><code>layout</code> - The layout template to be used. The value of this parameter is used to find the HTML template file in the <code>templates</code> directory. For example, <code>simple</code> loads the <code>templates/simple.html</code> template file. See Templates below for how the templates are loaded and can be overruled. Default: <code>table-vertical</code>
+
+<ul>
+<li><code>table-vertical</code> - A vertical table with each day as a row</li>
+<li><code>table-horizontal</code> - A horizontal table with each day as a column</li>
+<li><code>simple</code> - A flexible day view</li>
+<li><code>current</code> - Current conditions only</li>
+</ul>
+</li>
+<li><code>measurement</code> - Whether to show items in Fahrenheit and Imperial (<code>english</code>) or Celsius and Metric (<code>metric</code>) Default: <code>english</code></li>
+<li><code>language</code> - A two-letter code representing the language. <a href="http://www.wunderground.com/weather/api/d/docs?d=language-support&amp;MR=1">See the complete list of language codes here</a>. Default: <code>EN</code></li>
+<li><code>showdata</code> - The items to show in the forecast. Default: <code>alerts,pop,icon,text,date</code>
+
+<ul>
+<li><code>alerts</code> - Weather alerts for the forecast area</li>
+<li><code>icon</code> - Weather forecast icon</li>
+<li><code>pop</code> - % chance of precipitation</li>
+<li><code>text</code> - Forecast text summary</li>
+<li><code>date</code> - Show the date in the output (table templates only)</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>International</h2>
+
+<h3>Language</h3>
+
+<p>The Wunderground plugin attempts to use the language you defined in the WordPress admin by default. You can override the language in the plugin&rsquo;s widget and also in the shortcode using the <code>language</code> attribute. See Shortcode above for more information. You can override the default language using the <code>wunderground_default_language</code> filter.</p>
+
+<h3>Wunderground subdomains</h3>
+
+<p>The plugin will read your defined language and try to determine the Wunderground.com subdomain to use. For example, the Simplified Chinese (code: CN) Wunderground site is <code>simplifiedchinese.wunderground.com</code>.</p>
+
+<p>If you want to override the setting, use the <code>wunderground_redirect_subdomain</code> filter, which passes two parameters:  <code>$subdomain</code> for the current subdomain, and <code>$language_key</code> for the defined language.</p>
+
+<h3>Help translate the plugin!</h3>
+
+<p>We&rsquo;d love your assistance in helping to translate the plugin. <strong><a href="https://www.transifex.com/projects/p/wunderground/">Submit your translations here</a></strong>.</p>
+
+<h2>Templates</h2>
+
+<h3>Using your own templates</h3>
+
+<p>If you want to use your own template:</p>
+
+<ul>
+<li>Create a directory in your theme named <code>wunderground</code> - the path will look like: <code>wp-content/themes/your-theme/wunderground/</code></li>
+<li>Go to the Wunderground plugin directory (<code>wp-content/wunderground/templates/</code>)</li>
+<li>Copy the files you want to change into the <code>wunderground</code> directory you created</li>
+<li>Modify the files</li>
+</ul>
+
+
+<p>The template uses the <a href="http://twig.sensiolabs.org">Twig template engine</a> to access the data. This helps keep the plugin secure.</p>
+
+<p>If you want to have the files located in another place, you can use the <code>wunderground_template_paths</code> filter to modify the paths checked. <a href="https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30">See template.php</a> for the code.</p>
+
+<h4>Copyright</h4>
+
+<p><em>Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.</em></p>

@@ -13,7 +13,7 @@
 
 class Wunderground_Plugin {
 
-	const version = '1.0';
+	const version = '2.0';
 
 	var $logger;
 	var $is_debug = false;
@@ -26,39 +26,67 @@ class Wunderground_Plugin {
 		self::$file = __FILE__;
 		self::$dir_path = plugin_dir_path( __FILE__ );
 
-		// Fire AJAX requests first.
-		include_once self::$dir_path.'ajax.php';
+		// Fire AJAX requests immediately
+		include_once self::$dir_path.'inc/class-ajax.php';
 
 		// Load once we're sure everything's been loaded.
-		add_action('plugins_loaded', array( &$this, 'require_files' ) );
+		add_action( 'plugins_loaded', array( &$this, 'require_files' ) );
 
-		add_action('wunderground_log_debug', array( 'Wunderground_Plugin', 'log_debug'), 10, 2);
+		add_action( 'init', array(&$this, 'init') );
+
+		// Use the `wunderground_log_debug` action for logging
+		add_action( 'wunderground_log_debug', array( 'Wunderground_Plugin', 'log_debug'), 10, 2 );
+	}
+
+	function init() {
+
+		// Add translation support
+		load_plugin_textdomain( 'wunderground', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+		// Add the shortcode
+		add_shortcode( 'wunderground', 'wunderground_shortcode' );
+		add_shortcode( 'forecast', 'wunderground_shortcode' );
+
 	}
 
 	function require_files() {
 
+		// Load the functions needed
+		include_once self::$dir_path.'inc/functions.php';
+
 		// Twig template autoloader
 		require_once self::$dir_path.'vendor/autoload.php';
 
+		// Twig template setup
+		include_once self::$dir_path.'inc/class-template.php';
+
 		// Load the Wunderground requirements
-		include_once self::$dir_path.'inc/Request.php';
-		include_once self::$dir_path.'inc/Response.php';
-		include_once self::$dir_path.'inc/Date.php';
-		include_once self::$dir_path.'inc/ForecastDay.php';
-		include_once self::$dir_path.'inc/Current_Observation.php';
-		include_once self::$dir_path.'inc/Station.php';
-		include_once self::$dir_path.'inc/Forecast.php';
-		include_once self::$dir_path.'inc/Alerts.php';
+		include_once self::$dir_path.'inc/class-request.php';
+		include_once self::$dir_path.'inc/class-response.php';
+		include_once self::$dir_path.'inc/class-date.php';
+		include_once self::$dir_path.'inc/class-forecastday.php';
+		include_once self::$dir_path.'inc/class-current-observation.php';
+		include_once self::$dir_path.'inc/class-station.php';
+		include_once self::$dir_path.'inc/class-forecast.php';
+		include_once self::$dir_path.'inc/class-alerts.php';
 
 		// Load the Wunderground wrapper class
-		include_once self::$dir_path.'inc/KWS_Wunderground.php';
+		include_once self::$dir_path.'inc/class-KWS-wunderground.php';
 
-		include_once self::$dir_path.'functions.php';
-		include_once self::$dir_path.'template.php';
-		include_once self::$dir_path.'widget.php';
-		include_once self::$dir_path.'display.php';
+		// WordPress widget
+		include_once self::$dir_path.'inc/class-widget.php';
+
+		// Scripts and styles
+		include_once self::$dir_path.'inc/class-display.php';
 	}
 
+	/**
+	 * Output debugging information when $_GET['debug'] is set and the user is an administrator
+	 * @param  string      $type    Type of notice: debug or error
+	 * @param  string      $message Title of notice
+	 * @param  [type]      $data    Data for the notice that will be printed
+	 * @return void
+	 */
 	static function log_notice( $type = '', $message = '', $data = NULL ) {
 
 		if(!isset($_GET['debug']) || !current_user_can( 'manage_options' )) { return; }
@@ -72,10 +100,18 @@ class Wunderground_Plugin {
 		}
 	}
 
+	/**
+	 * Log a debug message
+	 * @see Wunderground_Plugin::log_notice()
+	 */
 	static function log_debug( $message, $data = NULL) {
 		self::log_notice( 'debug', $message, $data );
 	}
 
+	/**
+	 * Log an error message
+	 * @see Wunderground_Plugin::log_notice()
+	 */
 	static function log_error( $message, $data = NULL) {
 		self::log_notice( 'error', $message, $data );
 	}

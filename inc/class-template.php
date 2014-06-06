@@ -22,7 +22,7 @@ class Wunderground_Template {
 
 
 		// This path should always be the last
-		$base_path = trailingslashit( plugin_dir_path( __FILE__ ) ).'templates';
+		$base_path = trailingslashit( plugin_dir_path( Wunderground_Plugin::$file ) ).'templates';
 
 		$this->loader = new Twig_Loader_Filesystem( $base_path );
 
@@ -51,7 +51,13 @@ class Wunderground_Template {
 
 	}
 
+	/**
+	 * Strings that are used inside the template are defined here to allow for localization.
+	 *
+	 * @return [type]      [description]
+	 */
 	function strings() {
+
 		return array(
 			'alert_statement_as_of' => __('Statement as of %s', 'wunderground'),
 			'chance_of_precipitation' => __('%s%%', 'wunderground'),
@@ -60,16 +66,24 @@ class Wunderground_Template {
 			'currently' => __('Currently', 'wunderground'),
 			'view_forecast' => __('View the %s forecast on Wunderground.com', 'wunderground'),
 		);
+
 	}
 
 	function render( $template = NULL, $data = array() ) {
-		$data['strings'] = $this->strings();
-		$data['user_icon_url'] = wunderground_get_icon($data['iconset']);
-		$data['logo'] = plugins_url( 'assets/img/logos/wundergroundLogo_4c_horz.gif', __FILE__ );
 
-		// Map the keys better
+		// The translation text
+		$data['strings'] = $this->strings();
+
+		// The base URL for the weather icons
+		$data['user_icon_url'] = wunderground_get_icon($data['iconset']);
+
+		// The required logo
+		$data['logo'] = wunderground_get_logo();
+
+		// Map the keys so that they are consistent instead of having some
+		// using key => key and others using index => key
 		$showdata = array();
-		foreach ( (array)$data['showdata'] as $key => $value) {
+		foreach ( (array)$data['showdata'] as $key => $value ) {
 			$data['showdata'][$value] = $value;
 		}
 
@@ -84,19 +98,19 @@ class Wunderground_Template {
 
 		$layouts = array(
 			'current' => array(
-				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/current.png', __FILE__ ).'" />',
+				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/current.png', Wunderground_Plugin::$file ).'" />',
 				'path' => '',
 				'label' => __('Current Conditions', 'wunderground'),
 				'desc' => __('Simple display of the current conditions.', 'wunderground'),
 			),
 			'simple' => array(
-				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/simple.png', __FILE__ ).'" />',
+				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/simple.png', Wunderground_Plugin::$file ).'" />',
 				'path' => '',
-				'label' => 'Grid Forecast',
+				'label' => __('Grid Forecast', 'wunderground'),
 				'desc' => __('Scales to any screen size.', 'wunderground'),
 			),
 			'table-vertical' => array(
-				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-vertical.png', __FILE__ ).'" />',
+				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-vertical.png', Wunderground_Plugin::$file ).'" />',
 				'path' => '',
 				'label' => __('Details Table', 'wunderground'),
 				'desc' => __('Display the forecast in a table. Great for in-depth forecast display.', 'wunderground'),

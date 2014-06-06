@@ -11,7 +11,7 @@
 {# Escape the HTML in the passed data automatically #}
 {% autoescape 'html' %}
 
-<div class="wu-wrapper wu-table-vertical">
+<div class="wu-wrapper wu-table-vertical {{ class }}">
 
 	{% include 'search-form.html' %}
 
@@ -19,7 +19,7 @@
 
 	<div class="wu-forecast-wrapper">
 
-		<table cellpadding="0" cellspacing="0" border="0" class="{{ class }} wu-table-{{numdays}}">
+		<table cellpadding="0" cellspacing="0" border="0" class="wu-table-{{numdays}}">
 			<tbody>
 				{% for i in range( low = 0, high = (numdays - 1) ) %}
 
