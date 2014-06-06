@@ -1,14 +1,3 @@
-## Setting up the plugin
-
-The plugin has been completely rewritten!
-
-* Auto-complete location support
-* Multi-language support
-* Current conditions report
-* New templates
-  * Ability to override the templates with your own
-* New icon set
-
 ### Reporting issues ###
 
 If you have issues with the plugin, please:
@@ -16,6 +5,15 @@ If you have issues with the plugin, please:
 1. [Report the issue on Github](https://github.com/katzwebservices/Wunderground/issues/new) __(much preferred)__
 2. Report the issue [using this form](https://widget.uservoice.com/omnibox/Csq4WQZTBPGtRqSZXIsNA?mode=contact&locale=en&forum_id=254985&contact_us=true&accent_color=007DBF&embed_type=popover&trigger_method=custom_trigger&menu=true&screenshot_enabled=false&contact_enabled=true&feedback_enabled=false&smartvote=false)
 3. [Send an email](zack+wunderground@katz.co) *(not preferred)*
+
+## Setting up the plugin
+
+The Wunderground plugin displays forecasts in a widget or by using the `[wunderground]` shortcode.
+
+## Widget
+To configure the widget, go to your WordPress Dashboard, then navigate to Appearance, then click on the Widgets submenu.
+
+Once there, you will see a Wunderground widget. Add it to one of your sidebars and follow the on-screen instructions.
 
 ## Shortcode
 
