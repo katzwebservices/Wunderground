@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Weather Underground\n"
-"POT-Creation-Date: 2014-06-06 09:47-0700\n"
-"PO-Revision-Date: 2014-06-06 09:47-0700\n"
+"POT-Creation-Date: 2014-06-07 18:47-0700\n"
+"PO-Revision-Date: 2014-06-08 11:35-0700\n"
 "Last-Translator: Katz Web Services, Inc. <support@katz.co>\n"
 "Language-Team: Katz Web Services, Inc. <support@katz.co>\n"
 "Language: en_US\n"
@@ -18,518 +18,522 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: display.php:62 widget.php:132
-msgid "Weather Forecast"
-msgstr ""
-
-#: functions.php:40 functions.php:57
-msgid "Incredible"
-msgstr ""
-
-#: functions.php:41 functions.php:56
-msgid "Elemental"
-msgstr ""
-
-#: functions.php:42 functions.php:59
-msgid "Helen"
-msgstr ""
-
-#: functions.php:43 functions.php:61
-msgid "Default"
-msgstr ""
-
-#: functions.php:44 functions.php:62
-msgid "Smiley"
-msgstr ""
-
-#: functions.php:45 functions.php:63
-msgid "Generic"
-msgstr ""
-
-#: functions.php:46 functions.php:64
-msgid "Old School"
-msgstr ""
-
-#: functions.php:47 functions.php:65
-msgid "Cartoon"
-msgstr ""
-
-#: functions.php:48 functions.php:66
-msgid "Mobile"
-msgstr ""
-
-#: functions.php:49 functions.php:67
-msgid "Simple"
-msgstr ""
-
-#: functions.php:50 functions.php:68
-msgid "Contemporary"
-msgstr ""
-
-#: functions.php:55 widget.php:48
-msgid "Wunderground"
-msgstr ""
-
-#: functions.php:196
-msgid "Afrikaans"
-msgstr ""
-
-#: functions.php:197
-msgid "Albanian"
-msgstr ""
-
-#: functions.php:198
-msgid "Arabic"
-msgstr ""
-
-#: functions.php:199
-msgid "Armenian"
-msgstr ""
-
-#: functions.php:200
-msgid "Azerbaijani"
-msgstr ""
-
-#: functions.php:201
-msgid "Basque"
-msgstr ""
-
-#: functions.php:202
-msgid "Belarusian"
-msgstr ""
-
-#: functions.php:203
-msgid "Bulgarian"
-msgstr ""
-
-#: functions.php:204
-msgid "British English"
-msgstr ""
-
-#: functions.php:205
-msgid "Burmese"
-msgstr ""
-
-#: functions.php:206
-msgid "Catalan"
-msgstr ""
-
-#: functions.php:207
-msgid "Chinese - Simplified"
-msgstr ""
-
-#: functions.php:208
-msgid "Chinese - Traditional"
-msgstr ""
-
-#: functions.php:209
-msgid "Croatian"
-msgstr ""
-
-#: functions.php:210
-msgid "Czech"
-msgstr ""
-
-#: functions.php:211
-msgid "Danish"
-msgstr ""
-
-#: functions.php:212
-msgid "Dhivehi"
-msgstr ""
-
-#: functions.php:213
-msgid "Dutch"
-msgstr ""
-
-#: functions.php:214
-msgid "English"
-msgstr ""
-
-#: functions.php:215
-msgid "Esperanto"
-msgstr ""
-
-#: functions.php:216
-msgid "Estonian"
-msgstr ""
-
-#: functions.php:217
-msgid "Farsi"
-msgstr ""
-
-#: functions.php:218
-msgid "Finnish"
-msgstr ""
-
-#: functions.php:219
-msgid "French"
-msgstr ""
-
-#: functions.php:220
-msgid "French Canadian"
-msgstr ""
-
-#: functions.php:221
-msgid "Galician"
-msgstr ""
-
-#: functions.php:222
-msgid "German"
-msgstr ""
-
-#: functions.php:223
-msgid "Georgian"
-msgstr ""
-
-#: functions.php:224
-msgid "Greek"
-msgstr ""
-
-#: functions.php:225
-msgid "Gujarati"
-msgstr ""
-
-#: functions.php:226
-msgid "Haitian Creole"
-msgstr ""
-
-#: functions.php:227
-msgid "Hebrew"
-msgstr ""
-
-#: functions.php:228
-msgid "Hindi"
-msgstr ""
-
-#: functions.php:229
-msgid "Hungarian"
-msgstr ""
-
-#: functions.php:230
-msgid "Icelandic"
-msgstr ""
-
-#: functions.php:231
-msgid "Ido"
-msgstr ""
-
-#: functions.php:232
-msgid "Indonesian"
-msgstr ""
-
-#: functions.php:233
-msgid "Irish Gaelic"
-msgstr ""
-
-#: functions.php:234
-msgid "Italian"
-msgstr ""
-
-#: functions.php:235
-msgid "Japanese"
-msgstr ""
-
-#: functions.php:236
-msgid "Javanese"
-msgstr ""
-
-#: functions.php:237
-msgid "Khmer"
-msgstr ""
-
-#: functions.php:238
-msgid "Korean"
-msgstr ""
-
-#: functions.php:239
-msgid "Kurdish"
-msgstr ""
-
-#: functions.php:240
-msgid "Latin"
-msgstr ""
-
-#: functions.php:241
-msgid "Latvian"
-msgstr ""
-
-#: functions.php:242
-msgid "Lithuanian"
-msgstr ""
-
-#: functions.php:243
-msgid "Low German"
-msgstr ""
-
-#: functions.php:244
-msgid "Macedonian"
-msgstr ""
-
-#: functions.php:245
-msgid "Maltese"
-msgstr ""
-
-#: functions.php:246
-msgid "Mandinka"
-msgstr ""
-
-#: functions.php:247
-msgid "Maori"
-msgstr ""
-
-#: functions.php:248
-msgid "Marathi"
-msgstr ""
-
-#: functions.php:249
-msgid "Mongolian"
-msgstr ""
-
-#: functions.php:250
-msgid "Norwegian"
-msgstr ""
-
-#: functions.php:251
-msgid "Occitan"
-msgstr ""
-
-#: functions.php:252
-msgid "Pashto"
-msgstr ""
-
-#: functions.php:253
-msgid "Plautdietsch"
-msgstr ""
-
-#: functions.php:254
-msgid "Polish"
-msgstr ""
-
-#: functions.php:255
-msgid "Portuguese"
-msgstr ""
-
-#: functions.php:256
-msgid "Punjabi"
-msgstr ""
-
-#: functions.php:257
-msgid "Romanian"
-msgstr ""
-
-#: functions.php:258
-msgid "Russian"
-msgstr ""
-
-#: functions.php:259
-msgid "Serbian"
-msgstr ""
-
-#: functions.php:260
-msgid "Slovak"
-msgstr ""
-
-#: functions.php:261
-msgid "Slovenian"
-msgstr ""
-
-#: functions.php:262
-msgid "Spanish"
-msgstr ""
-
-#: functions.php:263
-msgid "Swahili"
-msgstr ""
-
-#: functions.php:264
-msgid "Swedish"
-msgstr ""
-
-#: functions.php:265
-msgid "Swiss"
-msgstr ""
-
-#: functions.php:266
-msgid "Tagalog"
-msgstr ""
-
-#: functions.php:267
-msgid "Tatarish"
-msgstr ""
-
-#: functions.php:268
-msgid "Thai"
-msgstr ""
-
-#: functions.php:269
-msgid "Turkish"
-msgstr ""
-
-#: functions.php:270
-msgid "Turkmen"
-msgstr ""
-
-#: functions.php:271
-msgid "Ukrainian"
-msgstr ""
-
-#: functions.php:272
-msgid "Uzbek"
-msgstr ""
-
-#: functions.php:273
-msgid "Vietnamese"
-msgstr ""
-
-#: functions.php:274
-msgid "Welsh"
-msgstr ""
-
-#: functions.php:275
-msgid "Wolof"
-msgstr ""
-
-#: functions.php:276
-msgid "Yiddish - transliterated"
-msgstr ""
-
-#: functions.php:277
-msgid "Yiddish - unicode"
-msgstr ""
-
-#: template.php:56
+#: inc/class-template.php:62
 #, php-format
 msgid "Statement as of %s"
 msgstr ""
 
-#: template.php:57
+#: inc/class-template.php:63
 #, php-format
 msgid "%s%%"
 msgstr ""
 
-#: template.php:58
+#: inc/class-template.php:64
 #, php-format
 msgid "%s%% Chance of Precipitation"
 msgstr ""
 
-#: template.php:59
+#: inc/class-template.php:65
 msgid "m/d"
 msgstr ""
 
-#: template.php:60
+#: inc/class-template.php:66
 msgid "Currently"
 msgstr ""
 
-#: template.php:61
+#: inc/class-template.php:67
 #, php-format
 msgid "View the %s forecast on Wunderground.com"
 msgstr ""
 
-#: template.php:89
+#: inc/class-template.php:103
 msgid "Current Conditions"
 msgstr ""
 
-#: template.php:90
+#: inc/class-template.php:104
 msgid "Simple display of the current conditions."
 msgstr ""
 
-#: template.php:96
+#: inc/class-template.php:109
+msgid "Grid Forecast"
+msgstr ""
+
+#: inc/class-template.php:110
 msgid "Scales to any screen size."
 msgstr ""
 
-#: template.php:101
+#: inc/class-template.php:115
 msgid "Details Table"
 msgstr ""
 
-#: template.php:102
+#: inc/class-template.php:116
 msgid "Display the forecast in a table. Great for in-depth forecast display."
 msgstr ""
 
-#: widget.php:43
+#: inc/class-widget.php:43
 msgid "Add a forecast."
 msgstr ""
 
-#: widget.php:150
+#: inc/class-widget.php:48 inc/functions.php:105
+msgid "Wunderground"
+msgstr ""
+
+#: inc/class-widget.php:132 inc/functions.php:18
+msgid "Weather Forecast"
+msgstr ""
+
+#: inc/class-widget.php:150
 msgid "Title"
 msgstr ""
 
-#: widget.php:151
+#: inc/class-widget.php:151
 msgid "Leave empty to hide the widget title."
 msgstr ""
 
-#: widget.php:158
+#: inc/class-widget.php:158
 msgid "Location"
 msgstr ""
 
-#: widget.php:159
+#: inc/class-widget.php:159
 msgid "Locations will autoload, but you may also define custom locations."
 msgstr ""
 
-#: widget.php:160
+#: inc/class-widget.php:160
 msgid "Enter the name of a location."
 msgstr ""
 
-#: widget.php:170
+#: inc/class-widget.php:170
 msgid "# of Days in Forecast"
 msgstr ""
 
-#: widget.php:175
+#: inc/class-widget.php:175
 msgid "Icon Set"
 msgstr ""
 
-#: widget.php:176
+#: inc/class-widget.php:176
 msgid "Choose the look and feel of the images that will represent the weather."
 msgstr ""
 
-#: widget.php:208
+#: inc/class-widget.php:208
 msgid "Show in Forecast"
 msgstr ""
 
-#: widget.php:212
+#: inc/class-widget.php:212
 msgid "Weather Icon"
 msgstr ""
 
-#: widget.php:213
+#: inc/class-widget.php:213
 msgid "Night Forecasts"
 msgstr ""
 
-#: widget.php:214
+#: inc/class-widget.php:214
 msgid "Condition Title"
 msgstr ""
 
-#: widget.php:215
+#: inc/class-widget.php:215
 msgid "Forecast Text"
 msgstr ""
 
-#: widget.php:216
+#: inc/class-widget.php:216
 msgid "Chance of Rain"
 msgstr ""
 
-#: widget.php:217
+#: inc/class-widget.php:217
 msgid "Today's Weather Summary"
 msgstr ""
 
-#: widget.php:218
+#: inc/class-widget.php:218
 msgid "Weather Alerts &amp; Warnings"
 msgstr ""
 
-#: widget.php:219
+#: inc/class-widget.php:219
 msgid "Date"
 msgstr ""
 
-#: widget.php:230
+#: inc/class-widget.php:230
 msgid "Forecast Language"
 msgstr ""
 
-#: widget.php:239
+#: inc/class-widget.php:239
 msgid "Measurements"
 msgstr ""
 
-#: widget.php:242
+#: inc/class-widget.php:242
 msgid "Fahrenheit &amp; Inches"
 msgstr ""
 
-#: widget.php:245
+#: inc/class-widget.php:245
 msgid "Celsius &amp; Meters"
+msgstr ""
+
+#: inc/functions.php:90 inc/functions.php:107
+msgid "Incredible"
+msgstr ""
+
+#: inc/functions.php:91 inc/functions.php:106
+msgid "Elemental"
+msgstr ""
+
+#: inc/functions.php:92 inc/functions.php:108
+msgid "Helen"
+msgstr ""
+
+#: inc/functions.php:93 inc/functions.php:110
+msgid "Default"
+msgstr ""
+
+#: inc/functions.php:94 inc/functions.php:111
+msgid "Smiley"
+msgstr ""
+
+#: inc/functions.php:95 inc/functions.php:112
+msgid "Generic"
+msgstr ""
+
+#: inc/functions.php:96 inc/functions.php:113
+msgid "Old School"
+msgstr ""
+
+#: inc/functions.php:97 inc/functions.php:114
+msgid "Cartoon"
+msgstr ""
+
+#: inc/functions.php:98 inc/functions.php:115
+msgid "Mobile"
+msgstr ""
+
+#: inc/functions.php:99 inc/functions.php:116
+msgid "Simple"
+msgstr ""
+
+#: inc/functions.php:100 inc/functions.php:117
+msgid "Contemporary"
+msgstr ""
+
+#: inc/functions.php:245
+msgid "Afrikaans"
+msgstr ""
+
+#: inc/functions.php:246
+msgid "Albanian"
+msgstr ""
+
+#: inc/functions.php:247
+msgid "Arabic"
+msgstr ""
+
+#: inc/functions.php:248
+msgid "Armenian"
+msgstr ""
+
+#: inc/functions.php:249
+msgid "Azerbaijani"
+msgstr ""
+
+#: inc/functions.php:250
+msgid "Basque"
+msgstr ""
+
+#: inc/functions.php:251
+msgid "Belarusian"
+msgstr ""
+
+#: inc/functions.php:252
+msgid "Bulgarian"
+msgstr ""
+
+#: inc/functions.php:253
+msgid "British English"
+msgstr ""
+
+#: inc/functions.php:254
+msgid "Burmese"
+msgstr ""
+
+#: inc/functions.php:255
+msgid "Catalan"
+msgstr ""
+
+#: inc/functions.php:256
+msgid "Chinese - Simplified"
+msgstr ""
+
+#: inc/functions.php:257
+msgid "Chinese - Traditional"
+msgstr ""
+
+#: inc/functions.php:258
+msgid "Croatian"
+msgstr ""
+
+#: inc/functions.php:259
+msgid "Czech"
+msgstr ""
+
+#: inc/functions.php:260
+msgid "Danish"
+msgstr ""
+
+#: inc/functions.php:261
+msgid "Dhivehi"
+msgstr ""
+
+#: inc/functions.php:262
+msgid "Dutch"
+msgstr ""
+
+#: inc/functions.php:263
+msgid "English"
+msgstr ""
+
+#: inc/functions.php:264
+msgid "Esperanto"
+msgstr ""
+
+#: inc/functions.php:265
+msgid "Estonian"
+msgstr ""
+
+#: inc/functions.php:266
+msgid "Farsi"
+msgstr ""
+
+#: inc/functions.php:267
+msgid "Finnish"
+msgstr ""
+
+#: inc/functions.php:268
+msgid "French"
+msgstr ""
+
+#: inc/functions.php:269
+msgid "French Canadian"
+msgstr ""
+
+#: inc/functions.php:270
+msgid "Galician"
+msgstr ""
+
+#: inc/functions.php:271
+msgid "German"
+msgstr ""
+
+#: inc/functions.php:272
+msgid "Georgian"
+msgstr ""
+
+#: inc/functions.php:273
+msgid "Greek"
+msgstr ""
+
+#: inc/functions.php:274
+msgid "Gujarati"
+msgstr ""
+
+#: inc/functions.php:275
+msgid "Haitian Creole"
+msgstr ""
+
+#: inc/functions.php:276
+msgid "Hebrew"
+msgstr ""
+
+#: inc/functions.php:277
+msgid "Hindi"
+msgstr ""
+
+#: inc/functions.php:278
+msgid "Hungarian"
+msgstr ""
+
+#: inc/functions.php:279
+msgid "Icelandic"
+msgstr ""
+
+#: inc/functions.php:280
+msgid "Ido"
+msgstr ""
+
+#: inc/functions.php:281
+msgid "Indonesian"
+msgstr ""
+
+#: inc/functions.php:282
+msgid "Irish Gaelic"
+msgstr ""
+
+#: inc/functions.php:283
+msgid "Italian"
+msgstr ""
+
+#: inc/functions.php:284
+msgid "Japanese"
+msgstr ""
+
+#: inc/functions.php:285
+msgid "Javanese"
+msgstr ""
+
+#: inc/functions.php:286
+msgid "Khmer"
+msgstr ""
+
+#: inc/functions.php:287
+msgid "Korean"
+msgstr ""
+
+#: inc/functions.php:288
+msgid "Kurdish"
+msgstr ""
+
+#: inc/functions.php:289
+msgid "Latin"
+msgstr ""
+
+#: inc/functions.php:290
+msgid "Latvian"
+msgstr ""
+
+#: inc/functions.php:291
+msgid "Lithuanian"
+msgstr ""
+
+#: inc/functions.php:292
+msgid "Low German"
+msgstr ""
+
+#: inc/functions.php:293
+msgid "Macedonian"
+msgstr ""
+
+#: inc/functions.php:294
+msgid "Maltese"
+msgstr ""
+
+#: inc/functions.php:295
+msgid "Mandinka"
+msgstr ""
+
+#: inc/functions.php:296
+msgid "Maori"
+msgstr ""
+
+#: inc/functions.php:297
+msgid "Marathi"
+msgstr ""
+
+#: inc/functions.php:298
+msgid "Mongolian"
+msgstr ""
+
+#: inc/functions.php:299
+msgid "Norwegian"
+msgstr ""
+
+#: inc/functions.php:300
+msgid "Occitan"
+msgstr ""
+
+#: inc/functions.php:301
+msgid "Pashto"
+msgstr ""
+
+#: inc/functions.php:302
+msgid "Plautdietsch"
+msgstr ""
+
+#: inc/functions.php:303
+msgid "Polish"
+msgstr ""
+
+#: inc/functions.php:304
+msgid "Portuguese"
+msgstr ""
+
+#: inc/functions.php:305
+msgid "Punjabi"
+msgstr ""
+
+#: inc/functions.php:306
+msgid "Romanian"
+msgstr ""
+
+#: inc/functions.php:307
+msgid "Russian"
+msgstr ""
+
+#: inc/functions.php:308
+msgid "Serbian"
+msgstr ""
+
+#: inc/functions.php:309
+msgid "Slovak"
+msgstr ""
+
+#: inc/functions.php:310
+msgid "Slovenian"
+msgstr ""
+
+#: inc/functions.php:311
+msgid "Spanish"
+msgstr ""
+
+#: inc/functions.php:312
+msgid "Swahili"
+msgstr ""
+
+#: inc/functions.php:313
+msgid "Swedish"
+msgstr ""
+
+#: inc/functions.php:314
+msgid "Swiss"
+msgstr ""
+
+#: inc/functions.php:315
+msgid "Tagalog"
+msgstr ""
+
+#: inc/functions.php:316
+msgid "Tatarish"
+msgstr ""
+
+#: inc/functions.php:317
+msgid "Thai"
+msgstr ""
+
+#: inc/functions.php:318
+msgid "Turkish"
+msgstr ""
+
+#: inc/functions.php:319
+msgid "Turkmen"
+msgstr ""
+
+#: inc/functions.php:320
+msgid "Ukrainian"
+msgstr ""
+
+#: inc/functions.php:321
+msgid "Uzbek"
+msgstr ""
+
+#: inc/functions.php:322
+msgid "Vietnamese"
+msgstr ""
+
+#: inc/functions.php:323
+msgid "Welsh"
+msgstr ""
+
+#: inc/functions.php:324
+msgid "Wolof"
+msgstr ""
+
+#: inc/functions.php:325
+msgid "Yiddish - transliterated"
+msgstr ""
+
+#: inc/functions.php:326
+msgid "Yiddish - unicode"
 msgstr ""
