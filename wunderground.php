@@ -55,7 +55,7 @@ class Wunderground_Plugin {
 		include_once self::$dir_path.'inc/functions.php';
 
 		// Twig template autoloader
-		require_once self::$dir_path.'vendor/autoload.php';
+		require_once self::$dir_path.'vendor/twig/twig/lib/Twig/Autoloader.php';
 
 		// Twig template setup
 		include_once self::$dir_path.'inc/class-template.php';

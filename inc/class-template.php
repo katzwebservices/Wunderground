@@ -20,6 +20,8 @@ class Wunderground_Template {
 		// do_action('wunderground_render_template', $file_name, $data_array );
 		add_action('wunderground_render_template', array( &$this, 'render' ), 10, 2 );
 
+		// Set up Twig
+		Twig_Autoloader::register();
 
 		// This path should always be the last
 		$base_path = trailingslashit( plugin_dir_path( Wunderground_Plugin::$file ) ).'templates';
