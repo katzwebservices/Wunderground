@@ -122,7 +122,9 @@ class Wunderground_Date {
 	 */
 	var $tz_offset_hours;
 
-	function __construct( stdClass $date ) {
+	function __construct( $date ) {
+
+		if( !is_object( $date ) ) { return NULL; }
 
 		foreach ($date as $key => $value) {
 			$this->{$key} = $value;

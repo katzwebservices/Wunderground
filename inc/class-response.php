@@ -1,6 +1,7 @@
 <?php
 
 class Wunderground_Response {
+
 	var $version;
 
 	var $units;
@@ -13,7 +14,7 @@ class Wunderground_Response {
 
 	var $location;
 
-	var $date;
+	var $date = NULL;
 
 	function __construct(  Wunderground_Request $request ) {
 
@@ -30,6 +31,6 @@ class Wunderground_Response {
 			$this->{$key} = $value;
 		}
 
-		$this->date = new Wunderground_Date( $this->date );
+		$this->date = empty( $this->date ) ? NULL : new Wunderground_Date( $this->date );
 	}
 }
