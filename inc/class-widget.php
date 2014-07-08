@@ -76,28 +76,28 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		extract( $args );
 
-		echo $before_widget;
-
-		if ( !empty($title) )
-			echo $before_title . $title . $after_title;
-
 		$location = $this->getLocation();
-
-
-
 		$request = new Wunderground_Request( $location, null, $instance['language'], $instance['measurement'] );
-
 		$forecast = new Wunderground_Forecast( $request );
 
 		$data = $instance;
 		$data['widget'] = $args;
 		$data['forecast'] = $forecast;
 		$data['location'] = $instance['city'];
-		$data['location_title'] = empty( $instance['location_title'] ) ? NULL : $instance['location_title'];
-
+		$data['location_title'] = empty( $instance['location_title'] ) ? $data['location'] : $instance['location_title'];
 		$data['wunderground'] = new KWS_Wunderground( $request );
 
-		#do_action('wunderground_log_debug', 'Widget Data', $data );
+		// PWS is offline or something.
+		if( !empty( $data['wunderground']->response->error )) {
+			do_action('wunderground_log_debug', 'There was an error in the Wunderground response:', $data['wunderground']->response->error );
+			return;
+		}
+
+		echo $before_widget;
+
+		if ( !empty($title) ) {
+			echo $before_title . $title . $after_title;
+		}
 
 		do_action('wunderground_render_template', $instance['layout'], $data );
 

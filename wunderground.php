@@ -89,7 +89,7 @@ class Wunderground_Plugin {
 	 */
 	static function log_notice( $type = '', $message = '', $data = NULL ) {
 
-		if(!isset($_GET['debug']) || !current_user_can( 'manage_options' )) { return; }
+		if( empty( $_GET['debug'] ) || $_GET['debug'] !== 'wunderground' || !current_user_can( 'manage_options' )) { return; }
 
 		if(is_string($message)) {
 			echo '<h3>'.esc_attr($message).'</h3>';

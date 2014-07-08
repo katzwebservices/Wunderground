@@ -16,13 +16,16 @@
 	label {
 		float: left;
 		width: 100%;
+		overflow: hidden; // The input overflows from the padding
 	}
 
 	input {
 		border-radius: 5px 0 0 5px;
 		height: 2.3125em;
 		display: block;
-		width: 100%;
+		box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
 	}
 
 	input,
