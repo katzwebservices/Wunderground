@@ -210,6 +210,7 @@ For previous versions, it is recommended to use a caching plugin (such as WP Sup
 * Fixed: Forecast icon display in themes that add borders, etc. to images
 * Fixed: Units (C/F) now working in shortcode
 * Fixed: Added support for Personal Weather Station codes in the shortcode
+* Fixed: Fatal error caused by date being empty instead of StdClass.
 
 = 2.0 =
 * __Major re-write__ You may need to re-configure your widget.
