@@ -1,3 +1,4 @@
+
 === Weather Forecast - Wunderground.com ===
 Tags: weather, weather.com, wunderground, weatherbug, forecast, widget, shortcode, Yahoo weather, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 2.8
@@ -151,6 +152,12 @@ For previous versions, it is recommended to use a caching plugin (such as WP Sup
 
 == Changelog ==
 
+= 2.0.1 =
+* Added: `location_title` parameter. Setting `location_title` overwrites that location that is displayed in the search bar, so that if your location is "ugly", like longitude/latitude, you can overwrite that.
+* Fixed: Forecast icon display in themes that add borders, etc. to images
+* Fixed: Units (C/F) now working in shortcode
+* Fixed: Added support for Personal Weather Station codes in the shortcode
+
 = 2.0 =
 * __Major re-write__ You may need to re-configure your widget.
 * Images are now stored locally; this will allow use on SSL-secured websites.
@@ -197,6 +204,16 @@ For previous versions, it is recommended to use a caching plugin (such as WP Sup
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.1 =
+* Added: `location_title` parameter. Setting `location_title` overwrites that location that is displayed in the search bar, so that if your location is "ugly", like longitude/latitude, you can overwrite that.
+* Fixed: Forecast icon display in themes that add borders, etc. to images
+* Fixed: Units (C/F) now working in shortcode
+* Fixed: Added support for Personal Weather Station codes in the shortcode
+
+= 2.0 =
+* __Major re-write__ You may need to re-configure your widget.
+* Images are now stored locally; this will allow use on SSL-secured websites.
 
 = 1.2.5.1 =
 * Quick fix for icon issues: the icon images were broken.

@@ -99,7 +99,7 @@ class Wunderground_Request {
 
 		$this->results = json_decode( $response );
 
-		Wunderground_Plugin::log_debug('Wunderground_Request results', $this->results);
+		Wunderground_Plugin::log_debug('Wunderground_Request results for URL '. $url, $this->results);
 	}
 
 	private function _v2_json_fix( $response ) {
@@ -131,11 +131,18 @@ class Wunderground_Request {
 		// Add the units measurement (F° or C°, inches vs mm)
 		$units = sprintf( 'units:%s', $this->units );
 
+		$location = $this->location;
+
+		// We've got a PWS!
+		if( preg_match( '/[K][A-Z]{5,10}[0-9]{1,10}/', $location ) ) {
+			$location = '/q/pws:'.urlencode($location);
+		}
+
 		// If the location is a link, we don't need to turn it...wait for it...into a link.
-		$location = preg_match( '/\/q\//ism', $this->location ) ? $this->location : '/q/'.urlencode($this->location);
+		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.urlencode($location);
 
 		// Combine into one URL
-		$url = sprintf('%s/%s/v:2.0/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $features, $location );
+		$url = sprintf('%s/%s/v:2.0/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $features, $location_path );
 
 		return $url;
 	}

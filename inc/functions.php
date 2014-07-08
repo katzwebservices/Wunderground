@@ -15,7 +15,7 @@
 function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
 
 	$defaults = array(
-		'title' => __('Weather Forecast', 'wunderground'),
+		'location_title' => NULL,
 		'location'	=>	'Denver, Colorado',
 		'iconset' 	=> 	'Incredible',
 		'numdays'	=>	5,
@@ -33,9 +33,14 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
 
 	extract($atts);
 
+	// What to show in the search bar
+	if( empty( $atts['location_title'] ) ) {
+		$atts['location_title'] = $atts['location'];
+	}
+
 	ob_start();
 
-	$atts['wunderground'] = new KWS_Wunderground( new Wunderground_Request( $location, null, $language ) );
+	$atts['wunderground'] = new KWS_Wunderground( new Wunderground_Request( $location, null, $language, $measurement) );
 
 	do_action( 'wunderground_render_template', $layout, $atts );
 

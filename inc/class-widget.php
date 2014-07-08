@@ -131,6 +131,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array(
 			'title' => __('Weather Forecast', 'wunderground'),
 			'city' => '',
+			'location_title' => NULL,
 			'location_data' => '',
 			'layout' => 'table-vertical',
 			'iconset' => 'Incredible',
