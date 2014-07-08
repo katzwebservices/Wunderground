@@ -10,9 +10,20 @@
 		}
 	}
 
+	.layout-title {
+		font-size: 1.4em;
+	}
+
+	span.title {
+		font-weight: normal;
+		font-size: .9em;
+		color: #444;
+	}
+
 	// Highlight the active title for checkboxes and radios
 	:checked + span.title {
 		font-weight: bold!important;
+		color: black;
 	}
 
 	.icons {
@@ -59,6 +70,9 @@
 		img {
 			display: block;
 			opacity: 1;
+			margin: .5em 0 .25em;
+			border: 1px solid #ddd;
+			box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 		}
 
 		p {

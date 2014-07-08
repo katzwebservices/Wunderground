@@ -207,6 +207,7 @@ For previous versions, it is recommended to use a caching plugin (such as WP Sup
 
 = 2.0.1 =
 * Added: `location_title` parameter. Setting `location_title` overwrites that location that is displayed in the search bar, so that if your location is "ugly", like longitude/latitude, you can overwrite that.
+* Improved Widget design to make the template screenshots clearer.
 * Fixed: Forecast icon display in themes that add borders, etc. to images
 * Fixed: Units (C/F) now working in shortcode
 * Fixed: Added support for Personal Weather Station codes in the shortcode

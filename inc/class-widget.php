@@ -93,6 +93,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		$data['widget'] = $args;
 		$data['forecast'] = $forecast;
 		$data['location'] = $instance['city'];
+		$data['location_title'] = empty( $instance['location_title'] ) ? NULL : $instance['location_title'];
 
 		$data['wunderground'] = new KWS_Wunderground( $request );
 
@@ -151,7 +152,6 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 				<h3><?php _e('Title', 'wunderground'); ?></h3>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to hide the widget title.', 'wunderground' ); ?>" />
 			</label>
-			<input type="hidden" class="wu-location-data" id="<?php echo $this->get_field_id('location_data'); ?>" name="<?php echo $this->get_field_name('location_data'); ?>" />
 		</div>
 
 		<div class="setting-wrapper autocomplete" id="<?php echo $this->get_field_id('autocomplete'); ?>">
@@ -161,6 +161,15 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 				<input type="text" class="wu-autocomplete widefat" autocomplete="false" id="<?php echo $this->get_field_id('city'); ?>" name="<?php echo $this->get_field_name('city'); ?>" value="<?php echo esc_attr( $city ); ?>" placeholder="<?php esc_attr_e( 'Enter the name of a location.', 'wunderground' ); ?>" />
 			</label>
 			<input type="hidden" class="wu-location-data" id="<?php echo $this->get_field_id('location_data'); ?>" name="<?php echo $this->get_field_name('location_data'); ?>" value="<?php echo $location_data; ?>" />
+		</div>
+
+		<div class="setting-wrapper">
+			<label for="<?php echo $this->get_field_id('location_title'); ?>">
+				<h3><?php _e('Location Title', 'wunderground'); ?></h3>
+				<p class="description"><?php esc_attr_e( 'Change how the location is displayed in the widget search field.', 'wunderground'); ?></p>
+				<input type="text" class="widefat" id="<?php echo $this->get_field_id('location_title'); ?>" name="<?php echo $this->get_field_name('location_title'); ?>" value="<?php echo esc_attr( $location_title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the location name.', 'wunderground' ); ?>" />
+				<span class="howto"><?php esc_attr_e( 'Example: if the Location is set to "Denver, Colorado", you may prefer to set the Location Title as "Denver", which is simpler.', 'wunderground' ); ?></span>
+			</label>
 		</div>
 
 		<div class="setting-wrapper">
@@ -202,6 +211,8 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		</div>
 
 		<div class="setting-wrapper layout">
+			<h3 class="layout-title"><?php esc_html_e('Widget Template', 'wunderground'); ?></h3>
+			<h4><?php esc_html_e('Choose how you would like to display the forecast.', 'wunderground'); ?></h4>
 		<?php echo $this->render_input_template($layout); ?>
 		</div>
 
@@ -252,6 +263,11 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 <?php
 	}
 
+	/**
+	 * Generate output for each of the output Templates
+	 * @param  string      $current_layout Key of the current layout
+	 * @return string                      Output HTML
+	 */
 	function render_input_template($current_layout) {
 
 		$layouts = Wunderground_Template::get_layouts();
@@ -261,11 +277,12 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			$output .= sprintf('
 			<div class="layout">
 				<label>
-					<h3><input type="radio" value="%s" name="%s" onchange="jQuery(\'body\').trigger(\'wu-change\')" %s /> %s%s</h3>
+					<h3><input type="radio" value="%s" name="%s" onchange="jQuery(\'body\').trigger(\'wu-change\')" %s /> <span class="title">%s</span>%s</h3>
 					<p><span class="howto">%s</span></p>
 				</label>
 			</div>', $key, $this->get_field_name('layout'), checked( $current_layout, $key, false ),  $layout['label'], $layout['thumbnail'], $layout['desc'] );
 		}
+
 		return $output;
 	}
 
