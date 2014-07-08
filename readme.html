@@ -33,9 +33,20 @@
 <h3>Shortcode Parameters</h3>
 
 <ul>
-<li><code>location</code> - Define the location of the forecast. It can be in any format compatible with Wunderground, including <code>{city},{state}</code>, <code>{longitude}, {latitude}</code>, or Wunderground &ldquo;zmw&rdquo; <code>{zmw:00000.1.12345}</code> Default: <code>Denver, Colorado</code></li>
-<li><code>iconset</code> -   &lsquo;Incredible&rsquo;,</li>
-<li><code>numdays</code> - Default: <code>5</code></li>
+<li><code>location</code> - Define the location of the forecast. Default: <code>Denver, Colorado</code>. It can be in any format compatible with Wunderground, including:
+
+<ul>
+<li> City / State (example: <code>{city},{state}</code>)</li>
+<li> Country / City (example: <code>Paris, France</code>)</li>
+<li> Coordinates (example: <code>{longitude}, {latitude}</code>),</li>
+<li> Wunderground &ldquo;zmw&rdquo; (example: <code>zmw:00000.1.12345</code>)</li>
+<li> Wunderground Personal Weather Station (PWS) ID (example: <code>KCODOLOR2</code>)</li>
+<li> 3-4 character airport code (example: <code>DEN</code>)</li>
+</ul>
+</li>
+<li><code>location_title</code> - If your shortcode uses an ugly location title like <code>zmw:00000.1.12345</code>, you might want to override that! Use this parameter to define how the location appears in the shortcode output.</li>
+<li><code>iconset</code> - Choose from Wunderground icon sets. Default: <code>Incredible</code>. Options are: <code>Wunderground</code>, <code>Elemental</code>, <code>Incredible</code>, <code>Helen</code>, <code>Default</code>, <code>Smiley</code>,<code>Generic</code>, <code>Old School</code>, <code>Cartoon</code>, <code>Mobile</code>, <code>Simple</code>, <code>Contemporary</code></li>
+<li><code>numdays</code> - Number of days to show in a forecast. Default: <code>5</code></li>
 <li><code>class</code> - CSS class to be added to the <code>&lt;div&gt;</code> that wraps the output. Default: <code>wp_wunderground</code></li>
 <li><code>layout</code> - The layout template to be used. The value of this parameter is used to find the HTML template file in the <code>templates</code> directory. For example, <code>simple</code> loads the <code>templates/simple.html</code> template file. See Templates below for how the templates are loaded and can be overruled. Default: <code>table-vertical</code>
 
@@ -46,8 +57,8 @@
 <li><code>current</code> - Current conditions only</li>
 </ul>
 </li>
-<li><code>measurement</code> - Whether to show items in Fahrenheit and Imperial (<code>english</code>) or Celsius and Metric (<code>metric</code>) Default: <code>english</code></li>
-<li><code>language</code> - A two-letter code representing the language. <a href="http://www.wunderground.com/weather/api/d/docs?d=language-support&amp;MR=1">See the complete list of language codes here</a>. Default: <code>EN</code></li>
+<li><code>measurement</code> - Whether to show items in Fahrenheit and Imperial (<code>english</code> or <code>f</code>) or Celsius and Metric (<code>metric</code> or <code>c</code>). Default: <code>english</code></li>
+<li><code>language</code> - A two-letter code representing the language. <a href="http://www.wunderground.com/weather/api/d/docs?d=language-support&amp;MR=1">See the complete list of supported language codes here</a>. Default: <code>EN</code></li>
 <li><code>showdata</code> - The items to show in the forecast. Default: <code>alerts,pop,icon,text,date</code>
 
 <ul>
@@ -94,6 +105,11 @@
 <p>The template uses the <a href="http://twig.sensiolabs.org">Twig template engine</a> to access the data. This helps keep the plugin secure.</p>
 
 <p>If you want to have the files located in another place, you can use the <code>wunderground_template_paths</code> filter to modify the paths checked. <a href="https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30">See template.php</a> for the code.</p>
+
+<h3>Screenshots</h3>
+
+<p>The new widget:
+<img src="https://raw.githubusercontent.com/katzwebservices/Wunderground/master/screenshot-1.jpg" alt="the Wunderground widget" /></p>
 
 <h4>Copyright</h4>
 

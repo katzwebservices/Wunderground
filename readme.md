@@ -28,17 +28,24 @@ Will output the forecast using the `simple` template, show three days of forecas
 
 ### Shortcode Parameters
 
-* `location` - Define the location of the forecast. It can be in any format compatible with Wunderground, including `{city},{state}`, `{longitude}, {latitude}`, or Wunderground "zmw" `{zmw:00000.1.12345}`, or a 3-4 character airport code. Default: `Denver, Colorado`
-* `iconset` -  	'Incredible',
-* `numdays` - Default: `5`
+* `location` - Define the location of the forecast. Default: `Denver, Colorado`. It can be in any format compatible with Wunderground, including:
+	*  City / State (example: `{city},{state}`)
+	*  Country / City (example: `Paris, France`)
+	*  Coordinates (example: `{longitude}, {latitude}`),
+	*  Wunderground "zmw" (example: `zmw:00000.1.12345`)
+	*  Wunderground Personal Weather Station (PWS) ID (example: `KCODOLOR2`)
+	*  3-4 character airport code (example: `DEN`)
+* `location_title` - If your shortcode uses an ugly location title like `zmw:00000.1.12345`, you might want to override that! Use this parameter to define how the location appears in the shortcode output.
+* `iconset` - Choose from Wunderground icon sets. Default: `Incredible`. Options are: `Wunderground`, `Elemental`, `Incredible`, `Helen`, `Default`, `Smiley`,`Generic`, `Old School`, `Cartoon`, `Mobile`, `Simple`, `Contemporary`
+* `numdays` - Number of days to show in a forecast. Default: `5`
 * `class` - CSS class to be added to the `<div>` that wraps the output. Default: `wp_wunderground`
 * `layout` - The layout template to be used. The value of this parameter is used to find the HTML template file in the `templates` directory. For example, `simple` loads the `templates/simple.html` template file. See Templates below for how the templates are loaded and can be overruled. Default: `table-vertical`
 	- `table-vertical` - A vertical table with each day as a row
 	- `table-horizontal` - A horizontal table with each day as a column
 	- `simple` - A flexible day view
 	- `current` - Current conditions only
-* `measurement` - Whether to show items in Fahrenheit and Imperial (`english`) or Celsius and Metric (`metric`) Default: `english`
-* `language` - A two-letter code representing the language. [See the complete list of language codes here](http://www.wunderground.com/weather/api/d/docs?d=language-support&MR=1). Default: `EN`
+* `measurement` - Whether to show items in Fahrenheit and Imperial (`english` or `f`) or Celsius and Metric (`metric` or `c`). Default: `english`
+* `language` - A two-letter code representing the language. [See the complete list of supported language codes here](http://www.wunderground.com/weather/api/d/docs?d=language-support&MR=1). Default: `EN`
 * `showdata` - The items to show in the forecast. Default: `alerts,pop,icon,text,date`
 	- `alerts` - Weather alerts for the forecast area
 	- `icon` - Weather forecast icon
@@ -76,7 +83,7 @@ If you want to have the files located in another place, you can use the `wunderg
 
 ### Screenshots
 
-The new widget:  
+The new widget:
 ![the Wunderground widget](https://raw.githubusercontent.com/katzwebservices/Wunderground/master/screenshot-1.jpg)
 
 #### Copyright
