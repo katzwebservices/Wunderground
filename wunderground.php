@@ -45,7 +45,12 @@ class Wunderground_Plugin {
 
 		// Add the shortcode
 		add_shortcode( 'wunderground', 'wunderground_shortcode' );
-		add_shortcode( 'forecast', 'wunderground_shortcode' );
+
+		// You can disable the forecast shortcode if you want to. It's definitely
+		// not namespaced!
+		if( apply_filters('wunderground_enable_forecast_shortcode', true ) ) {
+			add_shortcode( 'forecast', 'wunderground_shortcode' );
+		}
 
 	}
 
