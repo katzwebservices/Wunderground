@@ -1,8 +1,7 @@
-
 === Weather Forecast - Wunderground.com ===
 Tags: weather, weather.com, wunderground, weatherbug, forecast, widget, shortcode, Yahoo weather, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
-Requires at least: 2.8
-Tested up to: 3.5.1
+Requires at least: 3.3
+Tested up to: 3.9.1
 Stable tag: trunk
 Contributors: katzwebdesign
 Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=WP%20Wunderground%20for%20WordPress&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
@@ -150,7 +149,19 @@ Version 1.1 of the plugin added forecast caching, so the forecast is only re-loa
 
 For previous versions, it is recommended to use a caching plugin (such as WP Super Cache) with this plugin; that way the forecast isn't re-loaded every page load.
 
+= How do I enable Twig debug mode? =
+You can force Twig debug mode by adding `add_filter( 'wunderground_twig_debug' '__return_true' );` to your theme's `functions.php` file.
+
+You can also enable debug mode if you're logged in as an Administrator by adding `?debug` to your current page's URL.
+
 == Changelog ==
+
+= 2.0.2 =
+* Fixed: `table-horizontal` layout now works
+* Fixed: `simple` template updated to use Chance of Precipitation translation string
+* Fixed: Added checks to make sure `numdays` is always less than 10
+* Added: `hidedata` attribute that works like `showdata`, but in reverse. By default, all items are shown when embedding the shortcode (conditions, precipitation %, icon, etc). If you want to hide the icon, for example, you would add `hidedata="icon"` to the shortcode.
+* Added: `wunderground_twig_debug` filter. You can force Twig debug mode by adding `add_filter( 'wunderground_twig_debug' '__return_true' );` to your theme's `functions.php` file. You can also enable debug mode if you're logged in as an Administrator by adding `?debug` to your current page's URL.
 
 = 2.0.1 =
 * Added: `location_title` parameter. Setting `location_title` overwrites that location that is displayed in the search bar, so that if your location is "ugly", like longitude/latitude, you can overwrite that.
@@ -204,6 +215,13 @@ For previous versions, it is recommended to use a caching plugin (such as WP Sup
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.2 =
+* Fixed: `table-horizontal` layout now works
+* Fixed: `simple` template updated to use Chance of Precipitation translation string
+* Fixed: Added checks to make sure `numdays` is always less than 10
+* Added: `hidedata` attribute that works like `showdata`, but in reverse. By default, all items are shown when embedding the shortcode (conditions, precipitation %, icon, etc). If you want to hide the icon, for example, you would add `hidedata="icon"` to the shortcode.
+* Added: `wunderground_twig_debug` filter. You can force Twig debug mode by adding `add_filter( 'wunderground_twig_debug' '__return_true' );` to your theme's `functions.php` file. You can also enable debug mode if you're logged in as an Administrator by adding `?debug` to your current page's URL.
 
 = 2.0.1 =
 * Added: `location_title` parameter. Setting `location_title` overwrites that location that is displayed in the search bar, so that if your location is "ugly", like longitude/latitude, you can overwrite that.
