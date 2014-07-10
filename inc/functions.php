@@ -24,31 +24,80 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
 		'measurement' => 'english',
 		'language' => wunderground_get_language(),
 		'showdata' => array('alerts','pop','icon','text', 'conditions', 'date'),
+		'hidedata' => array(),
 	);
 
-	$atts = shortcode_atts( $defaults, $passed_atts );
-
-	// Convert comma-separated value to array
-	$atts['showdata'] = is_string( $atts['showdata'] ) ? explode(',', $atts['showdata']) : $atts['showdata'];
-
-	extract($atts);
-
-	// What to show in the search bar
-	if( empty( $atts['location_title'] ) ) {
-		$atts['location_title'] = $atts['location'];
-	}
+	$atts = wunderground_parse_atts( $defaults, $passed_atts );
 
 	ob_start();
 
-	$atts['wunderground'] = new KWS_Wunderground( new Wunderground_Request( $location, null, $language, $measurement) );
+	$atts['wunderground'] = new KWS_Wunderground( new Wunderground_Request( $atts['location'], null, $atts['language'], $atts['measurement'] ) );
 
-	do_action( 'wunderground_render_template', $layout, $atts );
+	do_action( 'wunderground_render_template', $atts['layout'], $atts );
 
 	Wunderground_Plugin::log_debug('Shortcode Atts passed to render_template', $atts);
 
 	$content = ob_get_clean();
 
 	return $content;
+}
+
+/**
+ * Handle edgecases and validation for shortcode attributes.
+ * @param  array      $parsed   [description]
+ * @param  array      $passed   [description]
+ * @param  array      $defaults [description]
+ * @return array                [description]
+ */
+function wunderground_parse_atts( $defaults, $passed_atts ) {
+
+	$atts = shortcode_atts( $defaults, $passed_atts );
+
+	// If there was no numdays passed,
+	// 4 is a better default for table-horizontal layout
+	if( empty( $passed_atts['numdays'] ) ) {
+		switch ($atts['layout']) {
+			case 'table-horizontal':
+				$atts['numdays'] = 4;
+				break;
+		}
+	}
+
+	// Convert comma-separated value to array
+	$atts['showdata'] = is_string( $atts['showdata'] ) ? explode(',', $atts['showdata']) : $atts['showdata'];
+
+	if( !is_numeric( $atts['numdays'] ) ) {
+		Wunderground_Plugin::log_error( sprintf( '"numdays" was set not a number: %s. Changed to the default: %d. wunderground_shortcode', $atts['numdays'], $defaults['numdays'] ) );
+
+		$atts['numdays'] = $defaults['numdays'];
+
+	} else if( absint( $atts['numdays'] ) > 10 ) {
+		Wunderground_Plugin::log_error( sprintf( '"numdays" set too high in shortcode: %s. It was changed to the max: 10. wunderground_shortcode', $atts['numdays'] ) );
+		$atts['numdays'] = 10;
+	}
+
+	// What to show in the search bar
+	if( empty( $atts['location_title'] ) ) {
+		$atts['location_title'] = $atts['location'];
+	}
+
+	// Process hidedata/showdata
+	if( !empty( $atts['hidedata'] ) ) {
+
+		$hidedata = is_array( $atts['hidedata'] ) ? $hidedata : explode(',', $atts['hidedata']);
+
+		// For each hidedata, unset showdata.
+		foreach ($hidedata as $value) {
+			foreach ($atts['showdata'] as $k => $v) {
+				if( $v === $value ) {
+					unset( $atts['showdata'][ $k ] );
+				}
+			}
+		}
+	}
+
+	return $atts;
+
 }
 
 
