@@ -1,0 +1,47 @@
+{#
+	This template is processed using the Twig template engine
+	Learn more at: http://twig.sensiolabs.org/doc/templates.html
+
+	You can override this output by copying this file into your
+	theme's directory, in a subfolder named "wunderground". The
+	path to the file would look like this:
+	/wp-content/themes/my-theme/wunderground/example.html
+#}
+
+<td>
+
+	{% if showdata.icon != '' %}
+		<div class="wu-icon"><img src="{{user_icon_url}}/{{forecast.icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></div>
+	{% endif %}
+
+	<div class="wu-forecast-body">
+		<div class="wu-forecast-header">
+			{% if forecast.title != '' %}
+				<div class="wu-day-title">{{ forecast.title }}</div>
+			{% else %}
+				<div class="wu-day-title">{{ strings.currently }}</div>
+			{% endif %}
+
+			{% if showdata.date != '' %}
+				{# To modify the date format, check out the `strings` method in template.php #}
+				<span class="wu-date">{{ day.summary.date.epoch|date(strings.date_format) }}</span>
+			{% endif %}
+
+			{% if showdata.pop != '' %}
+				<span class="wu-cond-pop" title="{{ strings.chance_of_precipitation_title|format(forecast.pop) }}">{{ strings.chance_of_precipitation|format(forecast.pop) }}</span>
+			{% endif %}
+		</div>
+
+		{% if showdata.conditions != '' %}
+			<div class="wu-cond-text">{{forecast.condition}}</div>
+		{% endif %}
+
+		{% if showdata.text != '' %}
+			{% if forecast.text != '' %}
+				<div class="wu-forecast-text">{{ forecast.text }}</div>
+			{% else %}
+				<div class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie }}</div>
+			{% endif %}
+		{% endif %}
+	</div>
+</td>

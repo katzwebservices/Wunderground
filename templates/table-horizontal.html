@@ -17,6 +17,7 @@
 
 	{% include 'alert.html' %}
 
+
 	<div class="wu-forecast-wrapper">
 
 		<table cellpadding="0" cellspacing="0" border="0"'.$width.' class="wu-table-{{numdays}}">
@@ -28,9 +29,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr class="forecast">
 				{% for i in range( low = 0, high = (numdays - 1) ) %}
-					<td>{{ forecast.text_forecast.days[i].text }}</td>
+					{% set day = wunderground.forecast.days[i] %}
+					{% set summary = day.summary %}
+					{% set forecast = day.summary.day %}
+
+					{% include 'table-horizontal-cell.html' %}
+
 				{% endfor %}
 				</tr>
 			</tbody>

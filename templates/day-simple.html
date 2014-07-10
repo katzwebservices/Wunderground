@@ -22,6 +22,6 @@
 			<span class="wu-cond-split">/</span>
 			<span class="wu-cond-low">Low {{ summary.low }}&deg;</span>
 		</div>
-		<div class="wu-cond-pop"><strong>{{ forecast.pop }}%</strong> Chance of Precip.</div>
+		<div class="wu-cond-pop">{{ strings.chance_of_precipitation|format(forecast.pop) }}</div>
 	</div>
 </div>
