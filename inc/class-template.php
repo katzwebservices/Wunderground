@@ -14,7 +14,7 @@ class Wunderground_Template {
 	 */
 	var $twig;
 
-	function __construct( $debug = false ) {
+	function __construct() {
 
 		// This is how to call the template engine:
 		// do_action('wunderground_render_template', $file_name, $data_array );
@@ -41,6 +41,9 @@ class Wunderground_Template {
 				$this->loader->prependPath($path);
 			}
 		}
+
+		// You can force debug mode by adding `add_filter( 'wunderground_twig_debug' '__return_true' );`
+		$debug = apply_filters( 'wunderground_twig_debug', current_user_can( 'manage_options' ) && isset( $_GET['debug'] ) );
 
 		$this->twig = new Twig_Environment($this->loader, array(
 			'debug' => !empty($debug),
