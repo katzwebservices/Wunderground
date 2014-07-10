@@ -52,6 +52,7 @@ Will output the forecast using the `simple` template, show three days of forecas
 	- `pop` - % chance of precipitation
 	- `text` - Forecast text summary
 	- `date` - Show the date in the output (table templates only)
+* `hidedata` - The items to show in the forecast. Accepts the same parameters as `showdata`. Default: `(Empty)`
 
 ## International
 
