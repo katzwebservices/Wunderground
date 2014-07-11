@@ -198,7 +198,10 @@ function wunderground_render_radios( $name, $id, $options, $selected ) {
 }
 
 function wunderground_get_autocomplete_country_code() {
-	return apply_filters( 'wunderground_autocomplete_country_code', (get_locale() === 'en_US' ? 'US' : NULL) );
+	// In WP 4.0+, this will work better, when installations include language setups out of the box.
+	// (get_locale() === 'en_US' ? 'US' : NULL)
+
+	return apply_filters( 'wunderground_autocomplete_country_code', NULL );
 }
 
 function wunderground_get_language( $language = NULL ) {
