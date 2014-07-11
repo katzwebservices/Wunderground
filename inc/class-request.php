@@ -64,17 +64,12 @@ class Wunderground_Request {
 			return;
 		}
 
-		// Process the cache settings, passed as string
-		switch($cache) {
-			case 'false':
-			case '0':
-			case false:
-				$this->cache = false;
-				break;
-			default:
-				$this->cache = true;
-				break;
+		if( empty( $cache ) || $cache === 'false' ) {
+			$this->cache = false;
+		} else {
+			$this->cache = true;
 		}
+
 	}
 
 	private function set_units( $units ) {
