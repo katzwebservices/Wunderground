@@ -19,7 +19,7 @@ final class Wunderground_Ajax {
 		$country = wunderground_get_autocomplete_country_code();
 
 		$url = add_query_arg( array(
-			'query' => esc_attr($_REQUEST['query']),
+			'query' => urlencode( stripslashes_deep( $_REQUEST['query'] ) ),
 			'h' => 0, // No hurricanes, please.
 			'c' => $country,
 			'type' => 'city',
