@@ -1,7 +1,7 @@
 
 jQuery(document).ready(function($) {
 
-	$( '.wu-wrapper' ).on('focus', '.wu-autocomplete:not(.ui-autocomplete-input)', function() {
+	$( 'body' ).on('focus', '.wu-autocomplete:not(.ui-autocomplete-input)', function() {
 		var $that = $(this);
 
 		$that.autocomplete({
