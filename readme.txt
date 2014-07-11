@@ -156,6 +156,12 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 
 == Changelog ==
 
+= 2.0.3 =
+* Fixed: Cached results weren't being used!
+* Fixed: Autocomplete not working in admin Widgets page
+* Fixed: Handle queries with quotes in them
+* Modified: Switched to showing global results by default. You can still limit results by using the `wunderground_autocomplete_country_code` filter and returning a country code.
+
 = 2.0.2 =
 * Fixed: `table-horizontal` layout now works
 * Fixed: `simple` template updated to use Chance of Precipitation translation string
@@ -215,6 +221,12 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.3 =
+* Fixed: Cached results weren't being used!
+* Fixed: Autocomplete not working in admin Widgets page
+* Fixed: Handle queries with quotes in them
+* Modified: Switched to showing global results by default. You can still limit results by using the `wunderground_autocomplete_country_code` filter and returning a country code.
 
 = 2.0.2 =
 * Fixed: `table-horizontal` layout now works
