@@ -157,6 +157,7 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 == Changelog ==
 
 * Fixed: Number of days display properly for the Simple forecast
+* Added: Locally host icons
 * Fixed: Hide chance of precipitation when not set
 * Show temperature in lieu of high/low for current conditions
 = 2.0.3 =
