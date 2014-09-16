@@ -21,6 +21,12 @@
 
 		<table cellpadding="0" cellspacing="0" border="0" class="wu-table-{{numdays}}">
 			<tbody>
+
+				{% if showdata.current != '' and wunderground.current_observation|length > 0 %}
+					{% set forecast = wunderground.current_observation %}
+					{% include 'table-vertical-row.html' %}
+				{% endif %}
+
 				{% for i in range( low = 0, high = (numdays - 1) ) %}
 
 					{% set day = wunderground.forecast.days[i] %}

@@ -17,11 +17,9 @@
 	<div class="wu-forecast-body">
 		<div class="wu-day-title">{{ forecast.title }}</div>
 		<div class="wu-cond-text">{{ forecast.condition }}</div>
-		<div class="wu-cond-highlow">
-			<span class="wu-cond-high">High {{ summary.high }}&deg;</span>
-			<span class="wu-cond-split">/</span>
-			<span class="wu-cond-low">Low {{ summary.low }}&deg;</span>
-		</div>
+		<div class="wu-cond-highlow">{{ include 'snippet-high-low.html' }}</div>
+		{% if showdata.pop != '' and forecast.pop matches '/[0-9.,]+/' %}
 		<div class="wu-cond-pop">{{ strings.chance_of_precipitation|format(forecast.pop) }}</div>
+		{% endif %}
 	</div>
 </div>

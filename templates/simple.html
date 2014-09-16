@@ -20,16 +20,17 @@
 
 	<div class="wu-forecast-wrapper{% if showdata.icon != '' %} wu-has-icon{% endif %}">
 
-		{% for day in wunderground.forecast.days %}
+		{% for i in range( low = 0, high = (numdays - 1) ) %}
 
+			{% set day = wunderground.forecast.days[i] %}
 			{% set summary = day.summary %}
 			{% set forecast = day.summary.day %}
 
-			{% include "day-simple.html" %}
+			{% include 'day-simple.html' %}
 
 			{% if showdata.night != '' %}
 				{% set forecast = day.summary.night %}
-				{% include "day-simple.html" %}
+				{% include 'day-simple.html' %}
 			{% endif %}
 
 		{% endfor %}

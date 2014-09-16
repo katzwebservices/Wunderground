@@ -11,7 +11,7 @@
 <td>
 
 	{% if showdata.icon != '' %}
-		<div class="wu-icon"><img src="{{user_icon_url}}/{{forecast.icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></div>
+		<div class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></div>
 	{% endif %}
 
 	<div class="wu-forecast-body">
@@ -27,20 +27,25 @@
 				<span class="wu-date">{{ day.summary.date.epoch|date(strings.date_format) }}</span>
 			{% endif %}
 
-			{% if showdata.pop != '' %}
+			{% if showdata.pop != '' and forecast.pop matches '/[0-9.,]+/' %}
 				<span class="wu-cond-pop" title="{{ strings.chance_of_precipitation_title|format(forecast.pop) }}">{{ strings.chance_of_precipitation|format(forecast.pop) }}</span>
+
 			{% endif %}
 		</div>
 
 		{% if showdata.conditions != '' %}
-			<div class="wu-cond-text">{{forecast.condition}}</div>
+			<div class="wu-cond-text">{{forecast.condition|raw }}</div>
+		{% endif %}
+
+		{% if showdata.highlow != '' %}
+		<div class="wu-cond-highlow">{% include 'snippet-high-low.html' %}</div>
 		{% endif %}
 
 		{% if showdata.text != '' %}
 			{% if forecast.text != '' %}
 				<div class="wu-forecast-text">{{ forecast.text }}</div>
 			{% else %}
-				<div class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie }}</div>
+				<div class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie|raw }}</div>
 			{% endif %}
 		{% endif %}
 	</div>
