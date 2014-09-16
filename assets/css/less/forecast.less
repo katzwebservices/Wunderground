@@ -7,17 +7,29 @@
 .wu-forecast-wrapper .wu-cond-pop {
 	font-weight: normal;
     display: inline-block;
+
     background: url("../img/icons/raindrop-sprite.png") left -20px no-repeat;
     padding-left: 20px;
+    margin-left: 5px;
+
+    .wu-rtl & {
+	    background: url("../img/icons/raindrop-sprite.png") right -20px no-repeat;
+	    padding-right: 20px;
+	    margin-right: 5px;
+	}
+
     min-height: 20px;
     height: 20px;
-    margin-left: 5px;
 }
 
 .wu-forecast-wrapper {
 
 	.wu-simple-forecast-day {
+
 		float: left;
+
+		.wu-rtl & { float: right; }
+
 		width: 215px;
 		margin-bottom: 13px;
 
@@ -38,12 +50,14 @@
 
 	// High-low wrapper
 	.wu-cond-highlow {
-		margin-top: 5px;
-	    font-size: 0.9375rem;
+
+		margin: 10px 0;
+		/*font-size: 0.9375rem;*/
 	    color: #999;
 
 	    .wu-cond-high {
 	    	padding-right: .5em;
+	    	color: #d5202a;
 	    }
 
 		.wu-cond-split {
@@ -52,7 +66,11 @@
 			color: #ccc;
 		}
 
-	    .wu-cond-low {}
+	    .wu-cond-low {
+	    	color: #0053ae;
+	    }
+
+	    .wu-cond-current {}
 	}
 
 
@@ -71,6 +89,12 @@
 		width: 50px;
 		float: right;
 		margin-left: 10px;
+
+		.wu-rtl & {
+			float: left;
+			margin-right: 10px;
+		}
+
 		z-index: 10000;
 	}
 }
