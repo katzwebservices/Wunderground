@@ -12,7 +12,7 @@
  * @param  [type]      $content     [description]
  * @return [type]                   [description]
  */
-function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
+function wunderground_shortcode( $passed_atts = array() , $content = NULL, $shortcode = 'wunderground' ) {
 
 	$defaults = array(
 		'location_title' => NULL,
@@ -27,7 +27,7 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
 		'hidedata' => array(),
 	);
 
-	$atts = wunderground_parse_atts( $defaults, $passed_atts );
+	$atts = wunderground_parse_atts( $defaults, $passed_atts, $shortcode );
 
 	ob_start();
 
@@ -51,7 +51,7 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL ) {
  */
 function wunderground_parse_atts( $defaults, $passed_atts ) {
 
-	$atts = shortcode_atts( $defaults, $passed_atts );
+	$atts = shortcode_atts( $defaults, $passed_atts, 'wunderground' );
 
 	// If there was no numdays passed,
 	// 4 is a better default for table-horizontal layout
@@ -173,7 +173,15 @@ function wunderground_get_icons( $value_is_path = true ) {
 }
 
 
-function wunderground_render_select( $name, $id, $options, $selected ) {
+/**
+ * Render HTML <select> dropdown menu
+ * @param  string $name     Name attribute
+ * @param  string $id       ID attribute
+ * @param  array $options  Array of options with key as the value and value as the label
+ * @param  string $selected The value that's selected, if any
+ * @return string           HTML output
+ */
+function wunderground_render_select( $name, $id, $options, $selected = NULL ) {
 
 	$output = sprintf( '<select name="%s" id="%s">', $name, $id );
 
@@ -185,17 +193,6 @@ function wunderground_render_select( $name, $id, $options, $selected ) {
 	return $output;
 }
 
-function wunderground_render_radios( $name, $id, $options, $selected ) {
-
-	$output = sprintf( '<select name="%s" id="%s">', $name, $id );
-
-	foreach ($options as $key => $value) {
-		$output .= '<option value="'.$key.'"'.selected( $selected, $key, false ).'>'.esc_html( $value ).'</option>';
-	}
-	$output .= '</select>';
-
-	return $output;
-}
 
 function wunderground_get_autocomplete_country_code() {
 	// In WP 4.0+, this will work better, when installations include language setups out of the box.
@@ -204,13 +201,13 @@ function wunderground_get_autocomplete_country_code() {
 	return apply_filters( 'wunderground_autocomplete_country_code', NULL );
 }
 
-function wunderground_get_language( $language = NULL ) {
+function wunderground_get_language( $language = NULL, $language_details = false ) {
 
 	$wunderground_languages = wunderground_get_languages();
 
 	// If the language exists in Wunderground supported languages, use it.
 	if( !empty( $language ) && array_key_exists( $language, $wunderground_languages ) ) {
-		return $language;
+		return $language_details ? $wunderground_languages[ $language ] : $language;
 	}
 
 	// First, we want to fetch the current WordPress locale
@@ -227,7 +224,7 @@ function wunderground_get_language( $language = NULL ) {
 
 	// If the language exists in Wunderground supported languages, use it.
 	if(array_key_exists($language, $wunderground_languages)) {
-		return $language;
+		return $language_details ? $wunderground_languages[ $language ] : $language;
 	}
 
 	// Otherwise, use the default Wunderground language.
@@ -294,92 +291,430 @@ function wunderground_get_subdomain( $language_key = NULL ) {
 
 /**
  * List of languages supported by Wunderground
+ *
+ * These values are also used to
+ *
  * @link http://www.wunderground.com/weather/api/d/docs?d=language-support&MR=1
  * @return array      Associative array
  */
 function wunderground_get_languages() {
 	return array(
-		'AF'	=>	__('Afrikaans', 'wunderground'),
-		'AL'	=>	__('Albanian', 'wunderground'),
-		'AR'	=>	__('Arabic', 'wunderground'),
-		'HY'	=>	__('Armenian', 'wunderground'),
-		'AZ'	=>	__('Azerbaijani', 'wunderground'),
-		'EU'	=>	__('Basque', 'wunderground'),
-		'BY'	=>	__('Belarusian', 'wunderground'),
-		'BU'	=>	__('Bulgarian', 'wunderground'),
-		'LI'	=>	__('British English', 'wunderground'),
-		'MY'	=>	__('Burmese', 'wunderground'),
-		'CA'	=>	__('Catalan', 'wunderground'),
-		'CN'	=>	__('Chinese - Simplified', 'wunderground'),
-		'TW'	=>	__('Chinese - Traditional', 'wunderground'),
-		'CR'	=>	__('Croatian', 'wunderground'),
-		'CZ'	=>	__('Czech', 'wunderground'),
-		'DK'	=>	__('Danish', 'wunderground'),
-		'DV'	=>	__('Dhivehi', 'wunderground'),
-		'NL'	=>	__('Dutch', 'wunderground'),
-		'EN'	=>	__('English', 'wunderground'),
-		'EO'	=>	__('Esperanto', 'wunderground'),
-		'ET'	=>	__('Estonian', 'wunderground'),
-		'FA'	=>	__('Farsi', 'wunderground'),
-		'FI'	=>	__('Finnish', 'wunderground'),
-		'FR'	=>	__('French', 'wunderground'),
-		'FC'	=>	__('French Canadian', 'wunderground'),
-		'GZ'	=>	__('Galician', 'wunderground'),
-		'DL'	=>	__('German', 'wunderground'),
-		'KA'	=>	__('Georgian', 'wunderground'),
-		'GR'	=>	__('Greek', 'wunderground'),
-		'GU'	=>	__('Gujarati', 'wunderground'),
-		'HT'	=>	__('Haitian Creole', 'wunderground'),
-		'IL'	=>	__('Hebrew', 'wunderground'),
-		'HI'	=>	__('Hindi', 'wunderground'),
-		'HU'	=>	__('Hungarian', 'wunderground'),
-		'IS'	=>	__('Icelandic', 'wunderground'),
-		'IO'	=>	__('Ido', 'wunderground'),
-		'ID'	=>	__('Indonesian', 'wunderground'),
-		'IR'	=>	__('Irish Gaelic', 'wunderground'),
-		'IT'	=>	__('Italian', 'wunderground'),
-		'JP'	=>	__('Japanese', 'wunderground'),
-		'JW'	=>	__('Javanese', 'wunderground'),
-		'KM'	=>	__('Khmer', 'wunderground'),
-		'KR'	=>	__('Korean', 'wunderground'),
-		'KU'	=>	__('Kurdish', 'wunderground'),
-		'LA'	=>	__('Latin', 'wunderground'),
-		'LV'	=>	__('Latvian', 'wunderground'),
-		'LT'	=>	__('Lithuanian', 'wunderground'),
-		'ND'	=>	__('Low German', 'wunderground'),
-		'MK'	=>	__('Macedonian', 'wunderground'),
-		'MT'	=>	__('Maltese', 'wunderground'),
-		'GM'	=>	__('Mandinka', 'wunderground'),
-		'MI'	=>	__('Maori', 'wunderground'),
-		'MR'	=>	__('Marathi', 'wunderground'),
-		'MN'	=>	__('Mongolian', 'wunderground'),
-		'NO'	=>	__('Norwegian', 'wunderground'),
-		'OC'	=>	__('Occitan', 'wunderground'),
-		'PS'	=>	__('Pashto', 'wunderground'),
-		'GN'	=>	__('Plautdietsch', 'wunderground'),
-		'PL'	=>	__('Polish', 'wunderground'),
-		'BR'	=>	__('Portuguese', 'wunderground'),
-		'PA'	=>	__('Punjabi', 'wunderground'),
-		'RO'	=>	__('Romanian', 'wunderground'),
-		'RU'	=>	__('Russian', 'wunderground'),
-		'SR'	=>	__('Serbian', 'wunderground'),
-		'SK'	=>	__('Slovak', 'wunderground'),
-		'SL'	=>	__('Slovenian', 'wunderground'),
-		'SP'	=>	__('Spanish', 'wunderground'),
-		'SI'	=>	__('Swahili', 'wunderground'),
-		'SW'	=>	__('Swedish', 'wunderground'),
-		'CH'	=>	__('Swiss', 'wunderground'),
-		'TL'	=>	__('Tagalog', 'wunderground'),
-		'TT'	=>	__('Tatarish', 'wunderground'),
-		'TH'	=>	__('Thai', 'wunderground'),
-		'TR'	=>	__('Turkish', 'wunderground'),
-		'TK'	=>	__('Turkmen', 'wunderground'),
-		'UA'	=>	__('Ukrainian', 'wunderground'),
-		'UZ'	=>	__('Uzbek', 'wunderground'),
-		'VU'	=>	__('Vietnamese', 'wunderground'),
-		'CY'	=>	__('Welsh', 'wunderground'),
-		'SN'	=>	__('Wolof', 'wunderground'),
-		'JI'	=>	__('Yiddish - transliterated', 'wunderground'),
-		'YI'	=>	__('Yiddish - unicode', 'wunderground'),
+		'AF' => array(
+			'label' => __('Afrikaans', 'wunderground'),
+			'value' => 'Afrikaans',
+			'key'	=> 'AF',
+		),
+		'AL' => array(
+			'label' => __('Albanian', 'wunderground'),
+			'value' => 'Albanian',
+			'key'	=> 'AL',
+		),
+		'AR' => array(
+			'label' => __('Arabic', 'wunderground'),
+			'value' => 'Arabic',
+			'key'	=> 'AR',
+			'rtl'	=> true,
+		),
+		'HY' => array(
+			'label' => __('Armenian', 'wunderground'),
+			'value' => 'Armenian',
+			'key'	=> 'HY',
+		),
+		'AZ' => array(
+			'label' => __('Azerbaijani', 'wunderground'),
+			'value' => 'Azerbaijani',
+			'key'	=> 'AZ',
+		),
+		'EU' => array(
+			'label' => __('Basque', 'wunderground'),
+			'value' => 'Basque',
+			'key'	=> 'EU',
+		),
+		'BY' => array(
+			'label' => __('Belarusian', 'wunderground'),
+			'value' => 'Belarusian',
+			'key'	=> 'BY',
+		),
+		'BU' => array(
+			'label' => __('Bulgarian', 'wunderground'),
+			'value' => 'Bulgarian',
+			'key'	=> 'BU',
+		),
+		'LI' => array(
+			'label' => __('British English', 'wunderground'),
+			'value' => 'British English',
+			'key'	=> 'LI',
+		),
+		'MY' => array(
+			'label' => __('Burmese', 'wunderground'),
+			'value' => 'Burmese',
+			'key'	=> 'MY',
+		),
+		'CA' => array(
+			'label' => __('Catalan', 'wunderground'),
+			'value' => 'Catalan',
+			'key'	=> 'CA',
+		),
+		'CN' => array(
+			'label' => __('Chinese - Simplified', 'wunderground'),
+			'value' => 'Chinese - Simplified',
+			'key'	=> 'CN',
+		),
+		'TW' => array(
+			'label' => __('Chinese - Traditional', 'wunderground'),
+			'value' => 'Chinese - Traditional',
+			'key'	=> 'TW',
+		),
+		'CR' => array(
+			'label' => __('Croatian', 'wunderground'),
+			'value' => 'Croatian',
+			'key'	=> 'CR',
+		),
+		'CZ' => array(
+			'label' => __('Czech', 'wunderground'),
+			'value' => 'Czech',
+			'key'	=> 'CZ',
+		),
+		'DK' => array(
+			'label' => __('Danish', 'wunderground'),
+			'value' => 'Danish',
+			'key'	=> 'DK',
+		),
+		'DV' => array(
+			'label' => __('Dhivehi', 'wunderground'),
+			'value' => 'Dhivehi',
+			'key'	=> 'DV',
+			'rtl'	=> true,
+		),
+		'NL' => array(
+			'label' => __('Dutch', 'wunderground'),
+			'value' => 'Dutch',
+			'key'	=> 'NL',
+		),
+		'EN' => array(
+			'label' => __('English', 'wunderground'),
+			'value' => 'English',
+			'key'	=> 'EN',
+		),
+		'EO' => array(
+			'label' => __('Esperanto', 'wunderground'),
+			'value' => 'Esperanto',
+			'key'	=> 'EO',
+		),
+		'ET' => array(
+			'label' => __('Estonian', 'wunderground'),
+			'value' => 'Estonian',
+			'key'	=> 'ET',
+		),
+		'FA' => array(
+			'label' => __('Farsi', 'wunderground'),
+			'value' => 'Farsi',
+			'key'	=> 'FA',
+		),
+		'FI' => array(
+			'label' => __('Finnish', 'wunderground'),
+			'value' => 'Finnish',
+			'key'	=> 'FI',
+		),
+		'FR' => array(
+			'label' => __('French', 'wunderground'),
+			'value' => 'French',
+			'key'	=> 'FR',
+		),
+		'FC' => array(
+			'label' => __('French Canadian', 'wunderground'),
+			'value' => 'French Canadian',
+			'key'	=> 'FC',
+		),
+		'GZ' => array(
+			'label' => __('Galician', 'wunderground'),
+			'value' => 'Galician',
+			'key'	=> 'GZ',
+		),
+		'DL' => array(
+			'label' => __('German', 'wunderground'),
+			'value' => 'German',
+			'key'	=> 'DL',
+		),
+		'KA' => array(
+			'label' => __('Georgian', 'wunderground'),
+			'value' => 'Georgian',
+			'key'	=> 'KA',
+		),
+		'GR' => array(
+			'label' => __('Greek', 'wunderground'),
+			'value' => 'Greek',
+			'key'	=> 'GR',
+		),
+		'GU' => array(
+			'label' => __('Gujarati', 'wunderground'),
+			'value' => 'Gujarati',
+			'key'	=> 'GU',
+		),
+		'HT' => array(
+			'label' => __('Haitian Creole', 'wunderground'),
+			'value' => 'Haitian Creole',
+			'key'	=> 'HT',
+		),
+		'IL' => array(
+			'label' => __('Hebrew', 'wunderground'),
+			'value' => 'Hebrew',
+			'key'	=> 'IL',
+			'rtl'	=> true,
+		),
+		'HI' => array(
+			'label' => __('Hindi', 'wunderground'),
+			'value' => 'Hindi',
+			'key'	=> 'HI',
+		),
+		'HU' => array(
+			'label' => __('Hungarian', 'wunderground'),
+			'value' => 'Hungarian',
+			'key'	=> 'HU',
+		),
+		'IS' => array(
+			'label' => __('Icelandic', 'wunderground'),
+			'value' => 'Icelandic',
+			'key'	=> 'IS',
+		),
+		'IO' => array(
+			'label' => __('Ido', 'wunderground'),
+			'value' => 'Ido',
+			'key'	=> 'IO',
+		),
+		'ID' => array(
+			'label' => __('Indonesian', 'wunderground'),
+			'value' => 'Indonesian',
+			'key'	=> 'ID',
+		),
+		'IR' => array(
+			'label' => __('Irish Gaelic', 'wunderground'),
+			'value' => 'Irish Gaelic',
+			'key'	=> 'IR',
+		),
+		'IT' => array(
+			'label' => __('Italian', 'wunderground'),
+			'value' => 'Italian',
+			'key'	=> 'IT',
+		),
+		'JP' => array(
+			'label' => __('Japanese', 'wunderground'),
+			'value' => 'Japanese',
+			'key'	=> 'JP',
+		),
+		'JW' => array(
+			'label' => __('Javanese', 'wunderground'),
+			'value' => 'Javanese',
+			'key'	=> 'JW',
+		),
+		'KM' => array(
+			'label' => __('Khmer', 'wunderground'),
+			'value' => 'Khmer',
+			'key'	=> 'KM',
+		),
+		'KR' => array(
+			'label' => __('Korean', 'wunderground'),
+			'value' => 'Korean',
+			'key'	=> 'KR',
+		),
+		'KU' => array(
+			'label' => __('Kurdish', 'wunderground'),
+			'value' => 'Kurdish',
+			'key'	=> 'KU',
+			'rtl'	=> true,
+		),
+		'LA' => array(
+			'label' => __('Latin', 'wunderground'),
+			'value' => 'Latin',
+			'key'	=> 'LA',
+		),
+		'LV' => array(
+			'label' => __('Latvian', 'wunderground'),
+			'value' => 'Latvian',
+			'key'	=> 'LV',
+		),
+		'LT' => array(
+			'label' => __('Lithuanian', 'wunderground'),
+			'value' => 'Lithuanian',
+			'key'	=> 'LT',
+		),
+		'ND' => array(
+			'label' => __('Low German', 'wunderground'),
+			'value' => 'Low German',
+			'key'	=> 'ND',
+		),
+		'MK' => array(
+			'label' => __('Macedonian', 'wunderground'),
+			'value' => 'Macedonian',
+			'key'	=> 'MK',
+		),
+		'MT' => array(
+			'label' => __('Maltese', 'wunderground'),
+			'value' => 'Maltese',
+			'key'	=> 'MT',
+		),
+		'GM' => array(
+			'label' => __('Mandinka', 'wunderground'),
+			'value' => 'Mandinka',
+			'key'	=> 'GM',
+		),
+		'MI' => array(
+			'label' => __('Maori', 'wunderground'),
+			'value' => 'Maori',
+			'key'	=> 'MI',
+		),
+		'MR' => array(
+			'label' => __('Marathi', 'wunderground'),
+			'value' => 'Marathi',
+			'key'	=> 'MR',
+		),
+		'MN' => array(
+			'label' => __('Mongolian', 'wunderground'),
+			'value' => 'Mongolian',
+			'key'	=> 'MN',
+		),
+		'NO' => array(
+			'label' => __('Norwegian', 'wunderground'),
+			'value' => 'Norwegian',
+			'key'	=> 'NO',
+		),
+		'OC' => array(
+			'label' => __('Occitan', 'wunderground'),
+			'value' => 'Occitan',
+			'key'	=> 'OC',
+		),
+		'PS' => array(
+			'label' => __('Pashto', 'wunderground'),
+			'value' => 'Pashto',
+			'key'	=> 'PS',
+			'rtl'	=> true,
+		),
+		'GN' => array(
+			'label' => __('Plautdietsch', 'wunderground'),
+			'value' => 'Plautdietsch',
+			'key'	=> 'GN',
+		),
+		'PL' => array(
+			'label' => __('Polish', 'wunderground'),
+			'value' => 'Polish',
+			'key'	=> 'PL',
+		),
+		'BR' => array(
+			'label' => __('Portuguese', 'wunderground'),
+			'value' => 'Portuguese',
+			'key'	=> 'BR',
+		),
+		'PA' => array(
+			'label' => __('Punjabi', 'wunderground'),
+			'value' => 'Punjabi',
+			'key'	=> 'PA',
+			'rtl'	=> true,
+		),
+		'RO' => array(
+			'label' => __('Romanian', 'wunderground'),
+			'value' => 'Romanian',
+			'key'	=> 'RO',
+		),
+		'RU' => array(
+			'label' => __('Russian', 'wunderground'),
+			'value' => 'Russian',
+			'key'	=> 'RU',
+		),
+		'SR' => array(
+			'label' => __('Serbian', 'wunderground'),
+			'value' => 'Serbian',
+			'key'	=> 'SR',
+		),
+		'SK' => array(
+			'label' => __('Slovak', 'wunderground'),
+			'value' => 'Slovak',
+			'key'	=> 'SK',
+		),
+		'SL' => array(
+			'label' => __('Slovenian', 'wunderground'),
+			'value' => 'Slovenian',
+			'key'	=> 'SL',
+		),
+		'SP' => array(
+			'label' => __('Spanish', 'wunderground'),
+			'value' => 'Spanish',
+			'key'	=> 'SP',
+		),
+		'SI' => array(
+			'label' => __('Swahili', 'wunderground'),
+			'value' => 'Swahili',
+			'key'	=> 'SI',
+		),
+		'SW' => array(
+			'label' => __('Swedish', 'wunderground'),
+			'value' => 'Swedish',
+			'key'	=> 'SW',
+		),
+		'CH' => array(
+			'label' => __('Swiss', 'wunderground'),
+			'value' => 'Swiss',
+			'key'	=> 'CH',
+		),
+		'TL' => array(
+			'label' => __('Tagalog', 'wunderground'),
+			'value' => 'Tagalog',
+			'key'	=> 'TL',
+		),
+		'TT' => array(
+			'label' => __('Tatarish', 'wunderground'),
+			'value' => 'Tatarish',
+			'key'	=> 'TT',
+		),
+		'TH' => array(
+			'label' => __('Thai', 'wunderground'),
+			'value' => 'Thai',
+			'key'	=> 'TH',
+		),
+		'TR' => array(
+			'label' => __('Turkish', 'wunderground'),
+			'value' => 'Turkish',
+			'key'	=> 'TR',
+		),
+		'TK' => array(
+			'label' => __('Turkmen', 'wunderground'),
+			'value' => 'Turkmen',
+			'key'	=> 'TK',
+		),
+		'UA' => array(
+			'label' => __('Ukrainian', 'wunderground'),
+			'value' => 'Ukrainian',
+			'key'	=> 'UA',
+		),
+		'UZ' => array(
+			'label' => __('Uzbek', 'wunderground'),
+			'value' => 'Uzbek',
+			'key'	=> 'UZ',
+		),
+		'VU' => array(
+			'label' => __('Vietnamese', 'wunderground'),
+			'value' => 'Vietnamese',
+			'key'	=> 'VU',
+		),
+		'CY' => array(
+			'label' => __('Welsh', 'wunderground'),
+			'value' => 'Welsh',
+			'key'	=> 'CY',
+		),
+		'SN' => array(
+			'label' => __('Wolof', 'wunderground'),
+			'value' => 'Wolof',
+			'key'	=> 'SN',
+		),
+		'JI' => array(
+			'label' => __('Yiddish - transliterated', 'wunderground'),
+			'value' => 'Yiddish - transliterated',
+			'key'	=> 'JI',
+		),
+		'YI' => array(
+			'label' => __('Yiddish - unicode', 'wunderground'),
+			'value' => 'Yiddish - unicode',
+			'key'	=> 'YI',
+			'rtl'	=> true,
+		),
 	);
 }
