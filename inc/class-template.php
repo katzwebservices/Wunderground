@@ -69,6 +69,9 @@ class Wunderground_Template {
 			'chance_of_precipitation_title' => __('%s%% Chance of Precipitation', 'wunderground'),
 			'date_format' => __('m/d', 'wunderground'),
 			'currently' => __('Currently', 'wunderground'),
+			'high' => __('High %d&deg;', 'wunderground'),
+			'low' => __('Low %d&deg;', 'wunderground'),
+			'current' => __('%d&deg;', 'wunderground'),
 			'view_forecast' => __('View the %s forecast on Wunderground.com', 'wunderground'),
 		);
 
@@ -118,7 +121,13 @@ class Wunderground_Template {
 				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-vertical.png', Wunderground_Plugin::$file ).'" />',
 				'path' => '',
 				'label' => __('Details Table', 'wunderground'),
-				'desc' => __('Display the forecast in a table. Great for in-depth forecast display.', 'wunderground'),
+				'desc' => __('Display the forecast in a table with rows. Great for in-depth forecast display.', 'wunderground'),
+			),
+			'table-horizontal' => array(
+				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-vertical.png', Wunderground_Plugin::$file ).'" />',
+				'path' => '',
+				'label' => __('Horizontal Table', 'wunderground'),
+				'desc' => __('Display the forecast in a table with columns. Great for forecast summaries.', 'wunderground'),
 			),
 		);
 

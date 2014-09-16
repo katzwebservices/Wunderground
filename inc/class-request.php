@@ -97,6 +97,11 @@ class Wunderground_Request {
 		Wunderground_Plugin::log_debug('Wunderground_Request results for URL '. $url, $this->results);
 	}
 
+	/**
+	 * V2 of the API had broken response JSON that ended with commas. This fixes that.
+	 * @param  [type] $response [description]
+	 * @return [type]           [description]
+	 */
 	private function _v2_json_fix( $response ) {
 
 		$response = preg_replace( '/\}\s+,\s+?\}$/ism', "\t}\n}", $response );

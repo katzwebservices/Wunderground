@@ -43,7 +43,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			'description' => __( 'Add a forecast.')
 		);
 
-		$control_options = array( 'width'=> 400 ); // Min-width of widgets config with expanded sidebar
+		$control_options = array(); // Min-width of widgets config with expanded sidebar
 
 		parent::WP_Widget( false, __('Wunderground'), $widget_ops, $control_options );
 	}
@@ -82,6 +82,13 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		$data = $instance;
 		$data['widget'] = $args;
+		$data['class'] = isset( $data['class'] ) ? $data['class'] : 'wp_wunderground';
+
+		$language_details = wunderground_get_language( $data['language'], true );
+		if( !empty( $language_details['rtl'] ) ) {
+			$data['class'] .= ' wu-rtl';
+		}
+
 		$data['forecast'] = $forecast;
 		$data['location'] = $instance['city'];
 		$data['location_title'] = empty( $instance['location_title'] ) ? $data['location'] : $instance['location_title'];
@@ -139,7 +146,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			'measurement' => 'english',
 			'language' => wunderground_get_language(),
 			'numdays' => '5',
-			'showdata' => array('alerts', 'pop', 'night', 'date'),
+			'showdata' => array('alerts', 'daynames', 'pop', 'night', 'date'),
 		));
 
 		extract($instance);
@@ -160,14 +167,14 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 				<p class="description"><?php _e('Locations will autoload, but you may also define custom locations.', 'wunderground'); ?></p>
 				<input type="text" class="wu-autocomplete widefat" autocomplete="false" id="<?php echo $this->get_field_id('city'); ?>" name="<?php echo $this->get_field_name('city'); ?>" value="<?php echo esc_attr( $city ); ?>" placeholder="<?php esc_attr_e( 'Enter the name of a location.', 'wunderground' ); ?>" />
 			</label>
-			<input type="hidden" class="wu-location-data" id="<?php echo $this->get_field_id('location_data'); ?>" name="<?php echo $this->get_field_name('location_data'); ?>" value="<?php echo $location_data; ?>" />
+			<input type="hidden" class="wu-location-data" id="<?php echo $this->get_field_id('location_data'); ?>" name="<?php echo $this->get_field_name('location_data'); ?>" value="<?php esc_attr_e( $location_data ); ?>" />
 		</div>
 
 		<div class="setting-wrapper">
 			<label for="<?php echo $this->get_field_id('location_title'); ?>">
 				<h3><?php _e('Location Title', 'wunderground'); ?></h3>
 				<p class="description"><?php esc_attr_e( 'Change how the location is displayed in the widget search field.', 'wunderground'); ?></p>
-				<input type="text" class="widefat" id="<?php echo $this->get_field_id('location_title'); ?>" name="<?php echo $this->get_field_name('location_title'); ?>" value="<?php echo esc_attr( $location_title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the location name.', 'wunderground' ); ?>" />
+				<input type="text" class="widefat" id="<?php echo $this->get_field_id('location_title'); ?>" name="<?php echo $this->get_field_name('location_title'); ?>" value="<?php esc_attr_e( $location_title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the location name.', 'wunderground' ); ?>" />
 				<span class="howto"><?php esc_attr_e( 'Example: if the Location is set to "Denver, Colorado", you may prefer to set the Location Title as "Denver", which is simpler.', 'wunderground' ); ?></span>
 			</label>
 		</div>
@@ -178,7 +185,22 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			$days_select = wunderground_render_select($this->get_field_name('numdays'), $this->get_field_id('numdays'), array( '1' => 1, '3' => 3, '5' => 5, '10' => 10 ), $numdays);
 
 			echo sprintf('<label for="%s"><h3>%s</h3> %s</label>', $this->get_field_id('numdays'), __('# of Days in Forecast'), $days_select);
+
 		?>
+			<p>
+				<label>
+					<input type="checkbox" value="current" name="<?php echo $this->get_field_name('showdata'); ?>[current]" <?php checked( in_array( 'current' , (array)$showdata ), true ); ?> />
+					<span class="title"><?php esc_html_e( 'Include Current Conditions', 'wunderground'); ?></span>
+					<span class="howto"><?php esc_html_e( 'Add the current conditions to the forecast.', 'wunderground' ); ?></span>
+				</label>
+			</p>
+			<p>
+				<label>
+					<input type="checkbox" value="night" name="<?php echo $this->get_field_name('showdata'); ?>[night]" <?php checked( in_array( 'night' , (array)$showdata ), true ); ?> />
+					<span class="title"><?php esc_html_e( 'Include Night Forecasts', 'wunderground'); ?></span>
+					<span class="howto"><?php esc_html_e( 'This will result in double the number of forecasts shown.', 'wunderground' ); ?></span>
+				</label>
+			</p>
 		</div>
 
 		<div class="setting-wrapper icons">
@@ -200,7 +222,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 						<input class="alignleft" type="radio" value="%s" name="%s" id="%s" %s />
 						<span class="title">%s</span>
 						<span class="alignleft icon">
-							<img src="%s/clear.gif" />
+							<img src="%s/clear.gif" alt="" />
 						</span>
 					</label>
 				</li>', $name, $this->get_field_name('iconset'), $this->get_field_id('iconset'), $checked, $name, wunderground_get_icon( $name ) );
@@ -221,17 +243,18 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			<ul>
 			<?php
 				$boxes = array(
+					'daynames' => __('Weekday Labels', 'wunderground'),
 					'icon' => __('Weather Icon', 'wunderground'),
-					'night' => __('Night Forecasts', 'wunderground'),
+					'pop' => __('Chance of Rain', 'wunderground'),
+					'highlow' => __('High & Low Temp', 'wunderground'),
 					'conditions' => __('Condition Title', 'wunderground'),
 					'text' => __('Forecast Text', 'wunderground'),
-					'pop' => __('Chance of Rain', 'wunderground'),
 					'summary' => __('Today\'s Weather Summary', 'wunderground'),
 					'alerts' => __('Weather Alerts &amp; Warnings', 'wunderground'),
 					'date' => __('Date', 'wunderground'),
 				);
 				foreach ($boxes as $value => $label) {
-					printf('<li><label><input type="checkbox" value="%s" name="%s[%s]" %s /> <span class="title">%s</span></label></li>', $value, $this->get_field_name('showdata'), $value, checked( in_array( $value , (array)$showdata ), true , false ), $label );
+					printf('<li><label><input type="checkbox" value="%s" name="%s[%s]" %s /> <span class="title">%s</span></label></li>', $value, $this->get_field_name('showdata'), $value, checked( in_array( $value , (array)$showdata ), true , false ), esc_html( $label ) );
 				}
 			?>
 			</ul>
@@ -242,7 +265,9 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			<h3><?php _e('Forecast Language', 'wunderground'); ?></h3>
 			<?php
 
-			echo wunderground_render_select($this->get_field_name('language'), $this->get_field_id('language'), wunderground_get_languages(), $language);
+			$languages = wp_list_pluck( wunderground_get_languages(), 'label', 'key' );
+
+			echo wunderground_render_select($this->get_field_name('language'), $this->get_field_id('language'), $languages, $language);
 			?>
 			</label>
 		</div>

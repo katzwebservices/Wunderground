@@ -156,7 +156,11 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 
 == Changelog ==
 
+* Fixed: Widget location data saving is fixed
 * Fixed: Number of days display properly for the Simple forecast
+* Added: Support for RTL languages
+* Added: Horizontal Table picker for widget
+* Added: Night forecast support for picker
 * Added: Locally host icons
 * Fixed: Hide chance of precipitation when not set
 * Show temperature in lieu of high/low for current conditions
