@@ -1,0 +1,3 @@
+{% if showdata.conditions is not empty %}
+	<{{tag}} class="wu-cond-text">{{ forecast.condition ? forecast.condition|raw : day.condition|raw }}</{{tag}}>
+{% endif %}

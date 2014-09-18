@@ -1,0 +1,7 @@
+{% if showdata.text is not empty %}
+	{% if forecast.text is not empty %}
+		<{{tag}} class="wu-forecast-text">{{ forecast.text }}</{{tag}}>
+	{% else %}
+		<{{tag}} class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie|raw }}</{{tag}}>
+	{% endif %}
+{% endif %}

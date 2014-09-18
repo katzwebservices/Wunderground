@@ -7,46 +7,29 @@
 	path to the file would look like this:
 	/wp-content/themes/my-theme/wunderground/example.html
 #}
-
 <td>
 
-	{% if showdata.icon != '' %}
-		<div class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></div>
-	{% endif %}
+	{% include 'snippets/icon.html' with { 'tag' : 'div' } %}
 
 	<div class="wu-forecast-body">
+
 		<div class="wu-forecast-header">
-			{% if forecast.title != '' %}
-				<div class="wu-day-title">{{ forecast.title }}</div>
-			{% else %}
-				<div class="wu-day-title">{{ strings.currently }}</div>
-			{% endif %}
 
-			{% if showdata.date != '' %}
-				{# To modify the date format, check out the `strings` method in template.php #}
-				<span class="wu-date">{{ day.summary.date.epoch|date(strings.date_format) }}</span>
-			{% endif %}
+			{% include 'snippets/title.html' with { 'tag' : 'div' } %}
 
-			{% if showdata.pop != '' and forecast.pop matches '/[0-9.,]+/' %}
-				<span class="wu-cond-pop" title="{{ strings.chance_of_precipitation_title|format(forecast.pop) }}">{{ strings.chance_of_precipitation|format(forecast.pop) }}</span>
+			{% include 'snippets/date.html' with { 'tag' : 'span' } %}
 
-			{% endif %}
+			{% include 'snippets/pop.html' with { 'tag' : 'span' } %}
+
 		</div>
 
-		{% if showdata.conditions != '' %}
-			<div class="wu-cond-text">{{forecast.condition|raw }}</div>
-		{% endif %}
+		{% include 'snippets/condition.html' with { 'tag' : 'div' } %}
 
-		{% if showdata.highlow != '' %}
-		<div class="wu-cond-highlow">{% include 'snippet-high-low.html' %}</div>
-		{% endif %}
+		{% include 'snippets/text.html' with { 'tag' : 'div' } %}
 
-		{% if showdata.text != '' %}
-			{% if forecast.text != '' %}
-				<div class="wu-forecast-text">{{ forecast.text }}</div>
-			{% else %}
-				<div class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie|raw }}</div>
-			{% endif %}
-		{% endif %}
+		{% include 'snippets/high-low.html' with { 'tag' : 'div' } %}
+
+		{% include 'snippets/text.html' with { 'tag' : 'div' } %}
+
 	</div>
 </td>

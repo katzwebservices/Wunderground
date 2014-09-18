@@ -1,0 +1,24 @@
+{#
+	High/Low snippet
+#}
+
+{% if showdata.highlow is not empty %}
+
+<{{tag}} class="wu-cond-highlow">
+
+{% if summary.high|length > 0 and summary.low|length > 0 %}
+
+	<span class="wu-cond-high">{{ strings.high|format(summary.high)|raw }}</span>
+	<span class="wu-cond-split">/</span>
+	<span class="wu-cond-low">{{ strings.low|format(summary.low)|raw }}</span>
+
+{# The current forecast has no high/low; only current temperature #}
+{% elseif forecast.temperature is not empty %}
+
+	<span class="wu-cond-current">{{ strings.current|format(forecast.temperature)|raw }}</span>
+
+{% endif %}
+
+</{{tag}}>
+
+{% endif %}

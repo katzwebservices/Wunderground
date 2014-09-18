@@ -18,7 +18,7 @@
 
 	{% include 'alert.html' %}
 
-	<div class="wu-forecast-wrapper{% if showdata.icon != '' %} wu-has-icon{% endif %}">
+	<div class="wu-forecast-wrapper{% if showdata.icon is not empty %} wu-has-icon{% endif %}">
 
 		{% for i in range( low = 0, high = (numdays - 1) ) %}
 
@@ -28,9 +28,9 @@
 
 			{% include 'day-simple.html' %}
 
-			{% if showdata.night != '' %}
+			{% if showdata.night is not empty %}
 				{% set forecast = day.summary.night %}
-				{% include 'day-simple.html' %}
+				{% include 'day-simple.html' with { 'night' : true } %}
 			{% endif %}
 
 		{% endfor %}

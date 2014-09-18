@@ -9,17 +9,19 @@
 #}
 
 <div class="wu-simple-forecast-day">
-	{% if showdata.icon != '' %}
-	<div class="wu-cond-icon">
-		<img src="{{user_icon_url}}/{{forecast.icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" />
-	</div>
-	{% endif %}
+
+	{% include 'snippets/icon.html' with { 'tag' : 'div' } %}
+
 	<div class="wu-forecast-body">
-		<div class="wu-day-title">{{ forecast.title }}</div>
-		<div class="wu-cond-text">{{ forecast.condition }}</div>
-		<div class="wu-cond-highlow">{{ include 'snippet-high-low.html' }}</div>
-		{% if showdata.pop != '' and forecast.pop matches '/[0-9.,]+/' %}
-		<div class="wu-cond-pop">{{ strings.chance_of_precipitation|format(forecast.pop) }}</div>
-		{% endif %}
+
+		{% include 'snippets/title.html' with { 'tag' : 'div' } %}
+
+		{% include 'snippets/condition.html' with { 'tag' : 'div' } %}
+
+		{% include 'snippets/high-low.html' with { 'tag' : 'div' } %}
+
+		{% include 'snippets/pop.html' with { 'tag' : 'div' } %}
+
 	</div>
+
 </div>

@@ -1,0 +1,10 @@
+{% if showdata.daynames is not empty %}
+	{% if forecast.title is not empty %}
+		<{{tag}} class="wu-day-title">{{ forecast.title }}</{{tag}}>
+	{# Sometimes PWS stations don't have the title available #}
+	{% elseif summary.date.weekday is not empty %}
+		<{{tag}} class="wu-day-title">{{ summary.date.weekday }}</{{tag}}>
+	{% else %}
+		<{{tag}} class="wu-day-title">{{ strings.currently }}</{{tag}}>
+	{% endif %}
+{% endif %}

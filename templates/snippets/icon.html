@@ -1,0 +1,10 @@
+{% if showdata.icon is not empty %}
+
+	{% if forecast.icon is not empty %}
+		{% set icon = forecast.icon %}
+	{% else %}
+		{% set icon = day.icon %}
+	{% endif %}
+
+	<{{tag}} class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></{{tag}}>
+{% endif %}

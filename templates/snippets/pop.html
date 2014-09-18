@@ -1,0 +1,3 @@
+{% if showdata.pop is not empty and forecast.pop matches '/[0-9.,]+/' %}
+	<{{tag}} class="wu-cond-pop" title="{{ strings.chance_of_precipitation_title|format(forecast.pop) }}">{{ strings.chance_of_precipitation|format(forecast.pop) }}</{{tag}}>
+{% endif %}

@@ -17,12 +17,11 @@
 
 	{% include 'alert.html' %}
 
-
 	<div class="wu-forecast-wrapper">
 
 		<table cellpadding="0" cellspacing="0" border="0"'.$width.' class="wu-table-{{numdays}}">
 
-			{% if showdata.daynames != '' %}
+			{% if showdata.daynames is not empty %}
 			<thead>
 				<tr>
 				{% for i in range( low = 0, high = (numdays - 1) ) %}
@@ -36,9 +35,8 @@
 				<tr class="forecast">
 
 				{# Show the current forecast #}
-				{% if showdata.current != '' and wunderground.current_observation|length > 0 %}
+				{% if showdata.current is not empty and wunderground.current_observation|length > 0 %}
 					{% set day = wunderground.current_observation %}
-					{% set icon = day.icon %}
 					{% include 'table-horizontal-cell.html' %}
 				{% endif %}
 
@@ -47,13 +45,12 @@
 					{% set day = wunderground.forecast.days[i] %}
 					{% set summary = day.summary %}
 					{% set forecast = day.summary.day %}
-					{% set icon = forecast.icon %}
 
 					{% include 'table-horizontal-cell.html' %}
 
-					{% if showdata.night != '' %}
+					{% if showdata.night is not empty %}
 						{% set forecast = day.summary.night %}
-						{% include 'table-horizontal-cell.html' %}
+						{% include 'table-horizontal-cell.html' with { 'night' : true } %}
 					{% endif %}
 
 				{% endfor %}

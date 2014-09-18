@@ -9,45 +9,27 @@
 #}
 <tr class="forecast">
 
-{% if showdata.icon != '' %}
-	<td class="wu-icon"><img src="{{user_icon_url}}/{{forecast.icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></td>
-{% endif %}
+	{% include 'snippets/icon.html' with { 'tag' : 'td' } %}
 
 	<td>
 		<div class="wu-forecast-body">
+
 			<div class="wu-forecast-header">
-				{% if forecast.title != '' %}
-					<span class="wu-day-title">{{ forecast.title }}</span>
-				{% else %}
-					<span class="wu-day-title">{{ strings.currently }}</span>
-				{% endif %}
 
-				{% if showdata.date != '' %}
-					{# To modify the date format, check out the `strings` method in template.php #}
-					<span class="wu-date">{{ day.summary.date.epoch|date(strings.datelabel) }}</span>
-				{% endif %}
+				{% include 'snippets/title.html' with { 'tag' : 'span' } %}
 
-				{% if showdata.pop != '' and forecast.pop matches '/[0-9.,]+/' %}
-					<span class="wu-cond-pop" title="{{ strings.chance_of_precipitation_title|format(forecast.pop) }}">{{ strings.chance_of_precipitation|format(forecast.pop) }}</span>
-				{% endif %}
+				{% include 'snippets/date.html' with { 'tag' : 'span' } %}
+
+				{% include 'snippets/pop.html' with { 'tag' : 'span' } %}
+
 			</div>
 
-			{% if showdata.highlow != '' %}
-				<div class="wu-cond-highlow">{% include 'snippet-high-low.html' %}</div>
-			{% endif %}
+			{% include 'snippets/high-low.html' with { 'tag' : 'div' } %}
 
-			{% if showdata.conditions != '' %}
-				<div class="wu-cond-text">{{ forecast.condition }}</div>
-			{% endif %}
+			{% include 'snippets/condition.html' with { 'tag' : 'div' } %}
 
-			{% if showdata.text != '' %}
-				{% if forecast.text|length > 0 %}
-					<div class="wu-forecast-text">{{ forecast.text|raw }}</div>
-				{% else %}
-					{# The reason this is "raw" is that there are often <spans> in the quickie #}
-					<div class="wu-forecast-text">{{ wunderground.forecast.days[0].summary.weather_quickie|raw }}</div>
-				{% endif %}
-			{% endif %}
+			{% include 'snippets/text.html' with { 'tag' : 'div' } %}
+
 		</div>
 	</td>
 </tr>

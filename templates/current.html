@@ -25,16 +25,12 @@
 
 			<div class="wu-day-title">
 				<span class="wu-day-current-temp">{{ day.temperature|round }}<sup>&deg;</sup></span>
-				<small>{{ day.unit_abbr }}</small>
+				<small>{% if wunderground.response.units == 'english' %}F{% else %}C{% endif %}</small>
 			</div>
 
-			<div class="wu-cond-icon">
-				<img src="{{user_icon_url}}/{{day.icon}}.gif" alt="{{day.conditions}}" width="100" height="100" />
-			</div>
+			{% include 'snippets/icon.html' with { 'tag' : 'div' } %}
 
-			{% if showdata.conditions != '' %}
-				<div class="wu-cond-text">{{day.condition}}</div>
-			{% endif %}
+			{% include 'snippets/condition.html' with { 'tag' : 'div' } %}
 
 		</div>
 

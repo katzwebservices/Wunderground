@@ -3,13 +3,13 @@
 	Learn more at: http://twig.sensiolabs.org/doc/templates.html
 #}
 
-{% if showdata.alerts != '' and forecast.alerts|length > 0 %}
+{% if showdata.alerts is not empty and forecast.alerts is not empty %}
 	{% for alert in forecast.alerts.alerts %}
 	<div class="wu-alert wu-alert-{{ alert.type }}">
 		<h3>{{ alert.description }}</h3>
 		<dl>
-			<dt>Issued:</dt><dd>{{ alert.date }}</dd>
-			<dt>Expires:</dt><dd>{{ alert.expires }}</dd>
+			<dt>{{ strings.alert_issued }}</dt><dd>{{ alert.date }}</dd>
+			<dt>{{ strings.alert_expires }}</dt><dd>{{ alert.expires }}</dd>
 		</dl>
 	</div>
 	{% endfor %}
