@@ -40,10 +40,10 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname' => 'wunderground',
-			'description' => __( 'Add a forecast.')
+			'description' => __( 'Add a Wunderground.com forecast')
 		);
 
-		$control_options = array(); // Min-width of widgets config with expanded sidebar
+		$control_options = array( 'width' => 450 ); // Min-width of widgets config with expanded sidebar
 
 		parent::WP_Widget( false, __('Wunderground'), $widget_ops, $control_options );
 	}
@@ -135,19 +135,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 	 */
 	function form( $instance ) {
 
-		//Defaults
-		$instance = wp_parse_args( (array) $instance, array(
-			'title' => __('Weather Forecast', 'wunderground'),
-			'city' => '',
-			'location_title' => NULL,
-			'location_data' => '',
-			'layout' => 'table-vertical',
-			'iconset' => 'Incredible',
-			'measurement' => 'english',
-			'language' => wunderground_get_language(),
-			'numdays' => '5',
-			'showdata' => array('alerts', 'daynames', 'pop', 'night', 'date'),
-		));
+		$instance = wunderground_parse_atts( $instance );
 
 		extract($instance);
 
@@ -182,7 +170,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		<div class="setting-wrapper">
 		<?php
 
-			$days_select = wunderground_render_select($this->get_field_name('numdays'), $this->get_field_id('numdays'), array( '1' => 1, '3' => 3, '5' => 5, '10' => 10 ), $numdays);
+			$days_select = wunderground_render_select($this->get_field_name('numdays'), $this->get_field_id('numdays'), array( 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10 ), $numdays);
 
 			echo sprintf('<label for="%s"><h3>%s</h3> %s</label>', $this->get_field_id('numdays'), __('# of Days in Forecast'), $days_select);
 
@@ -243,18 +231,49 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			<ul>
 			<?php
 				$boxes = array(
-					'daynames' => __('Weekday Labels', 'wunderground'),
-					'icon' => __('Weather Icon', 'wunderground'),
-					'pop' => __('Chance of Rain', 'wunderground'),
-					'highlow' => __('High & Low Temp', 'wunderground'),
-					'conditions' => __('Condition Title', 'wunderground'),
-					'text' => __('Forecast Text', 'wunderground'),
-					'summary' => __('Today\'s Weather Summary', 'wunderground'),
-					'alerts' => __('Weather Alerts &amp; Warnings', 'wunderground'),
-					'date' => __('Date', 'wunderground'),
+					'search' => array(
+						'label' => __('Search Form', 'wunderground'),
+						'description' => __('Allow searching weather forecasts.')
+					),
+					'daynames' => array(
+						'label' => __('Weekday Labels', 'wunderground'),
+						'description' => __('Show the names of the days of the week.')
+					),
+					'date' => array(
+						'label' => __('Date', 'wunderground'),
+						'description' => __('Display the date numerically ("09/14").', 'wunderground'),
+					),
+					'icon' => array(
+						'label' => __('Weather Icon', 'wunderground'),
+						'description' => __('Icon representing the forecast conditions.', 'wunderground'),
+					),
+					'pop' => array(
+						'label' => __('Chance of Rain', 'wunderground'),
+						'description' => __('Display the percent chance of rain.', 'wunderground'),
+					),
+					'highlow' => array(
+						'label' => __('High & Low Temp', 'wunderground'),
+						'description' => __('Show the high & low temperatures for forecast.', 'wunderground'),
+					),
+					'conditions' => array(
+						'label' => __('Condition Title', 'wunderground'),
+						'description' => __('Short summary of conditions ("Clear", "Partly Cloudy", etc.).', 'wunderground'),
+					),
+					'text' => array(
+						'label' => __('Forecast Text', 'wunderground'),
+						'description' => __('Display a description of the forecast, normally in sentence format.', 'wunderground'),
+					),
+					'alerts' => array(
+						'label' => __('Weather Alerts &amp; Warnings', 'wunderground'),
+						'description' => __('This functionality is currently not working; we are working with Wunderground.com to restore it.', 'wunderground'),
+					),
 				);
-				foreach ($boxes as $value => $label) {
-					printf('<li><label><input type="checkbox" value="%s" name="%s[%s]" %s /> <span class="title">%s</span></label></li>', $value, $this->get_field_name('showdata'), $value, checked( in_array( $value , (array)$showdata ), true , false ), esc_html( $label ) );
+				foreach ($boxes as $value => $box) {
+
+					$label = esc_html( $box['label'] );
+					$description = esc_html( $box['description'] );
+
+					printf('<li><label><input type="checkbox" value="%s" name="%s[%s]" %s /> <span class="title">%s</span>%s</label></li>', $value, $this->get_field_name('showdata'), $value, checked( in_array( $value , (array)$showdata ), true , false ), $label, '<span class="howto">'.$description.'</span>' );
 				}
 			?>
 			</ul>

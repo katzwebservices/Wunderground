@@ -28,7 +28,7 @@
 				<small>{% if wunderground.response.units == 'english' %}F{% else %}C{% endif %}</small>
 			</div>
 
-			{% include 'snippets/icon.html' with { 'tag' : 'div' } %}
+			{% include 'snippets/icon.html' with { 'tag' : 'div', 'iconsize' : '100' } %}
 
 			{% include 'snippets/condition.html' with { 'tag' : 'div' } %}
 

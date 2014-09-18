@@ -5,8 +5,10 @@
 
 *.codekit
 
-/vendor/twig/twig/test/*
-/vendor/twig/twig/doc/*
-
 .DS_Store
+
 *.lock
+
+/vendor/twig/twig/test/*
+
+/vendor/twig/twig/doc/*

@@ -14,20 +14,7 @@
  */
 function wunderground_shortcode( $passed_atts = array() , $content = NULL, $shortcode = 'wunderground' ) {
 
-	$defaults = array(
-		'location_title' => NULL,
-		'location'	=>	'Denver, Colorado',
-		'iconset' 	=> 	'Incredible',
-		'numdays'	=>	5,
-		'class'		=>	'wp_wunderground',
-		'layout'	=>	'table-vertical',
-		'measurement' => 'english',
-		'language' => wunderground_get_language(),
-		'showdata' => array('alerts','pop','icon','text', 'conditions', 'date'),
-		'hidedata' => array(),
-	);
-
-	$atts = wunderground_parse_atts( $defaults, $passed_atts, $shortcode );
+	$atts = wunderground_parse_atts( $passed_atts, $shortcode );
 
 	ob_start();
 
@@ -42,16 +29,35 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL, $shor
 	return $content;
 }
 
+
 /**
  * Handle edgecases and validation for shortcode attributes.
- * @param  array      $parsed   [description]
- * @param  array      $passed   [description]
- * @param  array      $defaults [description]
+ * @param  array      $passed_atts   Array of values to parse
+ * @param  array      $shortcode Name of shortcode being used (`wunderground`)
  * @return array                [description]
  */
-function wunderground_parse_atts( $defaults, $passed_atts ) {
+function wunderground_parse_atts( $passed_atts, $shortcode = 'wunderground' ) {
 
-	$atts = shortcode_atts( $defaults, $passed_atts, 'wunderground' );
+	$defaults = array(
+		'title' => __('Weather Forecast', 'wunderground'),
+		'location_title' => NULL,
+		'location_data' => '',
+		'city' 		=> '',
+		'location'	=>	'Denver, Colorado',
+		'iconset' 	=> 	'Incredible',
+		'numdays'	=>	5,
+		'class'		=>	'wp_wunderground',
+		'layout'	=>	'table-vertical',
+		'measurement' => 'english',
+		'language' => wunderground_get_language(),
+		'showdata' => array('search', 'alerts', 'daynames','pop','icon','text', 'conditions', 'date'),
+	);
+
+	if( !empty( $shortcode ) ) {
+		$atts = shortcode_atts( $defaults, $passed_atts, $shortcode );
+	} else {
+		$atts = wp_parse_args( (array)$passed_atts, $defaults );
+	}
 
 	// If there was no numdays passed,
 	// 4 is a better default for table-horizontal layout
@@ -126,7 +132,7 @@ function wunderground_get_icon( $icon = 'Incredible' ) {
  * @return string      URL of logo
  */
 function wunderground_get_logo() {
-	return plugins_url( 'assets/img/logos/wundergroundLogo_4c_horz.gif', Wunderground_Plugin::$file );
+	return plugins_url( 'assets/img/logos/wundergroundLogo_4c_horz.png', Wunderground_Plugin::$file );
 }
 
 /**

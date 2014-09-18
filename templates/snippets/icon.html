@@ -6,5 +6,9 @@
 		{% set icon = day.icon %}
 	{% endif %}
 
-	<{{tag}} class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="50" height="50" /></{{tag}}>
+	{% if iconsize is empty %}
+		{% set iconsize = '50' %}
+	{% endif %}
+
+	<{{tag}} class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="{{iconsize}}" height="{{iconsize}}" /></{{tag}}>
 {% endif %}

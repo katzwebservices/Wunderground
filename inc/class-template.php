@@ -65,6 +65,7 @@ class Wunderground_Template {
 
 		return array(
 			'alert_statement_as_of' => __('Statement as of %s', 'wunderground'),
+			'no_results' => __('The location could not be found.', 'wunderground'),
 			'chance_of_precipitation' => __('%s%%', 'wunderground'),
 			'chance_of_precipitation_title' => __('%s%% Chance of Precipitation', 'wunderground'),
 			'date_format' => __('m/d', 'wunderground'),
@@ -73,6 +74,8 @@ class Wunderground_Template {
 			'low' => __('Low %d&deg;', 'wunderground'),
 			'current' => __('%d&deg;', 'wunderground'),
 			'view_forecast' => __('View the %s forecast on Wunderground.com', 'wunderground'),
+			'alert_issued' => _x('Issued:', 'Weather alert issued date/time', 'wunderground'),
+			'alert_expires' => _x('Expires:', 'Weather alert expires date/time', 'wunderground'),
 		);
 
 	}
@@ -97,6 +100,9 @@ class Wunderground_Template {
 
 		// Enqueue the scripts
 		do_action('wunderground_print_scripts', true);
+
+		// Filter the data passed to the template
+		$data = apply_filters( 'wunderground_template_data', apply_filters( 'wunderground_template_data_'.$template, $data ) );
 
 		echo $this->twig->render("{$template}.html", $data);
 

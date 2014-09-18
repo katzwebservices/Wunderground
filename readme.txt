@@ -10,7 +10,7 @@ Get accurate and beautiful weather forecasts powered by Wunderground.com for you
 
 == Description ==
 
-<blockquote><p>"[WP Wunderground] is by far, the best weather plugin i've ever seen on a CMS before. Not even Joomla has something so powerful, good looking and yet easy to implement."<br /><cite>Robson</cite></p></blockquote>
+<blockquote><p>"[WP Wunderground] is by far, the best weather plugin I've ever seen on a CMS before. Not even Joomla has something so powerful, good looking and yet easy to implement."<br /><cite>Robson</cite></p></blockquote>
 
 <h3>Wunderground is the best WordPress weather site.</h3>
 
@@ -156,14 +156,23 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 
 == Changelog ==
 
+= 2.0.4 =
 * Fixed: Widget location data saving is fixed
 * Fixed: Number of days display properly for the Simple forecast
 * Added: Support for RTL languages
-* Added: Horizontal Table picker for widget
+* Added: Show the Horizontal Table layout in widget options
+* Tweak: Move widget settings around
 * Added: Night forecast support for picker
 * Added: Locally host icons
-* Fixed: Hide chance of precipitation when not set
-* Show temperature in lieu of high/low for current conditions
+* Fixed: Fixed: Hide chance of precipitation when not set
+* Fixed: Show current forecast in horizontal table mode
+* Fixed: Show temperature in lieu of high/low for current conditions
+* Modified: Converted template files to include snippets for forecast elements
+* Tweak: Update language files
+* Tweak: Added descriptions to widget checkboxes
+* Tweak: Add search box as an optional widget checkbox
+* Tweak: Widget now uses `wunderground_parse_atts()`
+
 = 2.0.3 =
 * Fixed: Cached results weren't being used!
 * Fixed: Autocomplete not working in admin Widgets page

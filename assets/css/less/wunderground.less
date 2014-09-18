@@ -44,10 +44,15 @@
 }
 
 .wu-copyright {
-	position: absolute;
-	top: .5em;
-	right: 0;
+
+	float: right;
 	text-align: right;
+
+	.wu-rtl & {
+		float: left;
+		text-align: left;
+	}
+
 	font-size: 80%;
 	z-index: 101;
 

@@ -13,7 +13,7 @@ class Wunderground_Forecast {
 	 * Array of day objects
 	 * @var array
 	 */
-	var $days = array();
+	var $days = NULL;
 
 	function __construct( Wunderground_Request $request ) {
 
@@ -26,7 +26,10 @@ class Wunderground_Forecast {
 			return NULL;
 		}
 
+
 		if( !empty( $results->forecast ) && !empty( $results->forecast->days ) ) {
+
+			$this->days = array();
 
 			foreach ($results->forecast->days as $key => $day ) {
 				$this->days[] = new Wunderground_Forecast_Summary( $day );
