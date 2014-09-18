@@ -130,7 +130,7 @@ class Wunderground_Template {
 				'desc' => __('Display the forecast in a table with rows. Great for in-depth forecast display.', 'wunderground'),
 			),
 			'table-horizontal' => array(
-				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-vertical.png', Wunderground_Plugin::$file ).'" />',
+				'thumbnail' => '<img src="'.plugins_url( 'assets/img/thumbnail/table-horizontal.png', Wunderground_Plugin::$file ).'" />',
 				'path' => '',
 				'label' => __('Horizontal Table', 'wunderground'),
 				'desc' => __('Display the forecast in a table with columns. Great for forecast summaries.', 'wunderground'),
