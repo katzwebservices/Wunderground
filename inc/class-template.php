@@ -68,7 +68,6 @@ class Wunderground_Template {
 			'no_results' => __('The location could not be found.', 'wunderground'),
 			'chance_of_precipitation' => __('%s%%', 'wunderground'),
 			'chance_of_precipitation_title' => __('%s%% Chance of Precipitation', 'wunderground'),
-			'date_format' => __('m/d', 'wunderground'),
 			'currently' => __('Currently', 'wunderground'),
 			'high' => __('High %d&deg;', 'wunderground'),
 			'low' => __('Low %d&deg;', 'wunderground'),
@@ -101,7 +100,10 @@ class Wunderground_Template {
 		// Enqueue the scripts
 		do_action('wunderground_print_scripts', true);
 
-		// Filter the data passed to the template
+		/**
+		 * Filter the data passed to the template
+		 * @var array
+		 */
 		$data = apply_filters( 'wunderground_template_data', apply_filters( 'wunderground_template_data_'.$template, $data ) );
 
 		echo $this->twig->render("{$template}.html", $data);

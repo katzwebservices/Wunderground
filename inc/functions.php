@@ -6,10 +6,10 @@
 
 /**
  * The Wunderground shortcode
- * @filter default text
- * @action default text
- * @param  array       $passed_atts [description]
- * @param  [type]      $content     [description]
+ *
+ * @action wunderground_render_template Render the template with the settings passed to the shortcode
+ * @param  string|array       $passed_atts  String or array of settings for the shortcode
+ * @param  string      $content     Content inside shortcode tags. Should be empty.
  * @return [type]                   [description]
  */
 function wunderground_shortcode( $passed_atts = array() , $content = NULL, $shortcode = 'wunderground' ) {
@@ -32,6 +32,8 @@ function wunderground_shortcode( $passed_atts = array() , $content = NULL, $shor
 
 /**
  * Handle edgecases and validation for shortcode attributes.
+ *
+ * @link http://codex.wordpress.org/Formatting_Date_and_Time Date & Time formatting
  * @param  array      $passed_atts   Array of values to parse
  * @param  array      $shortcode Name of shortcode being used (`wunderground`)
  * @return array                [description]
@@ -49,6 +51,7 @@ function wunderground_parse_atts( $passed_atts, $shortcode = 'wunderground' ) {
 		'class'		=>	'wp_wunderground',
 		'layout'	=>	'table-vertical',
 		'measurement' => 'english',
+		'datelabel'	=> 'm/d',
 		'language' => wunderground_get_language(),
 		'showdata' => array('search', 'alerts', 'daynames','pop','icon','text', 'conditions', 'date'),
 	);
@@ -58,6 +61,8 @@ function wunderground_parse_atts( $passed_atts, $shortcode = 'wunderground' ) {
 	} else {
 		$atts = wp_parse_args( (array)$passed_atts, $defaults );
 	}
+
+	$atts['datelabel'] = wunderground_get_date_format( $atts['datelabel'] );
 
 	// If there was no numdays passed,
 	// 4 is a better default for table-horizontal layout
@@ -205,6 +210,41 @@ function wunderground_get_autocomplete_country_code() {
 	// (get_locale() === 'en_US' ? 'US' : NULL)
 
 	return apply_filters( 'wunderground_autocomplete_country_code', NULL );
+}
+
+/**
+ * Get the date format for the output.
+ *
+ * Backward compatibile with 1.x by converting %%weekday%%, %%day%%, %%month%% and %%year%% into PHP date formats. Also supports converting `date('d/m/Y')` to `d/m/Y`
+ *
+ * @link http://codex.wordpress.org/Formatting_Date_and_Time Learn more about formatting datetime
+ * @filter wunderground_date_format Filter the date format sitewide.
+ * @param  string $format PHP date format
+ * @return string         PHP date format
+ */
+function wunderground_get_date_format( $format = 'm/d' ) {
+
+	$default_format = 'm/d';
+
+	$format = empty( $format ) ? $default_format : $format;
+
+// Backward compatibility
+
+	// Replace placeholder tags with PHP date format
+	$format = str_replace( '%%weekday%%', 'l', $format );
+	$format = str_replace( '%%day%%', 'j', $format );
+	$format = str_replace( '%%month%%', 'm', $format );
+	$format = str_replace( '%%year%%', 'Y', $format );
+
+	// Then we look for the php date() function by matching:
+	// date('[stuff in here]') or date("[stuff in here]")
+	if( preg_match('/date\([\'"]{0,1}(.*?)[\'"]{0,1}\)/xism', $format, $matches) ) {
+		$format = $matches[1];
+	}
+
+// End backward compatibility
+
+	return apply_filters( 'wunderground_date_format', $format );
 }
 
 function wunderground_get_language( $language = NULL, $language_details = false ) {
