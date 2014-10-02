@@ -144,15 +144,15 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		<div class="setting-wrapper">
 			<label for="<?php echo $this->get_field_id('title'); ?>">
-				<h3><?php _e('Title', 'wunderground'); ?></h3>
+				<h3><?php esc_html_e('Title', 'wunderground'); ?></h3>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to hide the widget title.', 'wunderground' ); ?>" />
 			</label>
 		</div>
 
 		<div class="setting-wrapper autocomplete" id="<?php echo $this->get_field_id('autocomplete'); ?>">
 			<label for="<?php echo $this->get_field_id('city'); ?>">
-				<h3><?php _e('Location', 'wunderground'); ?></h3>
-				<p class="description"><?php _e('Locations will autoload, but you may also define custom locations.', 'wunderground'); ?></p>
+				<h3><?php esc_html_e('Location', 'wunderground'); ?></h3>
+				<p class="description"><?php esc_html_e('Locations will autoload, but you may also define custom locations.', 'wunderground'); ?></p>
 				<input type="text" class="wu-autocomplete widefat" autocomplete="false" id="<?php echo $this->get_field_id('city'); ?>" name="<?php echo $this->get_field_name('city'); ?>" value="<?php echo esc_attr( $city ); ?>" placeholder="<?php esc_attr_e( 'Enter the name of a location.', 'wunderground' ); ?>" />
 			</label>
 			<input type="hidden" class="wu-location-data" id="<?php echo $this->get_field_id('location_data'); ?>" name="<?php echo $this->get_field_name('location_data'); ?>" value="<?php esc_attr_e( $location_data ); ?>" />
@@ -160,7 +160,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		<div class="setting-wrapper">
 			<label for="<?php echo $this->get_field_id('location_title'); ?>">
-				<h3><?php _e('Location Title', 'wunderground'); ?></h3>
+				<h3><?php esc_html_e('Location Title', 'wunderground'); ?></h3>
 				<p class="description"><?php esc_attr_e( 'Change how the location is displayed in the widget search field.', 'wunderground'); ?></p>
 				<input type="text" class="widefat" id="<?php echo $this->get_field_id('location_title'); ?>" name="<?php echo $this->get_field_name('location_title'); ?>" value="<?php esc_attr_e( $location_title ); ?>" placeholder="<?php esc_attr_e( 'Leave empty to use the location name.', 'wunderground' ); ?>" />
 				<span class="howto"><?php esc_attr_e( 'Example: if the Location is set to "Denver, Colorado", you may prefer to set the Location Title as "Denver", which is simpler.', 'wunderground' ); ?></span>
@@ -192,8 +192,8 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		</div>
 
 		<div class="setting-wrapper icons">
-			<h3><?php _e('Icon Set', 'wunderground'); ?></h3>
-			<p class="description"><?php _e('Choose the look and feel of the images that will represent the weather.', 'wunderground'); ?></p>
+			<h3><?php esc_html_e('Icon Set', 'wunderground'); ?></h3>
+			<p class="description"><?php esc_html_e('Choose the look and feel of the images that will represent the weather.', 'wunderground'); ?></p>
 
 			<ul>
 		<?php
@@ -227,7 +227,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		</div>
 
 		<div class="setting-wrapper forecast">
-			<h3><?php _e('Show in Forecast', 'wunderground'); ?></h3>
+			<h3><?php esc_html_e('Show in Forecast', 'wunderground'); ?></h3>
 			<ul>
 			<?php
 				$boxes = array(
@@ -281,7 +281,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		<div class="setting-wrapper">
 			<label for="<?php echo $this->get_field_id('language'); ?>">
-			<h3><?php _e('Forecast Language', 'wunderground'); ?></h3>
+			<h3><?php esc_html_e('Forecast Language', 'wunderground'); ?></h3>
 			<?php
 
 			$languages = wp_list_pluck( wunderground_get_languages(), 'label', 'key' );
@@ -292,13 +292,13 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		</div>
 
 		<div class="setting-wrapper">
-			<h3><?php _e('Measurements', 'wunderground'); ?></h3>
+			<h3><?php esc_html_e('Measurements', 'wunderground'); ?></h3>
 			<ul>
 				<li>
-					<label class="radio"><input type="radio" class="radio" id="<?php echo $this->get_field_id('measurement_f'); ?>" name="<?php echo $this->get_field_name('measurement'); ?>" value="english" <?php checked('english', $measurement); ?> /> <span class="title"><?php _e('Fahrenheit &amp; Inches', 'wunderground'); ?></span></label>
+					<label class="radio"><input type="radio" class="radio" id="<?php echo $this->get_field_id('measurement_f'); ?>" name="<?php echo $this->get_field_name('measurement'); ?>" value="english" <?php checked('english', $measurement); ?> /> <span class="title"><?php esc_html_e('Fahrenheit &amp; Inches', 'wunderground'); ?></span></label>
 				</li>
 				<li>
-					<label class="radio"><input type="radio" class="radio" id="<?php echo $this->get_field_id('measurement_c'); ?>" name="<?php echo $this->get_field_name('measurement'); ?>" value="metric" <?php checked('metric', $measurement); ?> /> <span class="title"><?php _e('Celsius &amp; Meters', 'wunderground'); ?></span></label>
+					<label class="radio"><input type="radio" class="radio" id="<?php echo $this->get_field_id('measurement_c'); ?>" name="<?php echo $this->get_field_name('measurement'); ?>" value="metric" <?php checked('metric', $measurement); ?> /> <span class="title"><?php esc_html_e('Celsius &amp; Meters', 'wunderground'); ?></span></label>
 				</li>
 			</ul>
 		</div>
