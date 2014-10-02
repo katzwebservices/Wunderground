@@ -5,7 +5,6 @@
 <ol>
 <li><a href="https://github.com/katzwebservices/Wunderground/issues/new">Report the issue on Github</a> <strong>(much preferred)</strong></li>
 <li>Report the issue <a href="https://widget.uservoice.com/omnibox/Csq4WQZTBPGtRqSZXIsNA?mode=contact&amp;locale=en&amp;forum_id=254985&amp;contact_us=true&amp;accent_color=007DBF&amp;embed_type=popover&amp;trigger_method=custom_trigger&amp;menu=true&amp;screenshot_enabled=false&amp;contact_enabled=true&amp;feedback_enabled=false&amp;smartvote=false">using this form</a></li>
-<li><a href="zack+wunderground@katz.co">Send an email</a> <em>(not preferred)</em></li>
 </ol>
 
 
@@ -48,6 +47,7 @@
 <li><code>iconset</code> - Choose from Wunderground icon sets. Default: <code>Incredible</code>. Options are: <code>Wunderground</code>, <code>Elemental</code>, <code>Incredible</code>, <code>Helen</code>, <code>Default</code>, <code>Smiley</code>,<code>Generic</code>, <code>Old School</code>, <code>Cartoon</code>, <code>Mobile</code>, <code>Simple</code>, <code>Contemporary</code></li>
 <li><code>numdays</code> - Number of days to show in a forecast. Default: <code>5</code></li>
 <li><code>class</code> - CSS class to be added to the <code>&lt;div&gt;</code> that wraps the output. Default: <code>wp_wunderground</code></li>
+<li><code>datelabel</code> - Change the format of the date using PHP date formatting. See <a href="http://codex.wordpress.org/Formatting_Date_and_Time">Formatting Date and Time</a> for more information. Default: <code>m/d</code> (Example for October 21: <code>10/21</code>)</li>
 <li><code>layout</code> - The layout template to be used. The value of this parameter is used to find the HTML template file in the <code>templates</code> directory. For example, <code>simple</code> loads the <code>templates/simple.html</code> template file. See Templates below for how the templates are loaded and can be overruled. Default: <code>table-vertical</code>
 
 <ul>
@@ -59,17 +59,22 @@
 </li>
 <li><code>measurement</code> - Whether to show items in Fahrenheit and Imperial (<code>english</code> or <code>f</code>) or Celsius and Metric (<code>metric</code> or <code>c</code>). Default: <code>english</code></li>
 <li><code>language</code> - A two-letter code representing the language. <a href="http://www.wunderground.com/weather/api/d/docs?d=language-support&amp;MR=1">See the complete list of supported language codes here</a>. Default: <code>EN</code></li>
-<li><code>showdata</code> - The items to show in the forecast. Default: <code>alerts,pop,icon,text,date</code>
+<li><code>showdata</code> - The items to show in the forecast. Default: <code>search,alert,daynames,pop,icon,text,conditions,date</code>
 
 <ul>
-<li><code>alerts</code> - Weather alerts for the forecast area</li>
+<li><code>search</code> - Location search bar</li>
+<li><code>daynames</code> - Display the day of the week (Example: &ldquo;Thursday&rdquo;)</li>
 <li><code>icon</code> - Weather forecast icon</li>
 <li><code>pop</code> - % chance of precipitation</li>
 <li><code>text</code> - Forecast text summary</li>
-<li><code>date</code> - Show the date in the output (table templates only)</li>
+<li><code>date</code> - Show the date in the output</li>
+<li><code>conditions</code> - Short summary of conditions (&ldquo;Clear&rdquo;, &ldquo;Partly Cloudy&rdquo;, etc.)</li>
+<li><code>highlow</code> - Show the high &amp; low temperatures for forecast.</li>
+<li><code>text</code> - Display a description of the forecast, normally in sentence format.</li>
+<li><code>alerts</code> - Weather alerts for the forecast area. This functionality is not yet available.</li>
 </ul>
 </li>
-<li><code>hidedata</code> - The items to show in the forecast. Accepts the same parameters as <code>showdata</code>. Default: <code>(Empty)</code></li>
+<li><code>hidedata</code> - The items to hide in the forecast. Instead of setting what to show, use the defaults and set what to hide. Accepts the same parameters as <code>showdata</code>. Default: <code>(Empty)</code> Example: <code>hidedata="search"</code> will hide the search bar, but will show the rest of the default data.</li>
 </ul>
 
 
@@ -77,7 +82,7 @@
 
 <h3>Language</h3>
 
-<p>The Wunderground plugin attempts to use the language you defined in the WordPress admin by default. You can override the language in the plugin&rsquo;s widget and also in the shortcode using the <code>language</code> attribute. See Shortcode above for more information. You can override the default language using the <code>wunderground_default_language</code> filter.</p>
+<p>The Wunderground plugin attempts to use the language you defined in the WordPress admin by default. You can override the language in the plugin&rsquo;s widget and also in the shortcode using the <code>language</code> attribute. See Shortcode above for more information. You can override the default language using the <code>wunderground_default_language</code> filter. See the &ldquo;Filters&rdquo; section below.</p>
 
 <h3>Wunderground subdomains</h3>
 
@@ -106,6 +111,37 @@
 <p>The template uses the <a href="http://twig.sensiolabs.org">Twig template engine</a> to access the data. This helps keep the plugin secure.</p>
 
 <p>If you want to have the files located in another place, you can use the <code>wunderground_template_paths</code> filter to modify the paths checked. <a href="https://github.com/katzwebservices/Wunderground/blob/master/template.php#L30">See template.php</a> for the code.</p>
+
+<h2>Filters</h2>
+
+<h3>Language &amp; Formatting Filters</h3>
+
+<ul>
+<li><code>wunderground_enable_forecast_shortcode</code> (boolean) Disable the old <code>[forecast]</code> shortcode and only use <code>[wunderground]</code>. Default: <code>true</code></li>
+<li><code>wp_wunderground_forecast_icon</code> (string) URL path to icon. Passes two arguments: <code>$output</code> (default path), <code>$icon</code> Name of icon to be fetched</li>
+<li><code>wunderground_autocomplete_country_code</code> (string) Set the locale of the Wunderground autocomplete results. If you only want US locations, for example, return <code>US</code>. Default: <code>NULL</code></li>
+<li><code>wunderground_date_format</code> (string) Filter the date format sitewide. Return a PHP date format string. <a href="http://codex.wordpress.org/Formatting_Date_and_Time">Learn more about formatting dates</a>. Default: <code>m/d</code></li>
+<li><code>wunderground_default_language</code> (string) Override the language used by Wunderground if the WordPress language isn&rsquo;t set. Use the two-letter abbreviation of the <a href="http://www.wunderground.com/weather/api/d/docs?d=language-support&amp;MR=1">Wunderground list of languages</a> Default: <code>NULL</code></li>
+<li><code>wunderground_redirect_subdomain</code> (string) Change the subdomain used for the autocomplete results, based on the language key (see <code>wunderground_default_language</code>). Default: <code>www</code></li>
+</ul>
+
+
+<h3>Forecast Request Filters</h3>
+
+<ul>
+<li><code>wunderground_request_atts</code> (array) Modify forecast request settings passed to the <code>wp_remote_request()</code> function when calling Wunderground. By default, only sets timeout (10 seconds)</li>
+<li><code>wunderground_cache_time</code> (int) Modify the number of seconds to cache the request for. Default: <code>3600</code> (cache the request for one hour, since we&rsquo;re dealing with changing conditions)</li>
+</ul>
+
+
+<h3>Template Filters</h3>
+
+<ul>
+<li><code>wunderground_template_paths</code> (array) Paths to check for template files. Default: <code>/wunderground/</code> sub-directory of the current stylesheet directory</li>
+<li><code>wunderground_twig_debug</code> (boolean) Enable Twig template debugging. Default: if user is logged in and <code>?debug</code> is set in the URL.</li>
+<li><code>wunderground_template_data</code> (array) Data passed to the template, available in Twig template rendering engine</li>
+</ul>
+
 
 <h3>Screenshots</h3>
 
