@@ -82,6 +82,10 @@ Wunderground has been very gracious and has provided the plugin with free data -
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 
+= 2.0.7 on October 3 =
+* Fixed: `hidedata` shortcode parameter wasn't working properly
+* Modified: Removed support for `%%day%%` `%%month%%` and `%%year%%` placeholder tags
+
 = 2.0.6 on October 3 =
 * Added: Support for using using settings from Version 1.x as the defaults. This fixes the loss of your configuration if you use the `[forecast]` shortcode with no parameters.
 * Added: Lithuanian translation
@@ -175,6 +179,10 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.7 on October 3 =
+* Fixed: `hidedata` shortcode parameter wasn't working properly
+* Modified: Removed support for `%%day%%` `%%month%%` and `%%year%%` placeholder tags
 
 = 2.0.6 on October 3 =
 * Added: Support for using using settings from Version 1.x as the defaults. This fixes the loss of your configuration if you use the `[forecast]` shortcode with no parameters.
