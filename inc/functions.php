@@ -56,6 +56,9 @@ function wunderground_parse_atts( $passed_atts, $shortcode = 'wunderground' ) {
 		'showdata' => array('search', 'alerts', 'daynames','pop','icon','text', 'conditions', 'date'),
 	);
 
+	// Use previous settings as defaults to better support backward compatibility
+	$defaults = wp_parse_args( get_option('wp_wunderground', array() ), $defaults );
+
 	if( !empty( $shortcode ) ) {
 		$atts = shortcode_atts( $defaults, $passed_atts, $shortcode );
 	} else {

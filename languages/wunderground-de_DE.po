@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Wunderground\n"
 "POT-Creation-Date: 2014-10-02 14:46-0700\n"
-"PO-Revision-Date: 2014-10-02 20:47+0000\n"
-"Last-Translator: Zachary Katz <zack@katz.co>\n"
+"PO-Revision-Date: 2014-10-03 12:40+0000\n"
+"Last-Translator: Parared <webmaster@parared.de>\n"
 "Language-Team: German (Germany) (http://www.transifex.com/projects/p/wunderground/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgstr "Stand %s"
 
 #: inc/class-template.php:68
 msgid "The location could not be found."
-msgstr ""
+msgstr "Dieser Ort konnte nicht gefunden werden"
 
 #: inc/class-template.php:69
 #, php-format
@@ -49,17 +49,17 @@ msgstr "Aktuell"
 #: inc/class-template.php:73
 #, php-format
 msgid "High %d&deg;"
-msgstr ""
+msgstr "Höchsttemperatur %d&deg;"
 
 #: inc/class-template.php:74
 #, php-format
 msgid "Low %d&deg;"
-msgstr ""
+msgstr "Niedrigste Temperatur %d&deg;"
 
 #: inc/class-template.php:75
 #, php-format
 msgid "%d&deg;"
-msgstr ""
+msgstr "%d&deg;"
 
 #: inc/class-template.php:76
 #, php-format
@@ -69,12 +69,12 @@ msgstr "Die Vorhersage für %s auf Wunderground.com"
 #: inc/class-template.php:77
 msgctxt "Weather alert issued date/time"
 msgid "Issued:"
-msgstr ""
+msgstr "Veröffentlicht:"
 
 #: inc/class-template.php:78
 msgctxt "Weather alert expires date/time"
 msgid "Expires:"
-msgstr ""
+msgstr "Ablauf:"
 
 #: inc/class-template.php:117
 msgid "Current Conditions"
@@ -86,7 +86,7 @@ msgstr "Einfache Anzeige der aktuellen Bedingungen"
 
 #: inc/class-template.php:123
 msgid "Grid Forecast"
-msgstr ""
+msgstr "Gitter Vorhersage"
 
 #: inc/class-template.php:124
 msgid "Scales to any screen size."
@@ -100,20 +100,20 @@ msgstr "Details Tabelle"
 msgid ""
 "Display the forecast in a table with rows. Great for in-depth forecast "
 "display."
-msgstr ""
+msgstr "Zeigt die Vorhersage als Tabelle mit Zeilen. Gut für die ausführliche Anzeige"
 
 #: inc/class-template.php:135
 msgid "Horizontal Table"
-msgstr ""
+msgstr "Horizontale Tabelle"
 
 #: inc/class-template.php:136
 msgid ""
 "Display the forecast in a table with columns. Great for forecast summaries."
-msgstr ""
+msgstr "Zeigt die Vorhersage als Tabelle mit Spalten. Gut für Zusammenfassungen."
 
 #: inc/class-widget.php:43
 msgid "Add a Wunderground.com forecast"
-msgstr ""
+msgstr "Addiere eine Wunderground.com Vorhersage"
 
 #: inc/class-widget.php:48 inc/functions.php:168
 msgid "Wunderground"
@@ -141,21 +141,21 @@ msgstr "Gib den Namen eines Ortes ein"
 
 #: inc/class-widget.php:163
 msgid "Location Title"
-msgstr ""
+msgstr "Ortsbezeichnung"
 
 #: inc/class-widget.php:164
 msgid "Change how the location is displayed in the widget search field."
-msgstr ""
+msgstr "Anzeige des Ortes im Widget Suchfeld anpassen"
 
 #: inc/class-widget.php:165
 msgid "Leave empty to use the location name."
-msgstr ""
+msgstr "Leer lassen um den Ortsnamen zu benutzen."
 
 #: inc/class-widget.php:166
 msgid ""
 "Example: if the Location is set to \"Denver, Colorado\", you may prefer to "
 "set the Location Title as \"Denver\", which is simpler."
-msgstr ""
+msgstr "Beispiel: Wenn als Ort \"Denver, Colorado\" eingestellt ist, bevorzugst Du vielleicht \"Denver\" als einfachere Titelvariante."
 
 #: inc/class-widget.php:175
 msgid "# of Days in Forecast"
@@ -163,19 +163,19 @@ msgstr "# Tage Vorhersage"
 
 #: inc/class-widget.php:181
 msgid "Include Current Conditions"
-msgstr ""
+msgstr "Inklusive Aktuelle Bedingungen"
 
 #: inc/class-widget.php:182
 msgid "Add the current conditions to the forecast."
-msgstr ""
+msgstr "Addiere die aktuellen Bedingungen zur Vorhersage."
 
 #: inc/class-widget.php:188
 msgid "Include Night Forecasts"
-msgstr ""
+msgstr "Inklusive Nacht Vorhersage"
 
 #: inc/class-widget.php:189
 msgid "This will result in double the number of forecasts shown."
-msgstr ""
+msgstr "Dies wird die Anzahl der angezeigten Vorhersagen verdoppeln."
 
 #: inc/class-widget.php:195
 msgid "Icon Set"
@@ -188,11 +188,11 @@ msgstr "Wähle die Erscheinung der Bilder die das Wetter repräsentieren"
 
 #: inc/class-widget.php:224
 msgid "Widget Template"
-msgstr ""
+msgstr "Widget Template"
 
 #: inc/class-widget.php:225
 msgid "Choose how you would like to display the forecast."
-msgstr ""
+msgstr "Wähle wie die Vorhersage angezeigt werden soll."
 
 #: inc/class-widget.php:230
 msgid "Show in Forecast"
@@ -200,19 +200,19 @@ msgstr "Zeige in Vorhersage"
 
 #: inc/class-widget.php:235
 msgid "Search Form"
-msgstr ""
+msgstr "Suchfeld"
 
 #: inc/class-widget.php:236
 msgid "Allow searching weather forecasts."
-msgstr ""
+msgstr "Erlaube die Suche nach Wettervorhersagen."
 
 #: inc/class-widget.php:239
 msgid "Weekday Labels"
-msgstr ""
+msgstr "Wochentag Label"
 
 #: inc/class-widget.php:240
 msgid "Show the names of the days of the week."
-msgstr ""
+msgstr "Zeigt die Namen der Wochentage."
 
 #: inc/class-widget.php:243
 msgid "Date"
@@ -220,7 +220,7 @@ msgstr "Datum"
 
 #: inc/class-widget.php:244
 msgid "Display the date numerically (\"09/14\")."
-msgstr ""
+msgstr "Zeigt das Datum numerisch an (\"09/14\")."
 
 #: inc/class-widget.php:247
 msgid "Weather Icon"
@@ -228,7 +228,7 @@ msgstr "Wettersymbol"
 
 #: inc/class-widget.php:248
 msgid "Icon representing the forecast conditions."
-msgstr ""
+msgstr "Symbol welches die Wetterbedingungen repräsentiert."
 
 #: inc/class-widget.php:251
 msgid "Chance of Rain"
@@ -236,15 +236,15 @@ msgstr "Regenwahrscheinlichkeit"
 
 #: inc/class-widget.php:252
 msgid "Display the percent chance of rain."
-msgstr ""
+msgstr "Zeigt die Regenwahrscheinlichkeit in %."
 
 #: inc/class-widget.php:255
 msgid "High & Low Temp"
-msgstr ""
+msgstr "Höchst- und Niedrigsttemperaturen"
 
 #: inc/class-widget.php:256
 msgid "Show the high & low temperatures for forecast."
-msgstr ""
+msgstr "Zeigt die Höchst- und Niedrigsttemperaturen der Vorhersage."
 
 #: inc/class-widget.php:259
 msgid "Condition Title"
@@ -252,7 +252,7 @@ msgstr "Bedingung Titel"
 
 #: inc/class-widget.php:260
 msgid "Short summary of conditions (\"Clear\", \"Partly Cloudy\", etc.)."
-msgstr ""
+msgstr "Kurze Zusammenfassung der Bedingungen (\"Klar\", \"Teilweise bewölkt\", usw.)."
 
 #: inc/class-widget.php:263
 msgid "Forecast Text"
@@ -260,7 +260,7 @@ msgstr "Vorhersage Text"
 
 #: inc/class-widget.php:264
 msgid "Display a description of the forecast, normally in sentence format."
-msgstr ""
+msgstr "Zeigt eine Beschreibung der Vorhersage, üblicherweise in Satzform."
 
 #: inc/class-widget.php:267
 msgid "Weather Alerts &amp; Warnings"
@@ -270,7 +270,7 @@ msgstr "Wetter Hinweise &amp; Warnungen"
 msgid ""
 "This functionality is currently not working; we are working with "
 "Wunderground.com to restore it."
-msgstr ""
+msgstr "Diese Funktion ist derzeit nicht möglich; wir arbeiten mit Wunderground.com um sie wiederherzustellen."
 
 #: inc/class-widget.php:284
 msgid "Forecast Language"

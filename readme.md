@@ -7,7 +7,7 @@ If you have issues with the plugin, please:
 
 ## Setting up the plugin
 
-The Wunderground plugin displays forecasts in a widget or by using the `[wunderground]` shortcode.
+The Wunderground plugin displays forecasts in the Wunderground.com widget or by using the `[wunderground]` shortcode.
 
 ## Widget
 To configure the widget, go to your WordPress Dashboard, then navigate to Appearance, then click on the Widgets submenu.

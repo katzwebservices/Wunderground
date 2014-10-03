@@ -1,160 +1,97 @@
-=== Weather Forecast - Wunderground.com ===
-Tags: weather, weather.com, wunderground, weatherbug, forecast, widget, shortcode, Yahoo weather, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
-Requires at least: 3.3
-Tested up to: 3.9.1
+=== Weather Underground ===
+Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
+Requires at least: 3.6
+Tested up to: 4.0
 Stable tag: trunk
-Contributors: katzwebdesign
-Donate link:https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=zackkatz%40gmail%2ecom&item_name=WP%20Wunderground%20for%20WordPress&no_shipping=0&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
+Contributors: katzwebdesign, katzwebservices
+Donate link: https://katz.co
 
-Get accurate and beautiful weather forecasts powered by Wunderground.com for your content or your sidebar.
+Get accurate and beautiful weather forecasts powered by Wunderground.com
 
 == Description ==
 
-<blockquote><p>"[WP Wunderground] is by far, the best weather plugin I've ever seen on a CMS before. Not even Joomla has something so powerful, good looking and yet easy to implement."<br /><cite>Robson</cite></p></blockquote>
+### Wunderground is the best WordPress weather site.
 
-<h3>Wunderground is the best WordPress weather site.</h3>
+Wunderground.com has the most accurate and in-depth weather information. They're also not evil corporate giants, and are weather geeks, which is nice. This plugin uses the Wunderground API for its accurate forecasts.
 
-Wunderground.com has the most accurate and in-depth weather information. They're also not evil corporate giants, and are weather geeks, which is nice.
+### If you want a great-looking weather forecast, use this plugin.
 
-This plugin uses the Wunderground API to gather its accurate forecasts.
-
-<h3>If you want a great-looking weather forecast, use this plugin.</h3>
 __This is the best-looking weather forecast plugin for WordPress.__ It looks great on many different templates out of the box, including the default WP theme.
 
-###Why would I want this plugin?
-This plugin is a perfect compliment for regional websites (about a city or town), personal websites where you want to share what the weather is like where you're blogging from, travel sites (show the weather at each stop!), <a href="http://www.denversnowremovalservice.com">snow removal</a> websites, yard services websites, and more.
+### For more information, visit the [plugin information page](https://github.com/katzwebservices/Wunderground#setting-up-the-plugin)
 
-The WP Wunderground plugin uses 10 great-looking icon sets from Wunderground.com, including:
+Learn about setting up the plugin, how to configure the shortcode, template overrides and more on the [plugin info page](https://github.com/katzwebservices/Wunderground#setting-up-the-plugin).
 
-* <a href="http://icons-ecast.wxug.com/i/c/a/clear.gif" target="_blank" rel="nofollow">Default</a>
-* <a href="http://icons-ecast.wxug.com/i/c/b/clear.gif" target="_blank" rel="nofollow">Smiley</a>
-* <a href="http://icons-ecast.wxug.com/i/c/c/clear.gif" target="_blank" rel="nofollow">Generic</a>
-* <a href="http://icons-ecast.wxug.com/i/c/d/clear.gif" target="_blank" rel="nofollow">Old School</a>
-* <a href="http://icons-ecast.wxug.com/i/c/e/clear.gif" target="_blank" rel="nofollow">Cartoon</a>
-* <a href="http://icons-ecast.wxug.com/i/c/f/clear.gif" target="_blank" rel="nofollow">Mobile</a>
-* <a href="http://icons-ecast.wxug.com/i/c/g/clear.gif" target="_blank" rel="nofollow">Simple</a>
-* <a href="http://icons-ecast.wxug.com/i/c/h/clear.gif" target="_blank" rel="nofollow">Contemporary</a>
-* <a href="http://icons-ecast.wxug.com/i/c/i/clear.gif" target="_blank" rel="nofollow">Helen</a>
-* <a href="http://icons-ecast.wxug.com/i/c/k/clear.gif" target="_blank" rel="nofollow">Incredible</a>
+-------------------
 
-Check out the Screenshots section for pictures.
+#### About Weather Underground
 
-<h3>Using the WP Wunderground Weather Plugin</h3>
-The plugin can be configured in two ways:
+> The beating heart of our brand is the generous and passionate community of weather enthusiasts that share weather data and content across our products. With over 34,000 of our members sending real-time data from their own personal weather stations, they provide us with the extensive data that makes our forecasts and products so unique.
 
-1. Configure the plugin in the admin's WP Wunderground settings page, then add `[forecast]` to your content where you want the forecast to appear.
-2. Go crazy with the `[forecast]` shortcode.
-
-<h4>Using the `[forecast]` Shortcode</h4>
-If you're a maniac for shortcodes, and you want all control all the time, this is a good way to use it.
-
-`[forecast location="Tokyo, Japan" caption="Weather for Tokyo" measurement='F' todaylabel="Today" datelabel="date('m/d/Y')" highlow='%%high%%&deg;/%%low%%&deg;' numdays="3" iconset="Cartoon" class="css_table_class"]`
-
-<strong>The shortcode supports the following settings:</strong>
-
-* `location="Tokyo, Japan"` - Use any city/state combo or US/Canada ZIP code
-* `caption="Weather for Tokyo"` - Add a caption to your table (it's like a title)
-* `measurement='F'` - Choose Fahrenheit or Celsius by using "F" or "C"
-* `datelabel="date('m/d/Y')"` - Format the way the days display ("9/30/2012" in this example)
-* `todaylabel="Today"` - Format how today's date appears ("Today" in this example)
-* `highlow='%%high%%&deg;/%%low%%&deg;'` - Format how the highs & low temps display ("85&deg;/35&deg;" in this example)
-* `numdays=3` - Change the number of days displayed in the forecast. Up to 6 day forecast.
-* `iconset="Cartoon"` - Choose your iconset from one of 10 great options
-* `class="css_table_class"` - Change the CSS class of the generated forecast table
-
-<h4>Learn more on the <a href="http://www.seodenver.com/wunderground/">official plugin page</a></h4>
+*Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
 
 == Installation ==
 
 1. Upload plugin files to your plugins folder, or install using WordPress' built-in Add New Plugin installer
 1. Activate the plugin
-1. Go to the plugin settings page (under Settings > WP Wunderground)
-1. Configure the settings on the page. (Instructions for some setting configurations are on the box to the right)
-1. Click Save Changes.
-1. When editing posts, use the `[forecast]` "shortcode" as described on this plugin's Description tab
+1. To add a forecast to your sidebar, go to Appearance, then Widgets. Click on the Wunderground widget and add it to a  sidebar.
+1. To embed a forecast in a post or page, use the `[wunderground]` "shortcode" as described on the plugin page's [Shortcode Parameter](https://github.com/katzwebservices/Wunderground#shortcode-parameters) guide.
 
 == Screenshots ==
 
-1. Embedded in content in the twentyten theme
-1. Embedded in content in the twentyten theme, alternate settings
-1. In the sidebar of the Motion theme
-1. In the sidebar of the ChocoTheme theme
-1. In the sidebar of the Piano Black theme
-1. In the sidebar of the twentyten theme
-1. Plugin configuration page
+1. Widget configuration
+1. Vertical Table layout
+1. Horizontal Table layout
 
 == Frequently Asked Questions ==
 
+= Where is the settings page? =
+
+Version 2.0 got rid of the default settings page; now shortcodes and widgets are configured individually.
+
+= My forecast looks different! =
+
+Version 2.0 made lots of changes as to how the forecast is displayed. You can download the last update of the "1.x" version of the plugin here: **[Version 1.2.5.1](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip)**
+
 = How do I use my own icons? =
 
-If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file:
+If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon). Here's sample code:
 
-<h3>Version 1.2+</h3>
 <pre>
-add_filter('wp_wunderground_forecast_icon', 'use_custom_wunderground_icons');
+add_filter('wp_wunderground_forecast_icon', 'use_custom_wunderground_icons', 10, 2 );
 
-function use_custom_wunderground_icons($content=null) {
-
-	$myIconFolder = 'http://www.example.com/images/';
-
-	$myFileType = '.gif';
-
-	$content = preg_replace('/http\:\/\/icons\-ecast\.wxug\.com\/i\/c\/[a-z]\/(.*?)\.gif/ism', $myIconFolder.'$1'.$myFileType, $content);
-
-	return $content;
+function use_custom_wunderground_icons( $url_base = '', $icon_name = '' ) {
+	return 'http://www.example.com/path-to-full-icon-set/';
 }
 </pre>
-
-<h3>Version 1.1</h3>
-<pre>
-add_filter('wp_wunderground_forecast', 'use_custom_wunderground_icons');
-
-function use_custom_wunderground_icons($content=null) {
-
-	$myIconFolder = 'http://www.example.com/images/';
-
-	$myFileType = '.gif';
-
-	$content = preg_replace('/http\:\/\/icons\-ecast\.wxug\.com\/i\/c\/[a-z]\/(.*?)\.gif/ism', $myIconFolder.'$1'.$myFileType, $content);
-
-	return $content;
-}
-</pre>
-
-= I am unable to activate the plugin. =
-This plugin requires PHP5, and Version 1.0 does not check for PHP compatibility. In future versions, it will show a more meaningful error and also support PHP 4.
-
-For now, however, options are to upgrade the version of PHP (contact your web host) or to not use the plugin.
 
 = I want to modify the forecast output. How do I do that? =
 
-<pre>
-function replace_weather($content) {
-	$content = str_replace('Rain', 'RAYNNNNN!', $content);
-	$content = str_replace('Snow', 'SNNNOOOO!', $content);
-	return $content;
-}
-add_filter('wp_wunderground_forecast', 'replace_weather');
-</pre>
+Please see the "Using your own template" section on the [Plugin Github page](https://github.com/katzwebservices/Wunderground)
 
 = What is the plugin license? =
 
-* This plugin is released under a GPL license.
+This plugin is released under a GPL license. *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
 
 = Do I need a Wunderground account? =
-Nope, no account needed.
-
-= This plugin slows down my site. =
-Version 1.1 of the plugin added forecast caching, so the forecast is only re-loaded every 6 hours.
-
-For previous versions, it is recommended to use a caching plugin (such as WP Super Cache) with this plugin; that way the forecast isn't re-loaded every page load.
-
-= How do I enable Twig debug mode? =
-You can force Twig debug mode by adding `add_filter( 'wunderground_twig_debug' '__return_true' );` to your theme's `functions.php` file.
-
-You can also enable debug mode if you're logged in as an Administrator by adding `?debug` to your current page's URL.
+Wunderground has been very gracious and has provided the plugin with free data - you don't need your own account. If you want to use Wunderground data in your own application, [register for a Wunderground API account](http://www.wunderground.com/?apiref=5f97d1e033236c26).
 
 == Changelog ==
+
+= Version 2.0 is a major update! =
+
+If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
+
+= 2.0.6 on October 3 =
+* Added: Support for using using settings from Version 1.x as the defaults. This fixes the loss of your configuration if you use the `[forecast]` shortcode with no parameters.
+* Added: Lithuanian translation
+
+= 2.0.5 on October 2 =
+* Added: `datelabel` parameter for backward compatibility
+* Added: `wunderground_get_date_format()` function to process date format
+* Added: German and Romanian translations
+* Fixed: Escaped translation strings
+* Tweak: Improved readme
 
 = 2.0.4 =
 * Fixed: Widget location data saving is fixed
@@ -238,6 +175,33 @@ You can also enable debug mode if you're logged in as an Administrator by adding
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.6 on October 3 =
+* Added: Support for using using settings from Version 1.x as the defaults. This fixes the loss of your configuration if you use the `[forecast]` shortcode with no parameters.
+
+= 2.0.5 on October 2 =
+* Added: `datelabel` parameter for backward compatibility
+* Added: `wunderground_get_date_format()` function to process date format
+* Added: German and Romanian translations
+* Fixed: Escaped translation strings
+* Tweak: Improved readme
+
+= 2.0.4 =
+* Fixed: Widget location data saving is fixed
+* Fixed: Number of days display properly for the Simple forecast
+* Added: Support for RTL languages
+* Added: Show the Horizontal Table layout in widget options
+* Tweak: Move widget settings around
+* Added: Night forecast support for picker
+* Added: Locally host icons
+* Fixed: Fixed: Hide chance of precipitation when not set
+* Fixed: Show current forecast in horizontal table mode
+* Fixed: Show temperature in lieu of high/low for current conditions
+* Modified: Converted template files to include snippets for forecast elements
+* Tweak: Update language files
+* Tweak: Added descriptions to widget checkboxes
+* Tweak: Add search box as an optional widget checkbox
+* Tweak: Widget now uses `wunderground_parse_atts()`
 
 = 2.0.3 =
 * Fixed: Cached results weren't being used!

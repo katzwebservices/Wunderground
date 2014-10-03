@@ -230,6 +230,9 @@ class Wunderground_Request {
 			 */
 			$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
 
+			// Backward compatible with 1.x
+			$cache_time = apply_filters( 'wp_wunderground_forecast_cache', $cache_time );
+
 			set_transient( $cache_key, $response, (int)$cache_time );
 		}
 
