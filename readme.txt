@@ -95,7 +95,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 = 2.0.8 on October 7 =
 * Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
-* Fixed: Date wasn't respecting current timezone
+* Fixed: Date wasn't respecting current timezone ([as reported here](https://github.com/katzwebservices/Wunderground/issues/9))
 * Added: Support for `[forecast]` and `[wunderground]` shortcodes in Text widgets by adding a `do_shortcode` filter on widgets. This had been enabled in Version 1.x.
 * Added: `wp_wunderground_forecast` filter to be backward-compatible with Version 1.x
 
@@ -199,8 +199,9 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 = 2.0.8 on October 7 =
 * Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
-* Fixed: Date wasn't respecting current timezone
+* Fixed: Date wasn't respecting current timezone ([as reported here](https://github.com/katzwebservices/Wunderground/issues/9))
 * Added: Support for `[forecast]` and `[wunderground]` shortcodes in Text widgets by adding a `do_shortcode` filter on widgets. This had been enabled in Version 1.x.
+* Added: `wp_wunderground_forecast` filter to be backward-compatible with Version 1.x
 
 = 2.0.7 on October 3 =
 * Fixed: `hidedata` shortcode parameter wasn't working properly
