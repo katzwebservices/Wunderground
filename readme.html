@@ -78,6 +78,21 @@
 </ul>
 
 
+<h2>Finding your location</h2>
+
+<p>If you&rsquo;re using the shortcode, and your location can&rsquo;t be found:</p>
+
+<ul>
+<li>Go to Wunderground.com</li>
+<li>In the &ldquo;Search Locations&rdquo; box, type in your location</li>
+<li>Click on the location when it appears in the auto-complete box</li>
+<li>When the page loads, copy the URL. It will likely look like this: <code>http://www.wunderground.com/q/zmw:00000.4.17340</code></li>
+<li>Copy the part of the URL after the <code>/q/</code>. In this example, it would be <code>zmw:00000.4.17340</code></li>
+<li>Use that as your location in the shortcode, like this: <code>[wunderground location="zmw:00000.4.17340" /]</code></li>
+<li>That should work!</li>
+</ul>
+
+
 <h2>International</h2>
 
 <h3>Language</h3>
@@ -118,6 +133,7 @@
 
 <ul>
 <li><code>wunderground_enable_forecast_shortcode</code> (boolean) Disable the old <code>[forecast]</code> shortcode and only use <code>[wunderground]</code>. Default: <code>true</code></li>
+<li><code>wunderground_widget_text_do_shortcode</code> (boolean) Prevent the plugin from enabling <code>do_shortcode</code> filter on widget output. This is to provide backward compatibility for Version 1.x. Added in 2.0.8. Default: <code>true</code></li>
 <li><code>wp_wunderground_forecast_icon</code> (string) URL path to icon. Passes two arguments: <code>$output</code> (default path), <code>$icon</code> Name of icon to be fetched</li>
 <li><code>wunderground_autocomplete_country_code</code> (string) Set the locale of the Wunderground autocomplete results. If you only want US locations, for example, return <code>US</code>. Default: <code>NULL</code></li>
 <li><code>wunderground_date_format</code> (string) Filter the date format sitewide. Return a PHP date format string. <a href="http://codex.wordpress.org/Formatting_Date_and_Time">Learn more about formatting dates</a>. Default: <code>m/d</code></li>
@@ -140,6 +156,7 @@
 <li><code>wunderground_template_paths</code> (array) Paths to check for template files. Default: <code>/wunderground/</code> sub-directory of the current stylesheet directory</li>
 <li><code>wunderground_twig_debug</code> (boolean) Enable Twig template debugging. Default: if user is logged in and <code>?debug</code> is set in the URL.</li>
 <li><code>wunderground_template_data</code> (array) Data passed to the template, available in Twig template rendering engine</li>
+<li><code>wp_wunderground_forecast</code> (string) Filter the output of the forecast HTML</li>
 </ul>
 
 

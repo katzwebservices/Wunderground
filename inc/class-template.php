@@ -106,7 +106,11 @@ class Wunderground_Template {
 		 */
 		$data = apply_filters( 'wunderground_template_data', apply_filters( 'wunderground_template_data_'.$template, $data ) );
 
-		echo $this->twig->render("{$template}.html", $data);
+		$output = $this->twig->render("{$template}.html", $data);
+
+		$output = apply_filters( 'wp_wunderground_forecast', $output, $template, $data );
+
+		echo $output;
 
 	}
 

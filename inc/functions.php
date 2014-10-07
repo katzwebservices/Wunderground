@@ -320,10 +320,10 @@ function wunderground_get_subdomain( $language_key = NULL ) {
 			// Convert "French Canadian" to "frenchcanadian" for subdomain
 			$languages = wunderground_get_languages();
 
-			if( isset( $languages[$language_key] ) ) {
+			if( isset( $languages[$language_key] ) && isset( $languages[$language_key]['value'] ) ) {
 
 				// Get the name of the language
-				$subdomain = $languages[$language_key];
+				$subdomain = $languages[$language_key]['value'];
 
 				// Replace "-" and " " with nothing
 				$subdomain = str_replace(array(' ', '-'), '', $subdomain);

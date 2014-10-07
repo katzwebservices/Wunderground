@@ -45,13 +45,24 @@ Learn about setting up the plugin, how to configure the shortcode, template over
 
 == Frequently Asked Questions ==
 
-= Where is the settings page? =
+= [Upgrading from 1.x] Where is the settings page? =
 
 Version 2.0 got rid of the default settings page; now shortcodes and widgets are configured individually.
 
-= My forecast looks different! =
+= [Upgrading from 1.x] My forecast looks different =
 
 Version 2.0 made lots of changes as to how the forecast is displayed. You can download the last update of the "1.x" version of the plugin here: **[Version 1.2.5.1](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip)**
+
+= [Upgrading from 1.x] My location can no longer be found =
+If your location isn't working any more, follow the steps below:
+
+* Go to Wunderground.com
+* In the "Search Locations" box, type in your location
+* Click on the location when it appears in the auto-complete box
+* When the page loads, copy the URL. It will likely look like this: `http://www.wunderground.com/q/zmw:00000.4.17340`
+* Copy the part of the URL after the `/q/`. In this example, it would be `zmw:00000.4.17340`
+* Use that as your location in the shortcode, like this: `[wunderground location="zmw:00000.4.17340" /]`
+* That should work!
 
 = How do I use my own icons? =
 
@@ -74,13 +85,19 @@ Please see the "Using your own template" section on the [Plugin Github page](htt
 This plugin is released under a GPL license. *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
 
 = Do I need a Wunderground account? =
-Wunderground has been very gracious and has provided the plugin with free data - you don't need your own account. If you want to use Wunderground data in your own application, [register for a Wunderground API account](http://www.wunderground.com/?apiref=5f97d1e033236c26).
+Weather Underground has been very gracious and has provided the plugin with free data - you don't need your own account. If you want to use Wunderground data in your own application, [register for a Weather Underground API account](http://www.wunderground.com/?apiref=5f97d1e033236c26).
 
 == Changelog ==
 
 = Version 2.0 is a major update! =
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
+
+= 2.0.8 on October 7 =
+* Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
+* Fixed: Date wasn't respecting current timezone
+* Added: Support for `[forecast]` and `[wunderground]` shortcodes in Text widgets by adding a `do_shortcode` filter on widgets. This had been enabled in Version 1.x.
+* Added: `wp_wunderground_forecast` filter to be backward-compatible with Version 1.x
 
 = 2.0.7 on October 3 =
 * Fixed: `hidedata` shortcode parameter wasn't working properly
@@ -179,6 +196,11 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 * Initial launch
 
 == Upgrade Notice ==
+
+= 2.0.8 on October 7 =
+* Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
+* Fixed: Date wasn't respecting current timezone
+* Added: Support for `[forecast]` and `[wunderground]` shortcodes in Text widgets by adding a `do_shortcode` filter on widgets. This had been enabled in Version 1.x.
 
 = 2.0.7 on October 3 =
 * Fixed: `hidedata` shortcode parameter wasn't working properly

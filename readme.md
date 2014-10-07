@@ -59,6 +59,18 @@ Will output the forecast using the `simple` template, show three days of forecas
 	- `alerts` - Weather alerts for the forecast area. This functionality is not yet available.
 * `hidedata` - The items to hide in the forecast. Instead of setting what to show, use the defaults and set what to hide. Accepts the same parameters as `showdata`. Default: `(Empty)` Example: `hidedata="search"` will hide the search bar, but will show the rest of the default data.
 
+## Finding your location
+
+If you're using the shortcode, and your location can't be found:
+
+* Go to Wunderground.com
+* In the "Search Locations" box, type in your location
+* Click on the location when it appears in the auto-complete box
+* When the page loads, copy the URL. It will likely look like this: `http://www.wunderground.com/q/zmw:00000.4.17340`
+* Copy the part of the URL after the `/q/`. In this example, it would be `zmw:00000.4.17340`
+* Use that as your location in the shortcode, like this: `[wunderground location="zmw:00000.4.17340" /]`
+* That should work!
+
 ## International
 
 ### Language
@@ -92,6 +104,7 @@ If you want to have the files located in another place, you can use the `wunderg
 ### Language & Formatting Filters
 
 * `wunderground_enable_forecast_shortcode` (boolean) Disable the old `[forecast]` shortcode and only use `[wunderground]`. Default: `true`
+* `wunderground_widget_text_do_shortcode` (boolean) Prevent the plugin from enabling `do_shortcode` filter on widget output. This is to provide backward compatibility for Version 1.x. Added in 2.0.8. Default: `true`
 * `wp_wunderground_forecast_icon` (string) URL path to icon. Passes two arguments: `$output` (default path), `$icon` Name of icon to be fetched
 * `wunderground_autocomplete_country_code` (string) Set the locale of the Wunderground autocomplete results. If you only want US locations, for example, return `US`. Default: `NULL`
 * `wunderground_date_format` (string) Filter the date format sitewide. Return a PHP date format string. [Learn more about formatting dates](http://codex.wordpress.org/Formatting_Date_and_Time). Default: `m/d`
@@ -108,6 +121,7 @@ If you want to have the files located in another place, you can use the `wunderg
 * `wunderground_template_paths` (array) Paths to check for template files. Default: `/wunderground/` sub-directory of the current stylesheet directory
 * `wunderground_twig_debug` (boolean) Enable Twig template debugging. Default: if user is logged in and `?debug` is set in the URL.
 * `wunderground_template_data` (array) Data passed to the template, available in Twig template rendering engine
+* `wp_wunderground_forecast` (string) Filter the output of the forecast HTML.
 
 
 ### Screenshots

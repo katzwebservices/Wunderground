@@ -1,4 +1,4 @@
 {% if showdata.date is not empty and day.summary.date.epoch is not empty %}
 	{# To modify the date format, check out the `strings` method in template.php #}
-	<{{tag}} class="wu-date">{{ day.summary.date.epoch|date(datelabel) }}</{{tag}}>
+	<{{tag}} class="wu-date">{{ day.summary.date.epoch|date(datelabel, day.summary.date.tz_long) }}</{{tag}}>
 {% endif %}
