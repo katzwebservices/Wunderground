@@ -94,6 +94,8 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		$data['location_title'] = empty( $instance['location_title'] ) ? $data['location'] : $instance['location_title'];
 		$data['wunderground'] = new KWS_Wunderground( $request );
 
+		$data['datelabel'] = isset( $data['datelabel'] ) ? $data['datelabel'] : wunderground_get_date_format();
+
 		// PWS is offline or something.
 		if( !empty( $data['wunderground']->response->error )) {
 			do_action('wunderground_log_debug', 'There was an error in the Wunderground response:', $data['wunderground']->response->error );

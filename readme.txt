@@ -197,6 +197,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 == Upgrade Notice ==
 
+* Fixed: Widget forecasts use the correct date formatting (set by `wunderground_get_date_format()`)
 * Modified: Locally storing font, which fixes issues with older IE versions causing site load time issues
 * Added: Hebrew translation - thanks, [@nirbentzy](https://www.transifex.com/accounts/profile/nirbentzy/)!
 = 2.0.8 on October 7 =
