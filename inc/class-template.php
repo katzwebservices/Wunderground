@@ -106,7 +106,28 @@ class Wunderground_Template {
 		 */
 		$data = apply_filters( 'wunderground_template_data', apply_filters( 'wunderground_template_data_'.$template, $data ) );
 
-		$output = $this->twig->render("{$template}.html", $data);
+		// Generate a cache key based on the result. Only get the first 43 characters because of the transient key length limit.
+		$cache_key = substr( 'wut_'.sha1( serialize( $data ) ) , 0, 43 );
+
+		$output = get_transient( $cache_key );
+
+		// If there's no cached result or caching is disabled
+		if( empty( $output ) || is_wp_error( $output ) || ( isset($_GET['cache']) && current_user_can( 'manage_options' ) ) ) {
+
+			$output = $this->twig->render("{$template}.html", $data);
+
+			/**
+			 * Modify the number of seconds to cache the request for.
+			 *
+			 * Default: cache the request for one hour, since we're dealing with changing conditions
+			 *
+			 * @var int
+			 */
+			$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
+
+			// The nice thing is that the cache is invalidated when the forecast results change, so there's no need for the cache time to be exact.
+			set_transient( $cache_key, $output, ( $cache_time * 2 )  );
+		}
 
 		$output = apply_filters( 'wp_wunderground_forecast', $output, $template, $data );
 

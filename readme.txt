@@ -93,6 +93,12 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 
+= 2.0.9 on October 22 =
+* Added: Caching of forecast output HTML. This makes the plugin use fewer server resources when displaying the forecast.
+* Fixed: Widget forecasts use the correct date formatting (set by `wunderground_get_date_format()`)
+* Modified: Locally storing font, which fixes issues with older IE versions causing site load time issues
+* Added: Hebrew translation - thanks, [@nirbentzy](https://www.transifex.com/accounts/profile/nirbentzy/)!
+
 = 2.0.8 on October 7 =
 * Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
 * Fixed: Date wasn't respecting current timezone ([as reported here](https://github.com/katzwebservices/Wunderground/issues/9))
@@ -197,9 +203,16 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 == Upgrade Notice ==
 
+= Version 2.0 is a major update! =
+
+If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
+
+= 2.0.9 on October 22 =
+* Added: Caching of forecast output HTML. This makes the plugin use fewer server resources when displaying the forecast.
 * Fixed: Widget forecasts use the correct date formatting (set by `wunderground_get_date_format()`)
 * Modified: Locally storing font, which fixes issues with older IE versions causing site load time issues
 * Added: Hebrew translation - thanks, [@nirbentzy](https://www.transifex.com/accounts/profile/nirbentzy/)!
+
 = 2.0.8 on October 7 =
 * Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
 * Fixed: Date wasn't respecting current timezone ([as reported here](https://github.com/katzwebservices/Wunderground/issues/9))
