@@ -198,6 +198,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 == Upgrade Notice ==
 
 * Modified: Locally storing font, which fixes issues with older IE versions causing site load time issues
+* Added: Hebrew translation - thanks, [@nirbentzy](https://www.transifex.com/accounts/profile/nirbentzy/)!
 = 2.0.8 on October 7 =
 * Fixed: PHP warning [reported here](https://wordpress.org/support/topic/error-with-new-version-1)
 * Fixed: Date wasn't respecting current timezone ([as reported here](https://github.com/katzwebservices/Wunderground/issues/9))
