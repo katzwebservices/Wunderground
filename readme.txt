@@ -93,6 +93,8 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 
+* Fix: Remove erroneous PHP code in `<table>` tag
+* Tweak: Replace `<table cellspacing="0">` with CSS
 = 2.0.9 on October 22 =
 * Added: Caching of forecast output HTML. This makes the plugin use fewer server resources when displaying the forecast.
 * Fixed: Widget forecasts use the correct date formatting (set by `wunderground_get_date_format()`)
@@ -207,6 +209,8 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 
+* Fix: Remove erroneous PHP code in `<table>` tag
+* Tweak: Replace `<table cellspacing="0">` with CSS
 = 2.0.9 on October 22 =
 * Added: Caching of forecast output HTML. This makes the plugin use fewer server resources when displaying the forecast.
 * Fixed: Widget forecasts use the correct date formatting (set by `wunderground_get_date_format()`)
