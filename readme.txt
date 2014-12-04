@@ -1,7 +1,7 @@
 === Weather Underground ===
 Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 3.6
-Tested up to: 4.0
+Tested up to: 4.0.1
 Stable tag: trunk
 Contributors: katzwebdesign, katzwebservices
 Donate link: https://katz.co
