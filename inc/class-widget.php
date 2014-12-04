@@ -61,8 +61,8 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 	/**
 	 * Generate and output the widget
 	 *
-	 * Uses template file `widget-related-listings.php` to generate the output
-	 * @version 2.0.44
+	 * @see Wunderground_Template in class-template.php to generate data
+	 *
 	 * @param  array $args     Widget args
 	 * @param  array $instance Widget settings
 	 */
@@ -108,6 +108,9 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
+		/**
+		 * @see Wunderground_Template in class-template.php
+		 */
 		do_action('wunderground_render_template', $instance['layout'], $data );
 
 		echo $after_widget;
