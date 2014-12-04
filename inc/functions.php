@@ -128,8 +128,10 @@ function wunderground_get_icon( $icon = 'Incredible' ) {
 	$icons = wunderground_get_icons();
 	$output = false;
 
-	if(isset($icons[$icon])) {
-		$output = plugins_url( sprintf('assets/img/icons/%s', $icons[$icon]), Wunderground_Plugin::$file );
+	$icon_formatted = ucfirst( strtolower( $icon ) );
+
+	if( isset( $icons[ $icon_formatted ] ) ) {
+		$output = plugins_url( sprintf('assets/img/icons/%s', $icons[ $icon_formatted ]), Wunderground_Plugin::$file );
 	}
 
 	// Maintain backward compatibility with 1.*
