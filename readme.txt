@@ -95,6 +95,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 
 * Fixed: Fatal error when no location is set in shortcode
 * Fixed: Link to Wunderground now goes to forecast URL, not the weather station URL
+* Fixed: Duplicate forecasts in Horizontal Table layout ([reported here](https://github.com/katzwebservices/Wunderground/issues/12))
 * Fix: Remove erroneous PHP code in `<table>` tag
 * Tweak: Replace `<table cellspacing="0">` with CSS
 = 2.0.9 on October 22 =
