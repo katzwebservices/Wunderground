@@ -128,8 +128,10 @@ function wunderground_get_icon( $icon = 'Incredible' ) {
 	$icons = wunderground_get_icons();
 	$output = false;
 
-	if(isset($icons[$icon])) {
-		$output = plugins_url( sprintf('assets/img/icons/%s', $icons[$icon]), Wunderground_Plugin::$file );
+	$icon_formatted = ucfirst( strtolower( $icon ) );
+
+	if( isset( $icons[ $icon_formatted ] ) ) {
+		$output = plugins_url( sprintf('assets/img/icons/%s', $icons[ $icon_formatted ]), Wunderground_Plugin::$file );
 	}
 
 	// Maintain backward compatibility with 1.*
@@ -252,7 +254,9 @@ function wunderground_get_date_format( $format = 'm/d' ) {
 	return apply_filters( 'wunderground_date_format', $format );
 }
 
-function wunderground_get_language( $language = NULL, $language_details = false ) {
+function wunderground_get_language( $passed_language = NULL, $language_details = false ) {
+
+	$language = strtoupper( $passed_language );
 
 	$wunderground_languages = wunderground_get_languages();
 
@@ -295,11 +299,13 @@ function wunderground_get_language( $language = NULL, $language_details = false 
  */
 function wunderground_get_subdomain( $language_key = NULL ) {
 
-	if(empty($language_key)) {
+	if( empty( $language_key ) ) {
 		$language_key = wunderground_get_language();
 	}
 
-	switch ($language_key) {
+	$language_key = strtoupper( $language_key );
+
+	switch ( $language_key ) {
 		case 'EN':
 			$subdomain = 'www';
 			break;
@@ -308,6 +314,9 @@ function wunderground_get_subdomain( $language_key = NULL ) {
 			break;
 		case 'HT':
 			$subdomain = 'haitian';
+			break;
+		case 'JP':
+			$subdomain = 'nihongo';
 			break;
 		case 'CN':
 			$subdomain = 'simplifiedchinese';

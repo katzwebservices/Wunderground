@@ -1,6 +1,12 @@
 {# Copyright #}
 <div class="wu-copyright">
 
-	<a href="{{wunderground.current_observation.forecast_url}}" rel="external" title="{{ strings.view_forecast|format(wunderground.response.location.name) }}"><img src="{{logo}}" alt="Wunderground.com" width="49" height="22" /></a>
+	{% if wunderground.response.location.l is not empty %}
+		{% set copyright_link = 'http://' ~ subdomain ~ '.wunderground.com' ~ wunderground.response.location.l %}
+	{% else %}
+		{% set copyright_link = wunderground.current_observation.forecast_url %}
+	{% endif %}
+
+	<a href="{{ copyright_link }}" rel="external" title="{{ strings.view_forecast|format(wunderground.response.location.name) }}"><img src="{{logo}}" alt="Wunderground.com" width="49" height="22" /></a>
 
 </div>

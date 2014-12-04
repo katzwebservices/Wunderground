@@ -12,3 +12,5 @@
 /vendor/twig/twig/test/*
 
 /vendor/twig/twig/doc/*
+
+config.codekit

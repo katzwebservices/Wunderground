@@ -117,7 +117,17 @@ class Wunderground_Request {
 
 	private function set_results() {
 
-		$url = $this->build_url();
+		try {
+
+			$url = $this->build_url();
+
+		} catch( Exception $e ) {
+
+			Wunderground_Plugin::log_debug('Wunderground_Request had no location set. Returning because of exception.' );
+
+			return;
+		}
+
 
 		$response = self::request( $url, $this->cache );
 
@@ -239,6 +249,10 @@ class Wunderground_Request {
 		return $response;
 	}
 
+	/**
+	 * Set the language for the forecast
+	 * @param string $language [description]
+	 */
 	private function set_language( $language = 'EN' ) {
 
 		// If the helper function doesn't exist for some reason, don't use it
