@@ -309,6 +309,9 @@ function wunderground_get_subdomain( $language_key = NULL ) {
 		case 'HT':
 			$subdomain = 'haitian';
 			break;
+		case 'JP':
+			$subdomain = 'nihongo';
+			break;
 		case 'CN':
 			$subdomain = 'simplifiedchinese';
 			break;
