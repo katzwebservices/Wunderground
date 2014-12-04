@@ -252,7 +252,9 @@ function wunderground_get_date_format( $format = 'm/d' ) {
 	return apply_filters( 'wunderground_date_format', $format );
 }
 
-function wunderground_get_language( $language = NULL, $language_details = false ) {
+function wunderground_get_language( $passed_language = NULL, $language_details = false ) {
+
+	$language = strtoupper( $passed_language );
 
 	$wunderground_languages = wunderground_get_languages();
 
@@ -295,11 +297,13 @@ function wunderground_get_language( $language = NULL, $language_details = false 
  */
 function wunderground_get_subdomain( $language_key = NULL ) {
 
-	if(empty($language_key)) {
+	if( empty( $language_key ) ) {
 		$language_key = wunderground_get_language();
 	}
 
-	switch ($language_key) {
+	$language_key = strtoupper( $language_key );
+
+	switch ( $language_key ) {
 		case 'EN':
 			$subdomain = 'www';
 			break;
