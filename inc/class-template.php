@@ -90,6 +90,11 @@ class Wunderground_Template {
 		// The required logo
 		$data['logo'] = wunderground_get_logo();
 
+		$language = isset( $data['language'] ) ? $data['language'] : NULL;
+
+		// The subdomain used by the Wunderground logo
+		$data['subdomain'] = wunderground_get_subdomain( $language );
+
 		// Map the keys so that they are consistent instead of having some
 		// using key => key and others using index => key
 		$showdata = array();
