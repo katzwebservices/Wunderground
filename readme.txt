@@ -102,6 +102,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 * Fix: Remove erroneous PHP code in `<table>` tag
 * Tweak: Make icon names case insensitive. Before, icon names were case sensitive, so `incredible` didn't work, since the plugin expected `Incredible`. ([reported here](https://github.com/katzwebservices/Wunderground/issues/13))
 * Tweak: Replace `<table cellspacing="0">` with CSS
+* Added Bulgarian translation - thanks [@cocacoli4ko](https://www.transifex.com/accounts/profile/cocacoli4ko/)!
 
 = 2.0.10 on October 24 =
 * Added: Missing font files
