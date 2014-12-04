@@ -93,6 +93,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 
+* Fixed: Fatal error when no location is set in shortcode
 * Fix: Remove erroneous PHP code in `<table>` tag
 * Tweak: Replace `<table cellspacing="0">` with CSS
 = 2.0.9 on October 22 =
