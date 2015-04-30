@@ -1,8 +1,9 @@
 <?php
 /*
 * Plugin Name: Weather Underground
+* Plugin URI: https://github.com/katzwebservices/Wunderground#setting-up-the-plugin
 * Description: Get accurate and beautiful weather forecasts powered by Wunderground.com for your content or your sidebar.
-* Version: 2.0.11
+* Version: 2.1
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Author: Katz Web Services, Inc.
@@ -16,7 +17,7 @@ class Wunderground_Plugin {
 	/**
 	 * Version used to prime style and script caches
 	 */
-	const version = '2.0.11';
+	const version = '2.1';
 
 	var $logger;
 	var $is_debug = false;
