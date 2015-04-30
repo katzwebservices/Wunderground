@@ -188,7 +188,7 @@ class Wunderground_Request {
 		http://www.wunderground.com/personal-weather-station/dashboard?ID=I75003PA1*/
 
 		// If the location is a link, we don't need to turn it...wait for it...into a link.
-		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.urlencode($location);
+		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.rawurlencode($location);
 
 		// Combine into one URL
 		$url = sprintf('%s/%s/v:2.0/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $features, $location_path );

@@ -99,6 +99,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 = 2.1 on April 29, 2015 =
 * Added: Now supports Weather Underground Severe Weather alerts & warnings
+* Fixed: Issue using multi-word cities (thanks [@christianriley](https://github.com/christianriley)!)
 * Fixed: Restored `alt` text for icon when using the Current template
 * Fixed: Widget preview for "Old School" icon set
 * Fixed: Fatal error if plugin or theme already used Twig template loader
