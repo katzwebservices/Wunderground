@@ -3,13 +3,14 @@
 	Learn more at: http://twig.sensiolabs.org/doc/templates.html
 #}
 
-{% if showdata.alerts is not empty and forecast.alerts is not empty %}
-	{% for alert in forecast.alerts.alerts %}
+{% if showdata.alerts is not empty and wunderground.alerts is not empty %}
+
+	{% for alert in wunderground.alerts.alerts %}
 	<div class="wu-alert wu-alert-{{ alert.type }}">
-		<h3>{{ alert.description }}</h3>
+		<h3><a href="{{alert.wuiurl}}">{{ alert.description }}</a></h3>
 		<dl>
-			<dt>{{ strings.alert_issued }}</dt><dd>{{ alert.date }}</dd>
-			<dt>{{ strings.alert_expires }}</dt><dd>{{ alert.expires }}</dd>
+			<dt>{{ strings.alert_issued }}</dt><dd>{{ alert.issued.pretty }}</dd>
+			<dt>{{ strings.alert_expires }}</dt><dd>{{ alert.expires.pretty }}</dd>
 		</dl>
 	</div>
 	{% endfor %}
