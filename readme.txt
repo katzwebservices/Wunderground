@@ -83,6 +83,11 @@ function use_custom_wunderground_icons( $url_base = '', $icon_name = '' ) {
 
 Please see the "Using your own template" section on the [Plugin Github page](https://github.com/katzwebservices/Wunderground)
 
+= I'm making changes to the settings, but nothing changes =
+The output of the widget is cached for speed. Add `?debug` to the URL and it will refresh.
+
+You can also add `add_filter( 'wunderground_twig_debug' '__return_true' );` to your functions.php file to disable caching during development. Only disable caching when absolutely necessary; it will slow down your site.
+
 = What is the plugin license? =
 
 This plugin is released under a GPL license. *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
