@@ -56,7 +56,7 @@ Will output the forecast using the `simple` template, show three days of forecas
 	- `conditions` - Short summary of conditions ("Clear", "Partly Cloudy", etc.)
 	- `highlow` - Show the high & low temperatures for forecast.
 	- `text` - Display a description of the forecast, normally in sentence format.
-	- `alerts` - Weather alerts for the forecast area. This functionality is not yet available.
+	- `alerts` - Weather alerts for the forecast area.
 * `hidedata` - The items to hide in the forecast. Instead of setting what to show, use the defaults and set what to hide. Accepts the same parameters as `showdata`. Default: `(Empty)` Example: `hidedata="search"` will hide the search bar, but will show the rest of the default data.
 
 ## Finding your location
@@ -126,7 +126,7 @@ If you want to have the files located in another place, you can use the `wunderg
 
 ### Screenshots
 
-The new widget:
+The new widget:  
 ![the Wunderground widget](https://raw.githubusercontent.com/katzwebservices/Wunderground/master/screenshot-1.jpg)
 
 #### Copyright

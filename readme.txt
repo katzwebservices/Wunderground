@@ -1,7 +1,7 @@
 === Weather Underground ===
 Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 3.6
-Tested up to: 4.0.1
+Tested up to: 4.2.1
 Stable tag: trunk
 Contributors: katzwebdesign, katzwebservices
 Donate link: https://katz.co
@@ -26,7 +26,7 @@ Learn about setting up the plugin, how to configure the shortcode, template over
 
 #### About Weather Underground
 
-> The beating heart of our brand is the generous and passionate community of weather enthusiasts that share weather data and content across our products. With over 34,000 of our members sending real-time data from their own personal weather stations, they provide us with the extensive data that makes our forecasts and products so unique.
+> Weather Underground has challenged the conventions around how weather information is shared with the public since 1993. We're immensely proud of the unique products that our community and meteorologists have created to improve people's access to meaningful weather data from around the globe. As the Internet's 1st weather service, we consider ourselves pioneers within our field and we're constantly seeking new data sets and the next technologies that will help us share more data with more people.
 
 *Weather Underground is a registered trademark of The Weather Channel, LLC. both in the United States and internationally. The Weather Underground Logo is a trademark of Weather Underground, LLC.*
 
@@ -66,19 +66,27 @@ If your location isn't working any more, follow the steps below:
 
 = How do I use my own icons? =
 
-If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon). Here's sample code:
+If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets). Here's sample code:
 
 <pre>
 add_filter('wp_wunderground_forecast_icon', 'use_custom_wunderground_icons', 10, 2 );
 
+/**
+ * @return string URL to the root folder of the icon set.
+ */
 function use_custom_wunderground_icons( $url_base = '', $icon_name = '' ) {
-	return 'http://www.example.com/path-to-full-icon-set/';
+	return 'http://icons.wxug.com/i/c/a/';
 }
 </pre>
 
 = I want to modify the forecast output. How do I do that? =
 
 Please see the "Using your own template" section on the [Plugin Github page](https://github.com/katzwebservices/Wunderground)
+
+= I'm making changes to the settings, but nothing changes =
+The output of the widget is cached for speed. Add `?debug` to the URL and it will refresh.
+
+You can also add `add_filter( 'wunderground_twig_debug' '__return_true' );` to your functions.php file to disable caching during development. Only disable caching when absolutely necessary; it will slow down your site.
 
 = What is the plugin license? =
 
@@ -89,9 +97,15 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 == Changelog ==
 
-= Version 2.0 is a major update! =
-
-If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
+= 2.1 on April 29, 2015 =
+* Added: Now supports Weather Underground Severe Weather alerts & warnings
+* Fixed: Restored `alt` text for icon when using the Current template
+* Fixed: Widget preview for "Old School" icon set
+* Fixed: Fatal error if plugin or theme already used Twig template loader
+* Fixed: Replace Icon Set FAQ code
+* Updated: Translations - thanks to all the translators!
+    - Slovenian: Aleš Hočevar
+    - Bosnian: Marko Saraba
 
 = 2.0.11 on December 4 =
 * Fixed: Fatal error when no location is set in shortcode

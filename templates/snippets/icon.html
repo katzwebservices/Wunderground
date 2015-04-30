@@ -10,5 +10,5 @@
 		{% set iconsize = '50' %}
 	{% endif %}
 
-	<{{tag}} class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{forecast.condition}}" width="{{iconsize}}" height="{{iconsize}}" /></{{tag}}>
+	<{{tag}} class="wu-icon"><img src="{{user_icon_url}}/{{icon}}.gif" alt="{{ forecast.condition ? forecast.condition|e : day.condition|e }}" width="{{iconsize}}" height="{{iconsize}}" /></{{tag}}>
 {% endif %}
