@@ -92,6 +92,9 @@ Weather Underground has been very gracious and has provided the plugin with free
 = Version 2.0 is a major update! =
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
+* Updated: Translations - thanks to all the translators!
+    - Slovenian: Aleš Hočevar
+    - Bosnian: Marko Saraba
 
 = 2.0.11 on December 4 =
 * Fixed: Fatal error when no location is set in shortcode
