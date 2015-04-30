@@ -22,11 +22,13 @@ class Wunderground_Plugin {
 	var $is_debug = false;
 
 	static $file;
+
 	static $dir_path;
 
 	function __construct() {
 
 		self::$file = __FILE__;
+
 		self::$dir_path = plugin_dir_path( __FILE__ );
 
 		// Fire AJAX requests immediately
@@ -72,7 +74,9 @@ class Wunderground_Plugin {
 		include_once self::$dir_path.'inc/functions.php';
 
 		// Twig template autoloader
-		require_once self::$dir_path.'vendor/twig/twig/lib/Twig/Autoloader.php';
+		if( !class_exists('Twig_Autoloader') ) {
+			require_once self::$dir_path . 'vendor/twig/twig/lib/Twig/Autoloader.php';
+		}
 
 		// Twig template setup
 		include_once self::$dir_path.'inc/class-template.php';
@@ -85,6 +89,7 @@ class Wunderground_Plugin {
 		include_once self::$dir_path.'inc/class-current-observation.php';
 		include_once self::$dir_path.'inc/class-station.php';
 		include_once self::$dir_path.'inc/class-forecast.php';
+		include_once self::$dir_path.'inc/class-alert.php';
 		include_once self::$dir_path.'inc/class-alerts.php';
 
 		// Load the Wunderground wrapper class

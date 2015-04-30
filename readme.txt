@@ -93,6 +93,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 If you are upgrading the plugin, your forecast will look different. Version 2.x made lots of changes as to how the forecast is displayed. If you want to go back after upgrading, you can [download the previous version here](https://downloads.wordpress.org/plugin/wunderground.1.2.5.1.zip).
 * Fixed: Widget preview for "Old School" icon set
+* Fixed: Fatal error if plugin or theme already used Twig template loader
 * Updated: Translations - thanks to all the translators!
     - Slovenian: Aleš Hočevar
     - Bosnian: Marko Saraba
