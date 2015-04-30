@@ -128,7 +128,7 @@ function wunderground_get_icon( $icon = 'Incredible' ) {
 	$icons = wunderground_get_icons();
 	$output = false;
 
-	$icon_formatted = ucfirst( strtolower( $icon ) );
+	$icon_formatted = ucwords( strtolower( $icon ) );
 
 	if( isset( $icons[ $icon_formatted ] ) ) {
 		$output = plugins_url( sprintf('assets/img/icons/%s', $icons[ $icon_formatted ]), Wunderground_Plugin::$file );

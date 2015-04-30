@@ -218,7 +218,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 							<img src="%s/clear.gif" alt="" />
 						</span>
 					</label>
-				</li>', $name, $this->get_field_name('iconset'), $this->get_field_id('iconset'), $checked, $name, wunderground_get_icon( $name ) );
+				</li>', $name, $this->get_field_name('iconset'), $this->get_field_id('iconset'), $checked, esc_html( $name ), wunderground_get_icon( $name ) );
 			}
 		?>
 			</ul>
@@ -270,7 +270,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 					),
 					'alerts' => array(
 						'label' => __('Weather Alerts &amp; Warnings', 'wunderground'),
-						'description' => __('This functionality is currently not working; we are working with Wunderground.com to restore it.', 'wunderground'),
+						'description' => __('Display Severe Weather alerts and warnings.', 'wunderground'),
 					),
 				);
 				foreach ($boxes as $value => $box) {
