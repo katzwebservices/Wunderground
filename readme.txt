@@ -66,13 +66,16 @@ If your location isn't working any more, follow the steps below:
 
 = How do I use my own icons? =
 
-If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon). Here's sample code:
+If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets). Here's sample code:
 
 <pre>
 add_filter('wp_wunderground_forecast_icon', 'use_custom_wunderground_icons', 10, 2 );
 
+/**
+ * @return string URL to the root folder of the icon set.
+ */
 function use_custom_wunderground_icons( $url_base = '', $icon_name = '' ) {
-	return 'http://www.example.com/path-to-full-icon-set/';
+	return 'http://icons.wxug.com/i/c/a/';
 }
 </pre>
 
@@ -95,6 +98,7 @@ If you are upgrading the plugin, your forecast will look different. Version 2.x 
 * Added: Now supports Weather Underground Severe Weather alerts & warnings
 * Fixed: Widget preview for "Old School" icon set
 * Fixed: Fatal error if plugin or theme already used Twig template loader
+* Fixed: Replace Icon Set FAQ code
 * Updated: Translations - thanks to all the translators!
     - Slovenian: Aleš Hočevar
     - Bosnian: Marko Saraba
