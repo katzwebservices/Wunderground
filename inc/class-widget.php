@@ -40,12 +40,12 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname' => 'wunderground',
-			'description' => __( 'Add a Wunderground.com forecast')
+			'description' => __( 'Add a Wunderground.com forecast', 'wunderground')
 		);
 
 		$control_options = array( 'width' => 450 ); // Min-width of widgets config with expanded sidebar
 
-		parent::WP_Widget( false, __('Wunderground'), $widget_ops, $control_options );
+		parent::WP_Widget( false, __('Wunderground', 'wunderground'), $widget_ops, $control_options );
 	}
 
 	/**
@@ -177,7 +177,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 			$days_select = wunderground_render_select($this->get_field_name('numdays'), $this->get_field_id('numdays'), array( 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10 ), $numdays);
 
-			echo sprintf('<label for="%s"><h3>%s</h3> %s</label>', $this->get_field_id('numdays'), __('# of Days in Forecast'), $days_select);
+			echo sprintf('<label for="%s"><h3>%s</h3> %s</label>', $this->get_field_id('numdays'), __('# of Days in Forecast', 'wunderground'), $days_select);
 
 		?>
 			<p>
@@ -238,11 +238,11 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 				$boxes = array(
 					'search' => array(
 						'label' => __('Search Form', 'wunderground'),
-						'description' => __('Allow searching weather forecasts.')
+						'description' => __('Allow searching weather forecasts.', 'wunderground')
 					),
 					'daynames' => array(
 						'label' => __('Weekday Labels', 'wunderground'),
-						'description' => __('Show the names of the days of the week.')
+						'description' => __('Show the names of the days of the week.', 'wunderground')
 					),
 					'date' => array(
 						'label' => __('Date', 'wunderground'),
