@@ -3,16 +3,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wunderground\n"
-"POT-Creation-Date: 2014-12-04 13:11-0700\n"
-"PO-Revision-Date: 2014-06-06 15:48+0000\n"
-"Last-Translator: Katz Web Services, Inc. <support@katz.co>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/wunderground/language/fr/)\n"
+"POT-Creation-Date: 2015-08-25 16:01-0700\n"
+"PO-Revision-Date: 2015-08-25 22:03+0000\n"
+"Last-Translator: Zachary Katz <zack@katz.co>\n"
+"Language-Team: French (http://www.transifex.com/katzwebservices/wunderground/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.7beta3\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -114,172 +114,175 @@ msgstr ""
 msgid "Wunderground"
 msgstr ""
 
-#: inc/class-widget.php:152
-msgid "Title"
-msgstr ""
-
-#: inc/class-widget.php:153
-msgid "Leave empty to hide the widget title."
-msgstr ""
-
-#: inc/class-widget.php:159
-msgid "Location"
-msgstr ""
-
-#: inc/class-widget.php:160
-msgid "Locations will autoload, but you may also define custom locations."
-msgstr ""
-
-#: inc/class-widget.php:161
-msgid "Enter the name of a location."
-msgstr ""
-
-#: inc/class-widget.php:168
-msgid "Location Title"
+#: inc/class-widget.php:132
+#, php-format
+msgid "There was an error fetching the forecast: %s"
 msgstr ""
 
 #: inc/class-widget.php:169
-msgid "Change how the location is displayed in the widget search field."
+msgid "Title"
 msgstr ""
 
 #: inc/class-widget.php:170
+msgid "Leave empty to hide the widget title."
+msgstr ""
+
+#: inc/class-widget.php:176
+msgid "Location"
+msgstr ""
+
+#: inc/class-widget.php:177
+msgid "Locations will autoload, but you may also define custom locations."
+msgstr ""
+
+#: inc/class-widget.php:178
+msgid "Enter the name of a location."
+msgstr ""
+
+#: inc/class-widget.php:185
+msgid "Location Title"
+msgstr ""
+
+#: inc/class-widget.php:186
+msgid "Change how the location is displayed in the widget search field."
+msgstr ""
+
+#: inc/class-widget.php:187
 msgid "Leave empty to use the location name."
 msgstr ""
 
-#: inc/class-widget.php:171
+#: inc/class-widget.php:188
 msgid ""
 "Example: if the Location is set to \"Denver, Colorado\", you may prefer to "
 "set the Location Title as \"Denver\", which is simpler."
 msgstr ""
 
-#: inc/class-widget.php:180
+#: inc/class-widget.php:197
 msgid "# of Days in Forecast"
 msgstr ""
 
-#: inc/class-widget.php:186
+#: inc/class-widget.php:203
 msgid "Include Current Conditions"
 msgstr ""
 
-#: inc/class-widget.php:187
+#: inc/class-widget.php:204
 msgid "Add the current conditions to the forecast."
 msgstr ""
 
-#: inc/class-widget.php:193
+#: inc/class-widget.php:210
 msgid "Include Night Forecasts"
 msgstr ""
 
-#: inc/class-widget.php:194
+#: inc/class-widget.php:211
 msgid "This will result in double the number of forecasts shown."
 msgstr ""
 
-#: inc/class-widget.php:200
+#: inc/class-widget.php:217
 msgid "Icon Set"
 msgstr ""
 
-#: inc/class-widget.php:201
+#: inc/class-widget.php:218
 msgid ""
 "Choose the look and feel of the images that will represent the weather."
 msgstr ""
 
-#: inc/class-widget.php:229
+#: inc/class-widget.php:246
 msgid "Widget Template"
 msgstr ""
 
-#: inc/class-widget.php:230
+#: inc/class-widget.php:247
 msgid "Choose how you would like to display the forecast."
 msgstr ""
 
-#: inc/class-widget.php:235
+#: inc/class-widget.php:252
 msgid "Show in Forecast"
 msgstr ""
 
-#: inc/class-widget.php:240
+#: inc/class-widget.php:257
 msgid "Search Form"
 msgstr ""
 
-#: inc/class-widget.php:241
+#: inc/class-widget.php:258
 msgid "Allow searching weather forecasts."
 msgstr ""
 
-#: inc/class-widget.php:244
+#: inc/class-widget.php:261
 msgid "Weekday Labels"
 msgstr ""
 
-#: inc/class-widget.php:245
+#: inc/class-widget.php:262
 msgid "Show the names of the days of the week."
 msgstr ""
 
-#: inc/class-widget.php:248
+#: inc/class-widget.php:265
 msgid "Date"
 msgstr ""
 
-#: inc/class-widget.php:249
+#: inc/class-widget.php:266
 msgid "Display the date numerically (\"09/14\")."
 msgstr ""
 
-#: inc/class-widget.php:252
+#: inc/class-widget.php:269
 msgid "Weather Icon"
 msgstr ""
 
-#: inc/class-widget.php:253
+#: inc/class-widget.php:270
 msgid "Icon representing the forecast conditions."
 msgstr ""
 
-#: inc/class-widget.php:256
+#: inc/class-widget.php:273
 msgid "Chance of Rain"
 msgstr ""
 
-#: inc/class-widget.php:257
+#: inc/class-widget.php:274
 msgid "Display the percent chance of rain."
 msgstr ""
 
-#: inc/class-widget.php:260
+#: inc/class-widget.php:277
 msgid "High & Low Temp"
 msgstr ""
 
-#: inc/class-widget.php:261
+#: inc/class-widget.php:278
 msgid "Show the high & low temperatures for forecast."
 msgstr ""
 
-#: inc/class-widget.php:264
+#: inc/class-widget.php:281
 msgid "Condition Title"
 msgstr ""
 
-#: inc/class-widget.php:265
+#: inc/class-widget.php:282
 msgid "Short summary of conditions (\"Clear\", \"Partly Cloudy\", etc.)."
 msgstr ""
 
-#: inc/class-widget.php:268
+#: inc/class-widget.php:285
 msgid "Forecast Text"
 msgstr ""
 
-#: inc/class-widget.php:269
+#: inc/class-widget.php:286
 msgid "Display a description of the forecast, normally in sentence format."
 msgstr ""
 
-#: inc/class-widget.php:272
+#: inc/class-widget.php:289
 msgid "Weather Alerts &amp; Warnings"
 msgstr ""
 
-#: inc/class-widget.php:273
-msgid ""
-"This functionality is currently not working; we are working with "
-"Wunderground.com to restore it."
-msgstr ""
-
-#: inc/class-widget.php:289
-msgid "Forecast Language"
-msgstr ""
-
-#: inc/class-widget.php:300
-msgid "Measurements"
-msgstr ""
-
-#: inc/class-widget.php:303
-msgid "Fahrenheit &amp; Inches"
+#: inc/class-widget.php:290
+msgid "Display Severe Weather alerts and warnings."
 msgstr ""
 
 #: inc/class-widget.php:306
+msgid "Forecast Language"
+msgstr ""
+
+#: inc/class-widget.php:317
+msgid "Measurements"
+msgstr ""
+
+#: inc/class-widget.php:320
+msgid "Fahrenheit &amp; Inches"
+msgstr ""
+
+#: inc/class-widget.php:323
 msgid "Celsius &amp; Meters"
 msgstr ""
 

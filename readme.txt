@@ -100,6 +100,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 = 2.1.1 =
 * Fixed: WordPress 4.3 compatibility
 * Added: Display any errors while fetching forecasts to administrators
+* Updated: Polish translation (thanks Cezary!) and Brazilian Portuguese (thanks Filipe!)
 * Removed unused `<thead>` code in `table-horizontal.html` template
 
 = 2.1 on April 29, 2015 =

@@ -4,16 +4,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Wunderground\n"
-"POT-Creation-Date: 2014-12-04 13:11-0700\n"
-"PO-Revision-Date: 2014-12-04 20:12+0000\n"
+"POT-Creation-Date: 2015-08-25 16:01-0700\n"
+"PO-Revision-Date: 2015-08-25 22:03+0000\n"
 "Last-Translator: Zachary Katz <zack@katz.co>\n"
-"Language-Team: Hebrew (Israel) (http://www.transifex.com/projects/p/wunderground/language/he_IL/)\n"
+"Language-Team: Hebrew (Israel) (http://www.transifex.com/katzwebservices/wunderground/language/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: he_IL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.7beta3\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -115,172 +115,175 @@ msgstr "הוסף תחזית Wunderground.com "
 msgid "Wunderground"
 msgstr "Wunderground"
 
-#: inc/class-widget.php:152
+#: inc/class-widget.php:132
+#, php-format
+msgid "There was an error fetching the forecast: %s"
+msgstr ""
+
+#: inc/class-widget.php:169
 msgid "Title"
 msgstr "כותרת"
 
-#: inc/class-widget.php:153
+#: inc/class-widget.php:170
 msgid "Leave empty to hide the widget title."
 msgstr "השאר ריק על מנת להסתיר את כותרת הוידגט"
 
-#: inc/class-widget.php:159
+#: inc/class-widget.php:176
 msgid "Location"
 msgstr "מיקום"
 
-#: inc/class-widget.php:160
+#: inc/class-widget.php:177
 msgid "Locations will autoload, but you may also define custom locations."
 msgstr "מיקמום יטענו אוטומטית. אתה עשוי להגדיר מיקומים ידנית."
 
-#: inc/class-widget.php:161
+#: inc/class-widget.php:178
 msgid "Enter the name of a location."
 msgstr "הכנס את שם המיקום"
 
-#: inc/class-widget.php:168
+#: inc/class-widget.php:185
 msgid "Location Title"
 msgstr "כותרת המיקום"
 
-#: inc/class-widget.php:169
+#: inc/class-widget.php:186
 msgid "Change how the location is displayed in the widget search field."
 msgstr "שנה את אופן ההצגה של המיקום כפי שיוצג בשורת החיפוש של הוידגט"
 
-#: inc/class-widget.php:170
+#: inc/class-widget.php:187
 msgid "Leave empty to use the location name."
 msgstr "השאר ריק על מנת להשתמש בשם המיקום הנוכחי"
 
-#: inc/class-widget.php:171
+#: inc/class-widget.php:188
 msgid ""
 "Example: if the Location is set to \"Denver, Colorado\", you may prefer to "
 "set the Location Title as \"Denver\", which is simpler."
 msgstr "דוגמא: אם המקום הינו \"דנוור קולורדו\", אתה יכול לרשום פשוט \"דנוור\""
 
-#: inc/class-widget.php:180
+#: inc/class-widget.php:197
 msgid "# of Days in Forecast"
 msgstr "# ימים בתחזית"
 
-#: inc/class-widget.php:186
+#: inc/class-widget.php:203
 msgid "Include Current Conditions"
 msgstr "כולל מצב נוכחי"
 
-#: inc/class-widget.php:187
+#: inc/class-widget.php:204
 msgid "Add the current conditions to the forecast."
 msgstr "הוסף מצב נוכחי לתחזית"
 
-#: inc/class-widget.php:193
+#: inc/class-widget.php:210
 msgid "Include Night Forecasts"
 msgstr "כולל תחזיות ליליות"
 
-#: inc/class-widget.php:194
+#: inc/class-widget.php:211
 msgid "This will result in double the number of forecasts shown."
 msgstr "זה יציג תוצאה במספר כפול בתחזית המוצגת."
 
-#: inc/class-widget.php:200
+#: inc/class-widget.php:217
 msgid "Icon Set"
 msgstr "סט איקונים"
 
-#: inc/class-widget.php:201
+#: inc/class-widget.php:218
 msgid ""
 "Choose the look and feel of the images that will represent the weather."
 msgstr "בחר את התמונה שתייצג את מזג האויר"
 
-#: inc/class-widget.php:229
+#: inc/class-widget.php:246
 msgid "Widget Template"
 msgstr "תבנית ווידגט"
 
-#: inc/class-widget.php:230
+#: inc/class-widget.php:247
 msgid "Choose how you would like to display the forecast."
 msgstr "בחר כיצד ברצונך להציג את התחזית"
 
-#: inc/class-widget.php:235
+#: inc/class-widget.php:252
 msgid "Show in Forecast"
 msgstr "הצג בתחזית"
 
-#: inc/class-widget.php:240
+#: inc/class-widget.php:257
 msgid "Search Form"
 msgstr "טופס חיפוש"
 
-#: inc/class-widget.php:241
+#: inc/class-widget.php:258
 msgid "Allow searching weather forecasts."
 msgstr "אפשר חיפוש תחזיות מזג אוויר"
 
-#: inc/class-widget.php:244
+#: inc/class-widget.php:261
 msgid "Weekday Labels"
 msgstr "שמות הימים"
 
-#: inc/class-widget.php:245
+#: inc/class-widget.php:262
 msgid "Show the names of the days of the week."
 msgstr "הצג את שמות הימים בשבוע"
 
-#: inc/class-widget.php:248
+#: inc/class-widget.php:265
 msgid "Date"
 msgstr "תאריך"
 
-#: inc/class-widget.php:249
+#: inc/class-widget.php:266
 msgid "Display the date numerically (\"09/14\")."
 msgstr "הצג תאריך באופן מספרי (\"09/14\")."
 
-#: inc/class-widget.php:252
+#: inc/class-widget.php:269
 msgid "Weather Icon"
 msgstr "איקון מזג אוויר"
 
-#: inc/class-widget.php:253
+#: inc/class-widget.php:270
 msgid "Icon representing the forecast conditions."
 msgstr "האיקון מייצג את מצב התחזיות."
 
-#: inc/class-widget.php:256
+#: inc/class-widget.php:273
 msgid "Chance of Rain"
 msgstr "סיכוי לגשם"
 
-#: inc/class-widget.php:257
+#: inc/class-widget.php:274
 msgid "Display the percent chance of rain."
 msgstr "הצג את הסיכוי לגשם"
 
-#: inc/class-widget.php:260
+#: inc/class-widget.php:277
 msgid "High & Low Temp"
 msgstr "טמפרטורות גבוהות ונמוכות"
 
-#: inc/class-widget.php:261
+#: inc/class-widget.php:278
 msgid "Show the high & low temperatures for forecast."
 msgstr "הצג טמפרטורות המינימום והמקסימום בתחזית"
 
-#: inc/class-widget.php:264
+#: inc/class-widget.php:281
 msgid "Condition Title"
 msgstr "כותרת המצב"
 
-#: inc/class-widget.php:265
+#: inc/class-widget.php:282
 msgid "Short summary of conditions (\"Clear\", \"Partly Cloudy\", etc.)."
 msgstr "סיכום מצב בקצרה (\"בהיר, מעונן חלקית, מעונן וכו')."
 
-#: inc/class-widget.php:268
+#: inc/class-widget.php:285
 msgid "Forecast Text"
 msgstr "תיאור התחזית"
 
-#: inc/class-widget.php:269
+#: inc/class-widget.php:286
 msgid "Display a description of the forecast, normally in sentence format."
 msgstr "הצג תיאור התחזית. בדרך כלל במבנה שורה בודדת."
 
-#: inc/class-widget.php:272
+#: inc/class-widget.php:289
 msgid "Weather Alerts &amp; Warnings"
 msgstr "התראות מזג אוויר"
 
-#: inc/class-widget.php:273
-msgid ""
-"This functionality is currently not working; we are working with "
-"Wunderground.com to restore it."
-msgstr "הפונקציונאליות לא עובדת כרגע: אנו עובדים בשיתוף Wunderground.com על מנת לפתור זאת."
+#: inc/class-widget.php:290
+msgid "Display Severe Weather alerts and warnings."
+msgstr ""
 
-#: inc/class-widget.php:289
+#: inc/class-widget.php:306
 msgid "Forecast Language"
 msgstr "שפת התחזית"
 
-#: inc/class-widget.php:300
+#: inc/class-widget.php:317
 msgid "Measurements"
 msgstr "מדדים"
 
-#: inc/class-widget.php:303
+#: inc/class-widget.php:320
 msgid "Fahrenheit &amp; Inches"
 msgstr "פרנהייט ואינצ'ים"
 
-#: inc/class-widget.php:306
+#: inc/class-widget.php:323
 msgid "Celsius &amp; Meters"
 msgstr "צלזיוס ומטרים"
 
