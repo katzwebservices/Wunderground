@@ -98,6 +98,9 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		// PWS is offline or something.
 		if( !empty( $data['wunderground']->response->error )) {
+
+			$this->maybe_display_error( $data['wunderground']->response->error );
+
 			do_action('wunderground_log_debug', 'There was an error in the Wunderground response:', $data['wunderground']->response->error );
 			return;
 		}
@@ -114,6 +117,20 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 		do_action('wunderground_render_template', $instance['layout'], $data );
 
 		echo $after_widget;
+	}
+
+	/**
+	 * If the user is logged in, display the error message
+	 * @param stdClass $error
+	 */
+	function maybe_display_error( $error ) {
+
+		if( !current_user_can( 'manage_options') || !is_object( $error ) || empty( $error->type ) ) {
+			return;
+		}
+
+		echo '<h4>' . esc_html( sprintf( __( 'There was an error fetching the forecast: %s', 'wunderground' ), $error->type ) ). '</h4>';
+
 	}
 
 	function getLocation() {

@@ -97,6 +97,9 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 == Changelog ==
 
+= 2.1.1 =
+* Added: Display any errors while fetching forecasts to administrators
+
 = 2.1 on April 29, 2015 =
 * Added: Now supports Weather Underground Severe Weather alerts & warnings
 * Fixed: Issue using multi-word cities (thanks [@christianriley](https://github.com/christianriley)!)
