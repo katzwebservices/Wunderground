@@ -1,10 +1,10 @@
 === Weather Underground ===
 Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 3.6
-Tested up to: 4.2.1
+Tested up to: 4.3
 Stable tag: trunk
 Contributors: katzwebdesign, katzwebservices
-Donate link: https://katz.co
+Donate link: https://gravityview.co
 
 Get accurate and beautiful weather forecasts powered by Wunderground.com
 
@@ -98,6 +98,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 == Changelog ==
 
 = 2.1.1 =
+* Fixed: WordPress 4.3 compatibility
 * Added: Display any errors while fetching forecasts to administrators
 
 = 2.1 on April 29, 2015 =
