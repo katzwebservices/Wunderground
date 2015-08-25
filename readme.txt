@@ -102,6 +102,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 * Added: Display any errors while fetching forecasts to administrators
 * Updated: Polish translation (thanks Cezary!) and Brazilian Portuguese (thanks Filipe!)
 * Removed unused `<thead>` code in `table-horizontal.html` template
+* Updated: Twig template loader to version 1.21 from 1.18.1
 
 = 2.1 on April 29, 2015 =
 * Added: Now supports Weather Underground Severe Weather alerts & warnings
