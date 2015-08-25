@@ -1,10 +1,10 @@
 === Weather Underground ===
 Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 3.6
-Tested up to: 4.2.1
+Tested up to: 4.3
 Stable tag: trunk
 Contributors: katzwebdesign, katzwebservices
-Donate link: https://katz.co
+Donate link: https://gravityview.co
 
 Get accurate and beautiful weather forecasts powered by Wunderground.com
 
@@ -96,6 +96,13 @@ This plugin is released under a GPL license. *Weather Underground is a registere
 Weather Underground has been very gracious and has provided the plugin with free data - you don't need your own account. If you want to use Wunderground data in your own application, [register for a Weather Underground API account](http://www.wunderground.com/?apiref=5f97d1e033236c26).
 
 == Changelog ==
+
+= 2.1.1 on August 25, 2015 =
+* Fixed: WordPress 4.3 compatibility
+* Added: Display any errors while fetching forecasts to administrators
+* Updated: Polish translation (thanks Cezary!) and Brazilian Portuguese (thanks Filipe!)
+* Removed unused `<thead>` code in `table-horizontal.html` template
+* Updated: Twig template loader to version 1.21 from 1.18.1
 
 = 2.1 on April 29, 2015 =
 * Added: Now supports Weather Underground Severe Weather alerts & warnings

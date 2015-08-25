@@ -20,17 +20,6 @@
 	<div class="wu-forecast-wrapper">
 
 		<table class="wu-table-{{numdays}}">
-
-			{% if showdata.daynames is not empty %}
-			<thead>
-				<tr>
-				{% for i in range( low = 0, high = (numdays - 1) ) %}
-					<th scope="col">{{ forecast.text_forecast.days[i].title }}</th>
-				{% endfor %}
-				</tr>
-			</thead>
-			{% endif %}
-
 			<tbody>
 				<tr class="forecast">
 
