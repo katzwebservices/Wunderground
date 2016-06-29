@@ -7,7 +7,7 @@ class Wunderground_Request {
 	 * @var string
 	 */
 	private $apiKey = '3ffab52910ec1a0e';
-
+        
 	/**
 	 * What features should be fetched by the request?
 	 *
@@ -72,12 +72,13 @@ class Wunderground_Request {
 	 * @param string  $units    [description]
 	 * @param boolean $cache    [description]
 	 */
-	function __construct( $location = '', $features = array(), $language = 'EN', $units = 'english', $cache = true ) {
-
+	function __construct( $location = '', $apiKey = '', $features = array(), $language = 'EN', $units = 'english', $cache = true ) {
+		
+		$this->set_api_key( $apiKey );		
 		$this->location = $location;
-
+		
 		$features = wp_parse_args( $features, $this->features );
-
+        
 		$this->set_features( $features );
 		$this->set_language( $language );
 		$this->set_units( $units );
@@ -85,7 +86,23 @@ class Wunderground_Request {
 		$this->set_results();
 
 	}
-
+     
+    /**
+	 * Set the Wunderground API Key. This defaults to the plugins key, as set in the constructor.
+	 * @param  string $apiKey The Wunderground API Key
+	 */  
+	private function set_api_key( $apiKey = '' ) {
+            if (function_exists('wunderground_get_api_key')) {
+                if (empty($apiKey)) {
+                	$this->apiKey = wunderground_get_api_key();
+                } else {
+                	$this->apiKey = wunderground_get_api_key( $apiKey );
+                }
+            } else {
+            	$this->apiKey = $apiKey;
+            }
+	}
+        
 	private function set_cache( $cache ) {
 
 		if( isset($_GET['cache']) && current_user_can( 'manage_options' ) ) {
