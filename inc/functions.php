@@ -778,3 +778,16 @@ function wunderground_get_languages() {
 		),
 	);
 }
+
+/**
+ * A helper function to get the API key.
+ * Can be filtered using the `wunderground_request_atts` filter.
+ * @param string $apiKey The Wunderground API Key - defualts to the authors key.
+ * @return string The Key
+ */
+
+function wunderground_get_api_key( $apiKey = '3ffab52910ec1a0e' ) {
+	
+	return apply_filters( 'wunderground_api_key', $apiKey );
+	
+}
