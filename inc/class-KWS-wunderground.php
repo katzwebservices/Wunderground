@@ -12,6 +12,12 @@ class KWS_Wunderground {
 
 	var $alerts;
 
+	/**
+	 * @since 2.1.2
+	 * @var null
+	 */
+	var $error = null;
+
 	function __construct( Wunderground_Request $request ) {
 
 		$results = $request->get_results();
@@ -19,6 +25,9 @@ class KWS_Wunderground {
 		if( !empty( $results->error ) ) {
 			// TODO: Handle properly
 			Wunderground_Plugin::log_error( 'Error loading results KWS_Wunderground', $results->error );
+
+			$this->error = $results->error;
+
 			return NULL;
 		}
 
@@ -28,6 +37,17 @@ class KWS_Wunderground {
 		$this->alerts = new Wunderground_Alerts( $request );
 
 		Wunderground_Plugin::log_debug( 'Wunderground_Forecast', $this );
+	}
+
+	/**
+	 * Return error, if any.
+	 *
+	 * @since 2.1.2
+	 *
+	 * @return null|string NULL if no error. Error string if error.
+	 */
+	public function get_error() {
+		return $this->error;
 	}
 
 }

@@ -45,7 +45,7 @@ class Wunderground_Forecast_Widget extends WP_Widget {
 
 		$control_options = array( 'width' => 450 ); // Min-width of widgets config with expanded sidebar
 
-		parent::__construct( 'wunderground', __('Wunderground', 'wunderground'), $widget_ops, $control_options );
+		parent::__construct( false, __('Wunderground', 'wunderground'), $widget_ops, $control_options );
 	}
 
 	/**

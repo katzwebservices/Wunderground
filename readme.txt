@@ -1,7 +1,7 @@
 === Weather Underground ===
 Tags: weather, weather.com, wunderground, weather underground, weatherbug, forecast, Yahoo! Weather, wp-weather, wp weather, local weather, weather man, weather widget, cool weather, accuweather, get weather, wordpress weather
 Requires at least: 3.6
-Tested up to: 4.3
+Tested up to: 4.5.2
 Stable tag: trunk
 Contributors: katzwebdesign, katzwebservices
 Donate link: https://gravityview.co
@@ -64,6 +64,29 @@ If your location isn't working any more, follow the steps below:
 * Use that as your location in the shortcode, like this: `[wunderground location="zmw:00000.4.17340" /]`
 * That should work!
 
+= How do I use my own API key? =
+Weather Underground has generously donated free API access to users of this plugin.
+
+If you prefer, you can define your own API key in your installation's `wp-config.php` file by setting a `WUNDERGROUND_API_KEY` constant, like so:
+
+<pre>
+define( 'WUNDERGROUND_API_KEY', 'myapikey' );
+</pre>
+
+You can also override the API key using the `wunderground_api_key` filter, like so:
+
+<pre>
+add_filter( 'wunderground_api_key', 'my_custom_wunderground_api_key' );
+
+/**
+ * Use my own API key!
+ * @return string My API key
+ */
+function wunderground_api_key( $old_api_key = '' ) {
+    return 'myapikey';
+}
+</pre>
+
 = How do I use my own icons? =
 
 If you want to use your own icons, you would add a filter to the bottom of your theme's <code>functions.php</code> file. See a [list of icons you should have available](http://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets). Here's sample code:
@@ -96,6 +119,12 @@ This plugin is released under a GPL license. *Weather Underground is a registere
 Weather Underground has been very gracious and has provided the plugin with free data - you don't need your own account. If you want to use Wunderground data in your own application, [register for a Weather Underground API account](http://www.wunderground.com/?apiref=5f97d1e033236c26).
 
 == Changelog ==
+
+= 2.1.2 on June 30, 2016 =
+* Added: Ability to override API key using the `wunderground_api_key` filter or the `WUNDERGROUND_API_KEY` constant
+* Fixed: Location autocomplete issue on HTTPS websites
+* Fixed: Don't cache responses if they result in errors (good idea, eh?)
+* Added: `wunderground_include_pws` filter to toggle whether to include Personal Weather Stations as data sources (Default: false, unless the location requested is specifically a PWS station)
 
 = 2.1.1 on August 25, 2015 =
 * Fixed: WordPress 4.3 compatibility

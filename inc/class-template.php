@@ -79,8 +79,12 @@ class Wunderground_Template {
 
 	}
 
+	/**
+	 * @param string $template Template slug based on value passed by `wunderground_render_template` filter
+	 * @param array $data
+	 */
 	function render( $template = NULL, $data = array() ) {
-
+		
 		// The translation text
 		$data['strings'] = $this->strings();
 
@@ -97,7 +101,6 @@ class Wunderground_Template {
 
 		// Map the keys so that they are consistent instead of having some
 		// using key => key and others using index => key
-		$showdata = array();
 		foreach ( (array)$data['showdata'] as $key => $value ) {
 			$data['showdata'][$value] = $value;
 		}
@@ -134,6 +137,12 @@ class Wunderground_Template {
 			set_transient( $cache_key, $output, ( $cache_time * 2 )  );
 		}
 
+		/**
+		 * Modify the HTML output of the forecast
+		 * @param string $output HTML of the forecast
+		 * @param string $template Template slug based on value passed by `wunderground_render_template` filter
+		 * @param array $data Template data array, with keys `strings`, `showdata`, `subdomain`, `logo`, `user_icon_url`, `language`
+		 */
 		$output = apply_filters( 'wp_wunderground_forecast', $output, $template, $data );
 
 		echo $output;

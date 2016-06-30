@@ -45,7 +45,7 @@ class Wunderground_Display {
 			wp_enqueue_script( 'wunderground-widget', plugins_url( 'assets/js/widget'.$min.'.js', Wunderground_Plugin::$file ), array('jquery-ui-autocomplete'), Wunderground_Plugin::version );
 
 			wp_localize_script( 'wunderground-widget', 'WuWidget', array(
-				'apiKey' => '3ffab52910ec1a0e',
+				'apiKey' => esc_attr( Wunderground_Plugin::$api_key ),
 				'_wpnonce' => wp_create_nonce('wunderground-aq'),
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'is_admin' => is_admin(),

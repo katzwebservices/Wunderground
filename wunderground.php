@@ -20,18 +20,34 @@ class Wunderground_Plugin {
 	 */
 	const version = '2.1.1';
 
-	var $logger;
-	var $is_debug = false;
-
+	/**
+	 * @var string The full path and filename of the main plugin file
+	 */
 	static $file;
 
+	/**
+	 * @var string Filesystem path to main plugin file, with trailing slash
+	 */
 	static $dir_path;
+
+	/**
+	 * Filter the Weather Underground API key used by the plugin
+	 * Modify using the `wunderground_api_key` filter
+	 * @since 2.1.2
+	 */
+	static $api_key = '3ffab52910ec1a0e';
 
 	function __construct() {
 
 		self::$file = __FILE__;
 
 		self::$dir_path = plugin_dir_path( __FILE__ );
+
+		/**
+		 * Filter the Weather Underground API key used by the plugin
+		 * @since 2.1.2
+		 */
+		self::$api_key = $this->get_api_key();
 
 		// Fire AJAX requests immediately
 		include_once self::$dir_path.'inc/class-ajax.php';
@@ -43,6 +59,29 @@ class Wunderground_Plugin {
 
 		// Use the `wunderground_log_debug` action for logging
 		add_action( 'wunderground_log_debug', array( 'Wunderground_Plugin', 'log_debug'), 10, 2 );
+	}
+
+	/**
+	 * Get the Weather Underground API key used by the plugin
+	 *
+	 * You can define your own Weather Underground API key using the `WUNDERGROUND_API_KEY` constant in wp-config.php,
+	 * or you can filter the key using the `wunderground_api_key` filter.
+	 *
+	 * @since 2.1.2
+	 *
+	 * @return string The Weather Underground API key. Default: the plugin key ("3ffab52910ec1a0e")
+	 */
+	private function get_api_key() {
+
+		$api_key = self::$api_key;
+
+		if( defined( 'WUNDERGROUND_API_KEY' ) ) {
+			$api_key = WUNDERGROUND_API_KEY;
+		}
+
+		$api_key = apply_filters( 'wunderground_api_key', $api_key );
+
+		return $api_key;
 	}
 
 	function init() {

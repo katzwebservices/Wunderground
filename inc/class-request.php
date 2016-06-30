@@ -3,12 +3,6 @@
 class Wunderground_Request {
 
 	/**
-	 * Your Wunderground.com API key
-	 * @var string
-	 */
-	private $apiKey = '3ffab52910ec1a0e';
-
-	/**
 	 * What features should be fetched by the request?
 	 *
 	 * Available features: 'alerts', 'almanac','conditions','currenthurricane','forecast','forecast10day','geolookup','history','hourly','planner','rawtide','tide','webcams','yesterday'
@@ -174,24 +168,35 @@ class Wunderground_Request {
 
 		$location = $this->location;
 
+		$include_pws = false;
+
 		// We've got a PWS!
 		// Match both pws:KCASANFR70 and KCASANFR70 formats
 		// I716, MBGLA2, M41101, MRNDA2, MBGLA2
 		if( preg_match( '/(pws\:)?([A-Z]{1,11}[0-9]{1,11})/', $location, $matches ) ) {
 			$location = isset( $matches[2] ) ? $matches[2] : $location;
 			$location = '/q/pws:'.urlencode($location);
+			$include_pws = true;
 		}
 
-/*
+		/**
+		 * Include PWS stations in the results?
+		 * @since TODO
+		 * @param int `0` for no, `1` for yes. Default: `0`
+		 */
+		$pws = sprintf( 'pws:%d', intval( apply_filters( 'wunderground_include_pws', $include_pws ) ) );
+
+		/*
 		http://www.wunderground.com/weather-forecast/FR/Paris.html
 		http://www.wunderground.com/q/FR/Paris.html
-		http://www.wunderground.com/personal-weather-station/dashboard?ID=I75003PA1*/
+		http://www.wunderground.com/personal-weather-station/dashboard?ID=I75003PA1
+		*/
 
 		// If the location is a link, we don't need to turn it...wait for it...into a link.
 		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.rawurlencode($location);
 
 		// Combine into one URL
-		$url = sprintf('%s/%s/v:2.0/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $features, $location_path );
+		$url = sprintf('%s/%s/v:2.0/%s/%s/%s/%s%s.json', $this->apiUrl, Wunderground_Plugin::$api_key, $language, $units, $pws, $features, $location_path );
 
 		return $url;
 	}
@@ -213,7 +218,7 @@ class Wunderground_Request {
 		// Generate a cache key based on the result. Only get the first 44 characters because of
 		// the transient key length limit.
 		$cache_key = substr( 'wu_'.sha1($url) , 0, 44 );
-
+		
 		$response = get_transient( $cache_key );
 
 		// If there's no cached result or caching is disabled
@@ -229,21 +234,28 @@ class Wunderground_Request {
 
 			$request = wp_remote_request( $url , $atts );
 
-			$response = wp_remote_retrieve_body( $request );
+			if( is_wp_error( $request ) ) {
+				$response = false;
+				
+			} else {
 
-			/**
-			 * Modify the number of seconds to cache the request for.
-			 *
-			 * Default: cache the request for one hour, since we're dealing with changing conditions
-			 *
-			 * @var int
-			 */
-			$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
+				$response = wp_remote_retrieve_body( $request );
 
-			// Backward compatible with 1.x
-			$cache_time = apply_filters( 'wp_wunderground_forecast_cache', $cache_time );
+				/**
+				 * Modify the number of seconds to cache the request for.
+				 *
+				 * Default: cache the request for one hour, since we're dealing with changing conditions
+				 *
+				 * @var int
+				 */
+				$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
 
-			set_transient( $cache_key, $response, (int)$cache_time );
+				// Backward compatible with 1.x
+				$cache_time = apply_filters( 'wp_wunderground_forecast_cache', $cache_time );
+
+				set_transient( $cache_key, $response, (int)$cache_time );
+				
+			}
 		}
 
 		return $response;

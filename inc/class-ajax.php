@@ -23,7 +23,7 @@ final class Wunderground_Ajax {
 			'h' => 0, // No hurricanes, please.
 			'c' => $country,
 			'type' => 'city',
-		), 'http://autocomplete.wunderground.com/aq' );
+		), 'https://autocomplete.wunderground.com/aq' );
 
 		$response = Wunderground_Request::request( $url );
 
