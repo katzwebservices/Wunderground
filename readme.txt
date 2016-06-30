@@ -97,6 +97,7 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 == Changelog ==
 
+* Added: `wunderground_include_pws` filter to toggle whether to include Personal Weather Stations as data sources (Default: false, unless the location requested is specifically a PWS station)
 = 2.1.1 on August 25, 2015 =
 * Fixed: WordPress 4.3 compatibility
 * Added: Display any errors while fetching forecasts to administrators

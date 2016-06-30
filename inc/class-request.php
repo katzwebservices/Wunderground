@@ -174,24 +174,35 @@ class Wunderground_Request {
 
 		$location = $this->location;
 
+		$include_pws = false;
+
 		// We've got a PWS!
 		// Match both pws:KCASANFR70 and KCASANFR70 formats
 		// I716, MBGLA2, M41101, MRNDA2, MBGLA2
 		if( preg_match( '/(pws\:)?([A-Z]{1,11}[0-9]{1,11})/', $location, $matches ) ) {
 			$location = isset( $matches[2] ) ? $matches[2] : $location;
 			$location = '/q/pws:'.urlencode($location);
+			$include_pws = true;
 		}
 
-/*
+		/**
+		 * Include PWS stations in the results?
+		 * @since TODO
+		 * @param int `0` for no, `1` for yes. Default: `0`
+		 */
+		$pws = sprintf( 'pws:%d', intval( apply_filters( 'wunderground_include_pws', $include_pws ) ) );
+
+		/*
 		http://www.wunderground.com/weather-forecast/FR/Paris.html
 		http://www.wunderground.com/q/FR/Paris.html
-		http://www.wunderground.com/personal-weather-station/dashboard?ID=I75003PA1*/
+		http://www.wunderground.com/personal-weather-station/dashboard?ID=I75003PA1
+		*/
 
 		// If the location is a link, we don't need to turn it...wait for it...into a link.
 		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.rawurlencode($location);
 
 		// Combine into one URL
-		$url = sprintf('%s/%s/v:2.0/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $features, $location_path );
+		$url = sprintf('%s/%s/v:2.0/%s/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $pws, $features, $location_path );
 
 		return $url;
 	}
@@ -213,7 +224,7 @@ class Wunderground_Request {
 		// Generate a cache key based on the result. Only get the first 44 characters because of
 		// the transient key length limit.
 		$cache_key = substr( 'wu_'.sha1($url) , 0, 44 );
-
+		
 		$response = get_transient( $cache_key );
 
 		// If there's no cached result or caching is disabled
