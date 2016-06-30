@@ -240,21 +240,28 @@ class Wunderground_Request {
 
 			$request = wp_remote_request( $url , $atts );
 
-			$response = wp_remote_retrieve_body( $request );
+			if( is_wp_error( $request ) ) {
+				$response = false;
+				
+			} else {
 
-			/**
-			 * Modify the number of seconds to cache the request for.
-			 *
-			 * Default: cache the request for one hour, since we're dealing with changing conditions
-			 *
-			 * @var int
-			 */
-			$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
+				$response = wp_remote_retrieve_body( $request );
 
-			// Backward compatible with 1.x
-			$cache_time = apply_filters( 'wp_wunderground_forecast_cache', $cache_time );
+				/**
+				 * Modify the number of seconds to cache the request for.
+				 *
+				 * Default: cache the request for one hour, since we're dealing with changing conditions
+				 *
+				 * @var int
+				 */
+				$cache_time = apply_filters( 'wunderground_cache_time', HOUR_IN_SECONDS );
 
-			set_transient( $cache_key, $response, (int)$cache_time );
+				// Backward compatible with 1.x
+				$cache_time = apply_filters( 'wp_wunderground_forecast_cache', $cache_time );
+
+				set_transient( $cache_key, $response, (int)$cache_time );
+				
+			}
 		}
 
 		return $response;
