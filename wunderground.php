@@ -20,8 +20,14 @@ class Wunderground_Plugin {
 	 */
 	const version = '2.1.1';
 
+	/**
+	 * @var string The full path and filename of the main plugin file
+	 */
 	static $file;
 
+	/**
+	 * @var string Filesystem path to main plugin file, with trailing slash
+	 */
 	static $dir_path;
 
 	/**
