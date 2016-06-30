@@ -221,7 +221,7 @@ function wunderground_get_autocomplete_country_code() {
 /**
  * Get the date format for the output.
  *
- * Backward compatibile with 1.x by converting %%weekday%%, %%day%%, %%month%% and %%year%% into PHP date formats. Also supports converting `date('d/m/Y')` to `d/m/Y`
+ * Backward compatible with 1.x by converting %%weekday%%, %%day%%, %%month%% and %%year%% into PHP date formats. Also supports converting `date('d/m/Y')` to `d/m/Y`
  *
  * @link http://codex.wordpress.org/Formatting_Date_and_Time Learn more about formatting datetime
  * @filter wunderground_date_format Filter the date format sitewide.
