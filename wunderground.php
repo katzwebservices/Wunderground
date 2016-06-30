@@ -20,9 +20,6 @@ class Wunderground_Plugin {
 	 */
 	const version = '2.1.1';
 
-	var $logger;
-	var $is_debug = false;
-
 	static $file;
 
 	static $dir_path;
