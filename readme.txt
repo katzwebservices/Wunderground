@@ -120,11 +120,12 @@ Weather Underground has been very gracious and has provided the plugin with free
 
 == Changelog ==
 
-= 2.1.2 on June 30, 2016 =
+= 2.1.2 and 2.1.3 on June 30, 2016 =
 * Added: Ability to override API key using the `wunderground_api_key` filter or the `WUNDERGROUND_API_KEY` constant
 * Fixed: Location autocomplete issue on HTTPS websites
 * Fixed: Don't cache responses if they result in errors (good idea, eh?)
 * Added: `wunderground_include_pws` filter to toggle whether to include Personal Weather Stations as data sources (Default: false, unless the location requested is specifically a PWS station)
+* Updated: Twig template framework from 1.21.0 to 1.24.1
 
 = 2.1.1 on August 25, 2015 =
 * Fixed: WordPress 4.3 compatibility
