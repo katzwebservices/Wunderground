@@ -3,12 +3,6 @@
 class Wunderground_Request {
 
 	/**
-	 * Your Wunderground.com API key
-	 * @var string
-	 */
-	private $apiKey = '3ffab52910ec1a0e';
-
-	/**
 	 * What features should be fetched by the request?
 	 *
 	 * Available features: 'alerts', 'almanac','conditions','currenthurricane','forecast','forecast10day','geolookup','history','hourly','planner','rawtide','tide','webcams','yesterday'
@@ -202,7 +196,7 @@ class Wunderground_Request {
 		$location_path = preg_match( '/\/q\//ism', $location ) ? $location : '/q/'.rawurlencode($location);
 
 		// Combine into one URL
-		$url = sprintf('%s/%s/v:2.0/%s/%s/%s/%s%s.json', $this->apiUrl, $this->apiKey, $language, $units, $pws, $features, $location_path );
+		$url = sprintf('%s/%s/v:2.0/%s/%s/%s/%s%s.json', $this->apiUrl, Wunderground_Plugin::$api_key, $language, $units, $pws, $features, $location_path );
 
 		return $url;
 	}
