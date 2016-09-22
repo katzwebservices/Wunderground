@@ -1,0 +1,673 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Weather Underground\n"
+"POT-Creation-Date: 2015-08-25 16:01-0700\n"
+"PO-Revision-Date: 2016-09-22 10:59+1000\n"
+"Language-Team: Katz Web Services, Inc. <support@katz.co>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Last-Translator: \n"
+"Language: ru_RU\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/class-template.php:67
+#, php-format
+msgid "Statement as of %s"
+msgstr ""
+
+#: inc/class-template.php:68
+msgid "The location could not be found."
+msgstr "Местонахождение не найдено"
+
+#: inc/class-template.php:69
+#, php-format
+msgid "%s%%"
+msgstr ""
+
+#: inc/class-template.php:70
+#, php-format
+msgid "%s%% Chance of Precipitation"
+msgstr "%s%% Вероятность осадков"
+
+#: inc/class-template.php:71
+msgid "Currently"
+msgstr "Текущий"
+
+#: inc/class-template.php:72
+#, php-format
+msgid "High %d&deg;"
+msgstr "Высшая: %d&deg;"
+
+#: inc/class-template.php:73
+#, php-format
+msgid "Low %d&deg;"
+msgstr "Низшая: %d&deg;"
+
+#: inc/class-template.php:74
+#, php-format
+msgid "%d&deg;"
+msgstr ""
+
+#: inc/class-template.php:75
+#, php-format
+msgid "View the %s forecast on Wunderground.com"
+msgstr "Просмотреть %s прогноз на Wunderground.com"
+
+#: inc/class-template.php:76
+msgctxt "Weather alert issued date/time"
+msgid "Issued:"
+msgstr "Получено:"
+
+#: inc/class-template.php:77
+msgctxt "Weather alert expires date/time"
+msgid "Expires:"
+msgstr "Истекает:"
+
+#: inc/class-template.php:149
+msgid "Current Conditions"
+msgstr "Текущие погодные условия"
+
+#: inc/class-template.php:150
+msgid "Simple display of the current conditions."
+msgstr "Простое отображение текущих погодных условий"
+
+#: inc/class-template.php:155
+msgid "Grid Forecast"
+msgstr "Прогноз сеткой"
+
+#: inc/class-template.php:156
+msgid "Scales to any screen size."
+msgstr "Масштабируется до любого размера экрана"
+
+#: inc/class-template.php:161
+msgid "Details Table"
+msgstr "Детальная таблица"
+
+#: inc/class-template.php:162
+msgid ""
+"Display the forecast in a table with rows. Great for in-depth forecast "
+"display."
+msgstr ""
+"Отображает прогноз в таблице со строками. Отлично подходит для отображения "
+"подробного прогноза"
+
+#: inc/class-template.php:167
+msgid "Horizontal Table"
+msgstr "Горизонтальная таблица"
+
+#: inc/class-template.php:168
+msgid ""
+"Display the forecast in a table with columns. Great for forecast summaries."
+msgstr ""
+"Отображает прогноз в таблице со столбцами. Замечательно подходит для итогов "
+"прогноза погоды"
+
+#: inc/class-widget.php:43
+msgid "Add a Wunderground.com forecast"
+msgstr "Добавить прогноз погоды от Wunderground.com"
+
+#: inc/class-widget.php:48 inc/functions.php:176
+msgid "Wunderground"
+msgstr ""
+
+#: inc/class-widget.php:132
+#, php-format
+msgid "There was an error fetching the forecast: %s"
+msgstr "Ошибка получения прогноза: %s"
+
+#: inc/class-widget.php:169
+msgid "Title"
+msgstr "Заголовок"
+
+#: inc/class-widget.php:170
+msgid "Leave empty to hide the widget title."
+msgstr "Оставьте пустым для того чтобы спрятать заголовок виджета"
+
+#: inc/class-widget.php:176
+msgid "Location"
+msgstr "Местоположение"
+
+#: inc/class-widget.php:177
+msgid "Locations will autoload, but you may also define custom locations."
+msgstr ""
+"Местоположение будет автоматически загружено, но вы также можете указать "
+"произвольное местоположение"
+
+#: inc/class-widget.php:178
+msgid "Enter the name of a location."
+msgstr "Введите название местоположения"
+
+#: inc/class-widget.php:185
+msgid "Location Title"
+msgstr "Заголовок местоположения"
+
+#: inc/class-widget.php:186
+msgid "Change how the location is displayed in the widget search field."
+msgstr "Измените отображение местоположения в поле поиска виджета."
+
+#: inc/class-widget.php:187
+msgid "Leave empty to use the location name."
+msgstr "Оставьте пустым для использования названия местоположения."
+
+#: inc/class-widget.php:188
+msgid ""
+"Example: if the Location is set to \"Denver, Colorado\", you may prefer to "
+"set the Location Title as \"Denver\", which is simpler."
+msgstr ""
+"К примеру, если местоположение установлено в \"Хабаровск, Россия\", вы "
+"можете захотеть, чтобы заголовок местоположения выглядел как \"Хабаровск\", "
+"что, конечно, проще."
+
+#: inc/class-widget.php:197
+msgid "# of Days in Forecast"
+msgstr "количество дней в прогнозе"
+
+#: inc/class-widget.php:203
+msgid "Include Current Conditions"
+msgstr "Включая текущие погодные условия"
+
+#: inc/class-widget.php:204
+msgid "Add the current conditions to the forecast."
+msgstr "Включить текущие погодные условия в прогноз"
+
+#: inc/class-widget.php:210
+msgid "Include Night Forecasts"
+msgstr "Включить ночной прогноз"
+
+#: inc/class-widget.php:211
+msgid "This will result in double the number of forecasts shown."
+msgstr "Это удвоит количество отображаемых прогнозов"
+
+#: inc/class-widget.php:217
+msgid "Icon Set"
+msgstr "Набор иконок"
+
+#: inc/class-widget.php:218
+msgid "Choose the look and feel of the images that will represent the weather."
+msgstr "Выберите внешний вид изображений, которые будут представлять погоду."
+
+#: inc/class-widget.php:246
+msgid "Widget Template"
+msgstr "Шаблон виджета"
+
+#: inc/class-widget.php:247
+msgid "Choose how you would like to display the forecast."
+msgstr "Выберите как вы желаете отображать прогноз погоды."
+
+#: inc/class-widget.php:252
+msgid "Show in Forecast"
+msgstr "Показывать в прогнозе погоды"
+
+#: inc/class-widget.php:257
+msgid "Search Form"
+msgstr "Форма поиска"
+
+#: inc/class-widget.php:258
+msgid "Allow searching weather forecasts."
+msgstr "Разрешить поиск прогноза погоды."
+
+#: inc/class-widget.php:261
+msgid "Weekday Labels"
+msgstr "Метки дней недели"
+
+#: inc/class-widget.php:262
+msgid "Show the names of the days of the week."
+msgstr "Отображать наименования дней недели."
+
+#: inc/class-widget.php:265
+msgid "Date"
+msgstr "Дата"
+
+#: inc/class-widget.php:266
+msgid "Display the date numerically (\"09/14\")."
+msgstr "Отображать дату в числовом формате (\"09/14\")."
+
+#: inc/class-widget.php:269
+msgid "Weather Icon"
+msgstr "Иконка погоды"
+
+#: inc/class-widget.php:270
+msgid "Icon representing the forecast conditions."
+msgstr "Иконка, представляющая погодные условия прогноза погоды"
+
+#: inc/class-widget.php:273
+msgid "Chance of Rain"
+msgstr "Вероятность дождя"
+
+#: inc/class-widget.php:274
+msgid "Display the percent chance of rain."
+msgstr "Отображать процент вероятности дождя"
+
+#: inc/class-widget.php:277
+msgid "High & Low Temp"
+msgstr "Высшая и низшая температура"
+
+#: inc/class-widget.php:278
+msgid "Show the high & low temperatures for forecast."
+msgstr "Показывать высшую и низшую температуру в прогнозе погоды"
+
+#: inc/class-widget.php:281
+msgid "Condition Title"
+msgstr "Заголовок погодных условий"
+
+#: inc/class-widget.php:282
+msgid "Short summary of conditions (\"Clear\", \"Partly Cloudy\", etc.)."
+msgstr ""
+"Краткое описание погодных условий (\"Ясно\", \"Частичная облачность\" и т.п.)"
+
+#: inc/class-widget.php:285
+msgid "Forecast Text"
+msgstr "Текст прогноза погоды"
+
+#: inc/class-widget.php:286
+msgid "Display a description of the forecast, normally in sentence format."
+msgstr "Отображать описание прогноза погода, обычно в виде предложения"
+
+#: inc/class-widget.php:289
+msgid "Weather Alerts &amp; Warnings"
+msgstr "Оповещения и предупреждения о погоде"
+
+#: inc/class-widget.php:290
+msgid "Display Severe Weather alerts and warnings."
+msgstr "Отображать оповещения о тяжёлых погодных условиях"
+
+#: inc/class-widget.php:306
+msgid "Forecast Language"
+msgstr "Язык прогноза погоды"
+
+#: inc/class-widget.php:317
+msgid "Measurements"
+msgstr "Единицы измерения"
+
+#: inc/class-widget.php:320
+msgid "Fahrenheit &amp; Inches"
+msgstr "Фаренгейты и дюймы"
+
+#: inc/class-widget.php:323
+msgid "Celsius &amp; Meters"
+msgstr "Цельсий и метры"
+
+#: inc/functions.php:44
+msgid "Weather Forecast"
+msgstr "Прогноз погоды"
+
+#: inc/functions.php:161 inc/functions.php:178
+msgid "Incredible"
+msgstr "Невероятный"
+
+#: inc/functions.php:162 inc/functions.php:177
+msgid "Elemental"
+msgstr "Простой"
+
+#: inc/functions.php:163 inc/functions.php:179
+msgid "Helen"
+msgstr ""
+
+#: inc/functions.php:164 inc/functions.php:181
+msgid "Default"
+msgstr "По-умолчанию"
+
+#: inc/functions.php:165 inc/functions.php:182
+msgid "Smiley"
+msgstr "Смайлики"
+
+#: inc/functions.php:166 inc/functions.php:183
+msgid "Generic"
+msgstr "Обычный"
+
+#: inc/functions.php:167 inc/functions.php:184
+msgid "Old School"
+msgstr "По-старому"
+
+#: inc/functions.php:168 inc/functions.php:185
+msgid "Cartoon"
+msgstr "Мультяшки"
+
+#: inc/functions.php:169 inc/functions.php:186
+msgid "Mobile"
+msgstr "Мобильный"
+
+#: inc/functions.php:170 inc/functions.php:187
+msgid "Simple"
+msgstr "Простой"
+
+#: inc/functions.php:171 inc/functions.php:188
+msgid "Contemporary"
+msgstr "Современный"
+
+#: inc/functions.php:363
+msgid "Afrikaans"
+msgstr "Африканскй"
+
+#: inc/functions.php:368
+msgid "Albanian"
+msgstr "Албанский"
+
+#: inc/functions.php:373
+msgid "Arabic"
+msgstr "Арабский"
+
+#: inc/functions.php:379
+msgid "Armenian"
+msgstr "Арменский"
+
+#: inc/functions.php:384
+msgid "Azerbaijani"
+msgstr "Адзербаджанский"
+
+#: inc/functions.php:389
+msgid "Basque"
+msgstr "Баскский"
+
+#: inc/functions.php:394
+msgid "Belarusian"
+msgstr "Белорусский"
+
+#: inc/functions.php:399
+msgid "Bulgarian"
+msgstr "Болгарский"
+
+#: inc/functions.php:404
+msgid "British English"
+msgstr "Британский английский"
+
+#: inc/functions.php:409
+msgid "Burmese"
+msgstr "Бирманский"
+
+#: inc/functions.php:414
+msgid "Catalan"
+msgstr "Каталонский"
+
+#: inc/functions.php:419
+msgid "Chinese - Simplified"
+msgstr "Китайский - упрощённый"
+
+#: inc/functions.php:424
+msgid "Chinese - Traditional"
+msgstr "Китайский - традиционный"
+
+#: inc/functions.php:429
+msgid "Croatian"
+msgstr "Хорватский"
+
+#: inc/functions.php:434
+msgid "Czech"
+msgstr "Чешский"
+
+#: inc/functions.php:439
+msgid "Danish"
+msgstr "Датский"
+
+#: inc/functions.php:444
+msgid "Dhivehi"
+msgstr "Дивехи"
+
+#: inc/functions.php:450
+msgid "Dutch"
+msgstr "Голладнский"
+
+#: inc/functions.php:455
+msgid "English"
+msgstr "Английский"
+
+#: inc/functions.php:460
+msgid "Esperanto"
+msgstr "Эсперанто"
+
+#: inc/functions.php:465
+msgid "Estonian"
+msgstr "Эстонский"
+
+#: inc/functions.php:470
+msgid "Farsi"
+msgstr "Фарси"
+
+#: inc/functions.php:475
+msgid "Finnish"
+msgstr "Финский"
+
+#: inc/functions.php:480
+msgid "French"
+msgstr "Французский"
+
+#: inc/functions.php:485
+msgid "French Canadian"
+msgstr "Канадский французский"
+
+#: inc/functions.php:490
+msgid "Galician"
+msgstr "Галицкий"
+
+#: inc/functions.php:495
+msgid "German"
+msgstr "Немецкий"
+
+#: inc/functions.php:500
+msgid "Georgian"
+msgstr "Грузинский"
+
+#: inc/functions.php:505
+msgid "Greek"
+msgstr "Греческий"
+
+#: inc/functions.php:510
+msgid "Gujarati"
+msgstr "Гуджарати"
+
+#: inc/functions.php:515
+msgid "Haitian Creole"
+msgstr "Гаитянский креольский"
+
+#: inc/functions.php:520
+msgid "Hebrew"
+msgstr "Иврит"
+
+#: inc/functions.php:526
+msgid "Hindi"
+msgstr "Хинди"
+
+#: inc/functions.php:531
+msgid "Hungarian"
+msgstr "Венгерский"
+
+#: inc/functions.php:536
+msgid "Icelandic"
+msgstr "Исландский"
+
+#: inc/functions.php:541
+msgid "Ido"
+msgstr "Идо"
+
+#: inc/functions.php:546
+msgid "Indonesian"
+msgstr "Индонезийский"
+
+#: inc/functions.php:551
+msgid "Irish Gaelic"
+msgstr "Ирландский"
+
+#: inc/functions.php:556
+msgid "Italian"
+msgstr "Итальянский"
+
+#: inc/functions.php:561
+msgid "Japanese"
+msgstr "Японский"
+
+#: inc/functions.php:566
+msgid "Javanese"
+msgstr "Яванский"
+
+#: inc/functions.php:571
+msgid "Khmer"
+msgstr "Кхмерский"
+
+#: inc/functions.php:576
+msgid "Korean"
+msgstr "Корейский"
+
+#: inc/functions.php:581
+msgid "Kurdish"
+msgstr "Курдский"
+
+#: inc/functions.php:587
+msgid "Latin"
+msgstr "Латынь"
+
+#: inc/functions.php:592
+msgid "Latvian"
+msgstr "Латвийский"
+
+#: inc/functions.php:597
+msgid "Lithuanian"
+msgstr "Литовский"
+
+#: inc/functions.php:602
+msgid "Low German"
+msgstr "Нижненемецкий"
+
+#: inc/functions.php:607
+msgid "Macedonian"
+msgstr "Македонский"
+
+#: inc/functions.php:612
+msgid "Maltese"
+msgstr "Мальтийский"
+
+#: inc/functions.php:617
+msgid "Mandinka"
+msgstr "Мандинка"
+
+#: inc/functions.php:622
+msgid "Maori"
+msgstr "Маори"
+
+#: inc/functions.php:627
+msgid "Marathi"
+msgstr "Марати"
+
+#: inc/functions.php:632
+msgid "Mongolian"
+msgstr "Монгольский"
+
+#: inc/functions.php:637
+msgid "Norwegian"
+msgstr "Норвежский"
+
+#: inc/functions.php:642
+msgid "Occitan"
+msgstr "Окситанский"
+
+#: inc/functions.php:647
+msgid "Pashto"
+msgstr "Пушту"
+
+#: inc/functions.php:653
+msgid "Plautdietsch"
+msgstr "Плойдетч"
+
+#: inc/functions.php:658
+msgid "Polish"
+msgstr "Польский"
+
+#: inc/functions.php:663
+msgid "Portuguese"
+msgstr "Португальский"
+
+#: inc/functions.php:668
+msgid "Punjabi"
+msgstr "Пунжаби"
+
+#: inc/functions.php:674
+msgid "Romanian"
+msgstr "Румынский"
+
+#: inc/functions.php:679
+msgid "Russian"
+msgstr "Русский"
+
+#: inc/functions.php:684
+msgid "Serbian"
+msgstr "Сербский"
+
+#: inc/functions.php:689
+msgid "Slovak"
+msgstr "Словакский"
+
+#: inc/functions.php:694
+msgid "Slovenian"
+msgstr "Словенский"
+
+#: inc/functions.php:699
+msgid "Spanish"
+msgstr "Испанский"
+
+#: inc/functions.php:704
+msgid "Swahili"
+msgstr "Суахили"
+
+#: inc/functions.php:709
+msgid "Swedish"
+msgstr "Шведский"
+
+#: inc/functions.php:714
+msgid "Swiss"
+msgstr "Швейцарский"
+
+#: inc/functions.php:719
+msgid "Tagalog"
+msgstr "Тагальский"
+
+#: inc/functions.php:724
+msgid "Tatarish"
+msgstr "Татарский"
+
+#: inc/functions.php:729
+msgid "Thai"
+msgstr "Тайский"
+
+#: inc/functions.php:734
+msgid "Turkish"
+msgstr "Турецкий"
+
+#: inc/functions.php:739
+msgid "Turkmen"
+msgstr "Туркменский"
+
+#: inc/functions.php:744
+msgid "Ukrainian"
+msgstr "Украинский"
+
+#: inc/functions.php:749
+msgid "Uzbek"
+msgstr "Узбекский"
+
+#: inc/functions.php:754
+msgid "Vietnamese"
+msgstr "Вьетнамский"
+
+#: inc/functions.php:759
+msgid "Welsh"
+msgstr "Валлийский"
+
+#: inc/functions.php:764
+msgid "Wolof"
+msgstr "Волоф"
+
+#: inc/functions.php:769
+msgid "Yiddish - transliterated"
+msgstr "Идиш - транслитерация"
+
+#: inc/functions.php:774
+msgid "Yiddish - unicode"
+msgstr "Идиш - юникод"
